@@ -203,8 +203,8 @@ ul#nav li.current a { color: #F06000; }
 }
 #about .profile-pic {
    position: relative;
-   width: 120px;
-   height: 120px;
+   width: 150px;
+   height: 150px;
    border-radius: 100%;
 }
 #about .contact-details { width: 41.66667%; }
@@ -259,16 +259,17 @@ ul#nav li.current a { color: #F06000; }
 
 .education, .work {
    margin-bottom: 48px;
+   color: #2B2B2B;
    padding-bottom: 24px;
    border-bottom: 1px solid #E8E8E8;
 }
 #resume .info {
    font: 16px/24px 'librebaskerville-italic', serif;
-   color: #2B2B2B;
    margin-bottom: 18px;
    margin-top: 9px;
 }
 #resume .info span {
+  color: #2B2B2B;
    margin-right: 5px;
    margin-left: 5px;
 }

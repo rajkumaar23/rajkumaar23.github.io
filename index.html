@@ -1,704 +1,637 @@
 <!DOCTYPE html>
-<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 8)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<!--[if lt IE 9 ]><html class="no-js oldie" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
 <head>
 
-   <!--- Basic Page Needs
-   ================================================== -->
-   <meta charset="utf-8">
-	<title>Rajkumar | Home</title>
-	<meta name="description" content="">
-	<meta name="author" content="">
-
-   <!-- Mobile Specific Metas
-   ================================================== -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-	<!-- CSS
+    <!--- basic page needs
     ================================================== -->
-   <link rel="stylesheet" href="css/default.css">
-	<link rel="stylesheet" href="css/layout.css">
-   <link rel="stylesheet" href="css/media-queries.css">
-   <link rel="stylesheet" href="css/magnific-popup.css">
+    <meta charset="utf-8">
+    <title>Rajkumar | Android Developer</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-   <!-- Script
-   ================================================== -->
-	<script src="js/modernizr.js"></script>
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-   <!-- Favicons
-	================================================== -->
-	<link rel="shortcut icon" href="favicon.png" >
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- script
+    ================================================== -->
+    <script src="js/modernizr.js"></script>
+    <script src="js/pace.min.js"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <link rel="icon" href="favicon.png" type="image/x-icon">
 
 </head>
 
-<body>
-      <!--CSS Spinner-->
-      <div class="spinner-wrapper">
-      <div class="spinner">
-                  <div class="bounce1"></div>
-                  <div class="bounce2"></div>
-                  <div class="bounce3"></div>
+<body id="top">
+
+    <!-- header
+    ================================================== -->
+    <header class="s-header">
+
+        <!-- <div class="header-logo">
+            <a class="site-logo" href="index.html"><img src="images/logo.png" alt="Homepage"></a>
+        </div> -->
+
+        <nav class="header-nav-wrap">
+            <ul class="header-nav">
+                <li class="current"><a class="smoothscroll"  href="#home" title="home">Home</a></li>
+                <li><a class="smoothscroll"  href="#about" title="about">About</a></li>
+                <li><a class="smoothscroll"  href="#works" title="works">Works</a></li>
+                <li><a class="smoothscroll"  href="#contact" title="contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <a class="header-menu-toggle" href="#0"><span>Menu</span></a>
+
+    </header> <!-- end s-header -->
+
+
+   <!-- home
+   ================================================== -->
+   <section id="home" class="s-home page-hero target-section" data-parallax="scroll" data-image-src="images/hero-bg.jpg" data-natural-width=3000 data-natural-height=2000 data-position-y=center>
+
+        <div class="overlay"></div>
+        <div class="shadow-overlay"></div>
+
+        <div class="home-content">
+
+            <div class="row home-content__main">
+
+                <h2>Hello There</h2>
+
+                <h1>
+                    I am Rajkumar. <br>
+                    An Android Developer <br>
+                    obsessed with Apple.
+                </h1>
+
+                <!-- <div class="home-content__buttons">
+                    <a href="#works" class="smoothscroll btn btn--stroke">
+                        Latest Projects
+                    </a>
+                    <a href="#about" class="smoothscroll btn btn--stroke">
+                        More About Me
+                    </a>
+                </div> -->
+
+                <div class="home-content__scroll">
+                    <a href="#about" class="scroll-link smoothscroll">
+                        <span>Scroll Down</span>
+                    </a>
                 </div>
+
             </div>
 
-   <!-- Header
-   ================================================== -->
-   <header id="home">
+        </div> <!-- end home-content -->
 
-      <nav id="nav-wrap">
+        <ul class="home-social">
+            <li>
+                <a href="https://github.com/rajkumaar23"><i class="im im-github" aria-hidden="true"></i><span>Github</span></a>
+            </li>
+            <li>
+                <a href="https://linkedin.com/in/rajkumaar23"><i class="im im-linkedin" aria-hidden="true"></i><span>Linkedin</span></a>
+            </li>
+            <li>
+                <a href="https://instagram.com/rajkumaar23"><i class="im im-instagram" aria-hidden="true"></i><span>Instagram</span></a>
+            </li>
+            <li>
+                <a href="https://facebook.com/rajkumaar23"><i class="im im-facebook" aria-hidden="true"></i><span>Facebook</span></a>
+            </li>
+            <li>
+                <a href="https://twitter.com/rajkumaar23"><i class="im im-twitter" aria-hidden="true"></i><span>Twitter</span></a>
+            </li>
+        </ul> 
+        <!-- end home-social -->
 
-         <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
-	      <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
-
-         <ul id="nav" class="nav">
-            <li class="current"><a class="smoothscroll" href="#home">Home</a></li>
-            <li><a class="smoothscroll" href="#about">About</a></li>
-	         <li><a class="smoothscroll" href="#resume">Resume</a></li>
-            <li><a class="smoothscroll" href="#portfolio">Works</a></li>
-            <li><a class="smoothscroll" href="#contact">Contact</a></li>
-         </ul> <!-- end #nav -->
-
-      </nav> <!-- end #nav-wrap -->
-
-      <div class="row banner">
-         <div class="banner-text">
-            <h1 class="responsive-headline">I'm Rajkumar.</h1>
-            <h3><span>An Android Developer obsessed with Apple.<br> Let's <a class="smoothscroll" href="#about">start scrolling</a>
-            and get to know more <a class="smoothscroll" href="#about">about me</a>.</span></h3>
-            <hr />
-            <ul class="social">
-               <li><a href="https://facebook.com/rajkumaar23"><i class="fa fa-facebook"></i></a></li>
-               <li><a href="https://twitter.com/rajkumaar23"><i class="fa fa-twitter"></i></a></li>
-               <li><a href="https://github.com/rajkumaar23"><i class="fa fa-github"></i></a></li>
-               <li><a href="https://linkedin.com/in/rajkumaar23"><i class="fa fa-linkedin"></i></a></li>
-               <li><a href="https://instagram.com/rajkumaar23"><i class="fa fa-instagram"></i></a></li>
-            </ul>
-         </div>
-      </div>
-
-      <p class="scrolldown">
-         <a class="smoothscroll" href="#about"><i class="icon-down-circle"></i></a>
-      </p>
-
-   </header> <!-- Header End -->
+    </section> <!-- end s-home -->
 
 
-   <!-- About Section
-   ================================================== -->
-   <section id="about">
+    <!-- about
+    ================================================== -->
+    <section id="about" class="s-about target-section">
+        
+        <div class="row narrow section-intro has-bottom-sep">
+            <div class="col-full text-center">
+                <h3>About</h3>
+                <h1>More About Me</h1>
+                <img class="profile-pic" src="images/profile-pic.jpg" alt="Profile Picture">
+                <!-- <p class="lead">Lorem ipsum Dolor adipisicing nostrud et aute Excepteur amet commodo ea dolore irure esse Duis nulla sint fugiat cillum ullamco proident aliquip quis qui voluptate dolore veniam Ut laborum non est in officia.</p> -->
+            </div>
+        </div>
 
-      <div class="row">
+        <div class="row about-content">
 
-         <div class="three columns">
+            <div class="col-six tab-full left">
+                <h3>A short bio</h3>
 
-            <img class="profile-pic"  src="images/profilepic.jpg" alt="" />
-
-         </div>
-
-         <div class="nine columns main-col">
-
-            <h2>About Me</h2>
-
-            <p>Ever since my first look at the Nokia 1100 or the good-old HCL System, 
+                Ever since my first look at the Nokia 1100 or the good-old HCL System, 
                 I've always had a passion for technology. Basically, I'm an Android App Developer. I also do a bit of Competitive Coding. I hope to develop skills in Cyber Security and my knowledge of Web Developing, 
                 and become an honest asset to the business. I would love an opportunity to work, as well as being involved 
                 in an organization that believes in gaining a competitive edge and giving back to the community. I'm a huge fan of Apple products and Steve Jobs. 
                 <br>I personally &hearts; Linux. I spend most of my time exploring the vast world of technology. Apart from that, I'm a professional carrom player, and have bagged awards. And if I'm not into any of these, then probably you can find me sleeping.
 
-                
-                
-            </p>
-
-            <div class="row">
-
-               <div class="columns contact-details">
-
-                  <h2>Contact Details</h2>
-                  <p class="address">
-						   <span>Rajkumar S</span><br>
-						   <span>Palakkad<br>
-						         Kerala, India.
-                     </span><br>
-						   <span>(+91)75929-03711</span><br>
-                     <a href="http://rajkumaar.co.in"><span>www.rajkumaar.co.in</span></a>
-					   </p>
-
-               </div>
-
-               <div class="columns download">
-                  <p>
-                     <a href="#contact" class="button smoothscroll"><i class="fa fa-pencil"></i>Send me a message</a>
-                  </p>
-               </div>
-
-            </div> <!-- end row -->
-
-         </div> <!-- end .main-col -->
-
-      </div>
-
-   </section> <!-- About Section End-->
-
-
-   <!-- Resume Section
-   ================================================== -->
-   <section id="resume">
-	   
-	   <!-- Work ----------------------------------------------- -->
-      <div class="row work">
-
-            <div class="three columns header-col">
-               <h1><span>Work</span></h1>
             </div>
-   
-            <div class="nine columns main-col">
-   
-               <div class="row item">
-   
-                  <div class="twelve columns">
-   
-                     <h3>C/C++ Virtual Teaching Assistant</h3>
-                     <p class="info"><a href="http://internshala.com">Internshala</a> <span>&bull;</span> <em class="date">June 2018 - Present</em></p>
-   
-                     <p>
-			     Responsibilities : <br>
-                        1. Solving technical queries and doubts of the students enrolled in the C/C++ training program at <a href="http://trainings.internshala.com">Internshala Trainings.</a>
-                        <br>
-                        2. Evaluating students' assignments and project and provide feedback.<br>
-			     <a href="http://bit.ly/2tqM6wk"> View Certificate of Selection</a>
-                     </p>
-   
-                  </div>
-   
-               </div> <!-- item end -->
-   
-            </div> <!-- main-col end -->
-   
-         </div> <!-- End Work -->
 
+            <div class="col-six tab-full right">
+                <h3>I've got some skills.</h3>
 
-      <!-- Education
-      ----------------------------------------------- -->
-      <div class="row education">
-         <div class="three columns header-col">
-            <h1><span>Education</span></h1>
-         </div>
+                <ul class="skill-bars">
+                    <li>
+                    <div class="progress percent90"><span>90%</span></div>
+                    <strong>C/C++</strong>
+                    </li>
+                    <li>
+                    <div class="progress percent85"><span>85%</span></div>
+                    <strong>Android/Java</strong>
+                    </li>
+                    <li>
+                    <div class="progress percent60"><span>60%</span></div>
+                    <strong>Python</strong>
+                    </li>  
+                    <li>
+                    <div class="progress percent40"><span>40%</span></div>
+                    <strong>PHP</strong>
+                    </li>
+                    <li>
+                    <div class="progress percent90"><span>90%</span></div>
+                    <strong>MySQL</strong>
+                    </li>   
+                    <li>
+                    <div class="progress percent55"><span>55%</span></div>
+                    <strong>HTML5/CSS3</strong>
+                    </li> 
+                    
+                </ul>
+            </div>
 
-         <div class="nine columns main-col">
+        </div> <!-- end about-content -->
 
-            <div class="row item">
+        <!-- <div class="row about-content about-content--buttons">
 
-               <div class="twelve columns">
+            <div class="col-six tab-full left">
+                <a href="#0" class="btn btn--primary full-width">Download My CV</a>
+            </div>
+            <div class="col-six tab-full right">
+                <a href="#0" class="btn full-width">Hire Me Now</a>
+            </div>
 
-                  <h3>Bachelor of Technology</h3>
-                  <p class="info">Amrita Vishwa Vidyapeetham, Coimbatore. <span>&bull;</span> <em class="date">2017-2021</em></p>
+        </div>  -->
 
-                  <p>
-                        I'm currently pursuing Computer Science Engineering at Amrita Vishwa Vidyapeetham,
-                        Coimbatore, India. It's a place where I get a holistic view of how I want my career and life to be.
-			  It helps me set my priorities straight and be responsible in thoughts and actions.
-			  <br>&#9672; Attended a workshop on Blockchain Technologies &commat; TIFAC-Core in Cyber Security-2017.
-                    <br>&#9672; Attended a workshop on Ethical Hacking &commat; IIT-Madras-2018. 
-                    <br>&#9672; Runner Up in the Intramural Competitions 2017, in the game of Carrom.
-		    <br>&#9672; Helped kids of 10-15 years to learn Android App Development using the tool, MIT App Inventor, 
-			  at a workshop that was conducted by <a href="http://themango.co">Mango Education</a>, Coimbatore.
-        <br>&#9672; Developed an Android App for our college students, <b> Amrita Repository </b>, which helps to view (or) download previous year question papers, check their academic timetable and the faculty timetable. The app has got 2.2k+ downloads.
-        <br> <b> Github Link : </b> <a href="https://github.com/rajkumaar23/AmritaRepo"> https://github.com/rajkumaar23/AmritaRepo </a>
-        <br> Check the app on <a href="http://bit.ly/2JMHbLJ">Playstore</a> Now! 
-                  </p>
+        <div class="row about-content about-content--timeline">
 
-               </div>
+            <div class="col-full text-center">
+                <h3>My Work Experience.</h3>
+            </div>
 
-            </div> <!-- item end -->
+            <div class="col-full text-center">
+                <div class="timeline">
 
-            <div class="row item">
+                    <div class="timeline__block">
+                        <div class="timeline__bullet"></div>
+                        <div class="timeline__header">
+                            <p class="timeline__timeframe">June 2018 - Present</p>
+                            <h3>Internshala</h3>
+                            <h5>C/C++ Teaching Assistant</h5>
+                        </div>
+                        <div class="timeline__desc">
+                            <p>
+                                Responsibilities : <br>
+                                       1. Solving technical queries and doubts of the students enrolled in the C/C++ training program at <a href="http://trainings.internshala.com">Internshala Trainings.</a>
+                                       <br>
+                                       2. Evaluating students' assignments and project and provide feedback.<br>
+                                <a href="http://bit.ly/2tqM6wk"> View Certificate of Selection</a>
+                                    </p>
+                        </div>
+                    </div> <!-- end timeline__block -->
 
-               <div class="twelve columns">
+                    <div class="timeline__block">
+                        <div class="timeline__bullet"></div>
+                        <div class="timeline__header">
+                            <p class="timeline__timeframe">June 2018 - August 2018</p>
+                            <h3>Internshala</h3>
+                            <h5>Campus Ambassador</h5>
+                        </div>
+                        <div class="timeline__desc">	
+                            <p>During this period, I've promoted Internshala and its products successfully and showed genuine
+                                sincerity and willingness to learn while taking on new assignments and challenges. <br>
+                                <a href="http://bit.ly/isp10"> View Certificate </a>
+                            </p>
+                        </div>
+                    </div> <!-- end timeline__block -->
 
-                  <h3>Higher Secondary School</h3>
-                  <p class="info">Amrita Vidyalayam, Coimbatore. <span>&bull;</span> <em class="date">2013-2017</em></p>
+                </div> <!-- end timeline -->
+            </div> <!-- end left -->
 
-                  <p>
-                        I did my high school, and higher secondary schooling with Computer Science as my <br>main-stream, 
-                        at Amrita Vidyalayam, Coimbatore. 
-                        <br>&#9672; Grade 10 CGPA : 9.4/10
-                        <br>&#9672; Grade 12 Score : 452/500
-                        <br>&#9672; Worked as one of the designers of our school's Annual Magazine 2015-16.
-                        <br>&#9672; Got awards in intra-school and external carrom matches.
-                        <br>&#9672; Participated in the Regional Writers Workshop organized by Katha &amp; CBSE -2014.
-                  </p>
-
-               </div>
-
-            </div> <!-- item end -->
-            <!-- <div class="row item">
-
-                    <div class="twelve columns">
          
-                       <h3>Primary School</h3>
-                       <p class="info">St.Martin's High School, Palakkad.  <span>&bull;</span> <em class="date">2003-2013</em></p>
-         
-                       <p>
-                            I studied Kinder Garden and Primary Education at St.Martin's High School, Palakkad. 
-                            <br>I have received Award for Proficiency in Academics every year.
-                       </p>
-         
-                    </div>
-         
-                 </div> --> <!-- item end -->
-        </div> <!-- item end -->
 
-       
+        </div> <!-- end about-content timeline -->
 
-         </div> <!-- main-col end -->
-
-      </div> <!-- End Education -->
-	
-
+    </section> <!-- end about -->
     
 
-      <!-- Skills
-      ----------------------------------------------- -->
-      <div class="row skill">
+    <!-- works
+    ================================================== -->
+    <section id="works" class="s-works target-section">
 
-         <div class="three columns header-col">
-            <h1><span>Skills</span></h1>
-         </div>
-
-         <div class="nine columns main-col">
-
-            <p>These are the few skills I've got yet. And, it's never late to start learning something new.
-            </p>
-
-				<div class="bars">
-
-				      <ul class="skills">
-                                    <li><span class="bar-expand css"></span><em>C/C++</em></li>
-					      <li><span class="bar-expand css"></span><em>Android</em></li>
-                                    <li><span class="bar-expand photoshop"></span><em>Java</em></li>
-                                    <li><span class="bar-expand html5"></span><em>Editing and VFX</em></li>
-                                    <li><span class="bar-expand illustrator"></span><em>Python</em></li>
-                                    <li><span class="bar-expand html5"></span><em>MySQL</em></li>
-                                    <li><span class="bar-expand illustrator"></span><em>PHP</em></li>
-                                    <li><span class="bar-expand jquery"></span><em>HTML5/CSS</em></li>
-                                    <li><span class="bar-expand css"></span><em>Carrom</em></li>
-				      </ul>
-
-				</div><!-- end skill-bars -->
-
-			</div> <!-- main-col end -->
-
-      </div> <!-- End skills -->
-
-   </section> <!-- Resume Section End-->
-
-
-   <!-- Portfolio Section
-   ================================================== -->
-   <section id="portfolio">
-
-      <div class="row">
-
-         <div class="twelve columns collapsed">
-
-            <h1>Check Out Some of My Works</h1>
-            <h2>(Click on each to know more)</h2>
-
-            <!-- portfolio-wrapper -->
-            <div id="portfolio-wrapper" class="bgrid-quarters s-bgrid-thirds cf">
-
-          	   <div class="columns portfolio-item">
-                  <div class="item-wrap">
-
-                     <a href="#modal-01" title="">
-                        <img alt="" src="images/portfolio/portfolio-1.jpg">
-                        <div class="overlay">
-                           <div class="portfolio-item-meta">
-          					      <h5>Neriyaal</h5>
-                              <p>Short film</p>
-          					   </div>
-                        </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
-                     </a>
-
-                  </div>
-          		</div> <!-- item end -->
-
-               <div class="columns portfolio-item">
-                  <div class="item-wrap">
-
-                     <a href="#modal-02" title="">
-                        <img alt="" src="images/portfolio/portfolio-2.jpg">
-                        <div class="overlay">
-                           <div class="portfolio-item-meta">
-          					      <h5>Know Your BMI</h5>
-                              <p>Android Application</p>
-          					   </div>
-                        </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
-                     </a>
-
-                  </div>
-          		</div> <!-- item end -->
-
-               <div class="columns portfolio-item">
-                  <div class="item-wrap">
-
-                     <a href="#modal-03" title="">
-                        <img alt="" src="images/portfolio/portfolio-3.jpg">
-                        <div class="overlay">
-                           <div class="portfolio-item-meta">
-          					      <h5>SemPapers</h5>
-                              <p>Windows executable file</p>
-          					   </div>
-                        </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
-                     </a>
-
-                  </div>
-          		</div> <!-- item end -->
-
-               <div class="columns portfolio-item">
-                  <div class="item-wrap">
-
-                     <a href="#modal-04" title="">
-                        <img alt="" src="images/portfolio/portfolio-4.jpg">
-                        <div class="overlay">
-                           <div class="portfolio-item-meta">
-          					      <h5>Tribute to CSK</h5>
-                              <p>Video Clip</p>
-          					   </div>
-                        </div>
-                        <div class="link-icon"><i class="icon-plus"></i></div>
-                     </a>
-
-                  </div>
-          		</div> <!-- item end -->
-		<div class="columns portfolio-item">
-                        <div class="item-wrap">
-      
-                           <a href="#modal-05" title="">
-                              <img alt="" src="images/portfolio/portfolio-5.png">
-                              <div class="overlay">
-                                 <div class="portfolio-item-meta">
-                                                    <h5>My Coimbatore</h5>
-                                    <p>Android Application</p>
-                                                 </div>
-                              </div>
-                              <div class="link-icon"><i class="icon-plus"></i></div>
-                           </a>
-      
-                        </div>
-			
-                  </div> <!-- item end -->
-		    <div class="columns portfolio-item">
-                        <div class="item-wrap">
-      
-                           <a href="#modal-06" title="">
-                              <img alt="" src="images/portfolio/portfolio-6.jpg">
-                              <div class="overlay">
-                                 <div class="portfolio-item-meta">
-                                                    <h5>Amrita Repository</h5>
-                                    <p>Android Application</p>
-                                                 </div>
-                              </div>
-                              <div class="link-icon"><i class="icon-plus"></i></div>
-                           </a>
-      
-                        </div>
-                  </div> <!-- item end -->
-               
-
-            </div> <!-- portfolio-wrapper end -->
-
-         </div> <!-- twelve columns end -->
-
-
-         <!-- Modal Popup
-	      --------------------------------------------------------------- -->
-
-         <div id="modal-01" class="popup-modal mfp-hide">
-
-		      <img class="scale-with-grid" src="images/portfolio/modals/portfolio-1.jpg" alt="" />
-
-		      <div class="description-box">
-			      <h4>Neriyaal</h4>
-			      <p>This is my first short film as an editor.The story revolves around the ideology of women from a boy's perspective. </p>
-               <span class="categories"><i class="fa fa-tag"></i>Video Editing</span>
-		      </div>
-
-            <div class="link-box">
-               <a href="https://www.youtube.com/watch?v=kk0fQZRs6C8&t=210s">View</a>
-		         <a class="popup-modal-dismiss">Close</a>
+        <div class="row narrow section-intro has-bottom-sep">
+            <div class="col-full">
+                <h3>Portfolio</h3>
+                <h1>See My Latest Projects.</h1>
+                
+                <p class="lead">Click on each to know more.</p>
             </div>
+        </div>
+        <div class="row masonry-wrap">
+                <div class="masonry">
+    
+                    <div class="masonry__brick">
+                        <div class="item-folio">
+    
+                            <div class="item-folio__thumb">
+                                <a href="images/portfolio/modals/portfolio-6.jpg" class="thumb-link" title="Amrita Repository" data-size="1050x700">
+                                    <img src="images/portfolio/portfolio-6.jpg" alt="">
+                                    <span class="shadow-overlay"></span>
+                                </a>
+                            </div>
+    
+                            <div class="item-folio__text">
+                                <h3 class="item-folio__title">
+                                    Amrita Repository
+                                </h3>
+                                <p class="item-folio__cat">
+                                    Android App Development
+                                </p>
+                            </div>
+    
+                        
+    
+                            <div class="item-folio__caption">
+                                <p>
+                                       Amrita Repository houses question papers of all the courses offered at Amrita Vishwa Vidyapeetham, Coimbatore.
+                                    Never lose track of forthcoming classes with the inbuilt Time-table feature. Also, accessing faculty timetable is now easier with Amrita Repository.
+                                    <a href="http://bit.ly/amritarepo">Download Now !</a></p>
+                                
+                            </div>
+    
+                        </div> <!-- end item-folio -->
+                    </div> <!-- end masonry__brick -->
+    
+                    <div class="masonry__brick">
+                        <div class="item-folio">
+    
+                            <div class="item-folio__thumb">
+                                <a href="images/portfolio/modals/portfolio-5.png" class="thumb-link" title="My Coimbatore" data-size="1050x700">
+                                    <img src="images/portfolio/portfolio-5.png" alt="">
+                                    <span class="shadow-overlay"></span>
+                                </a>
+                            </div>
+    
+                            <div class="item-folio__text">
+                                <h3 class="item-folio__title">
+                                    My Coimbatore
+                                </h3>
+                                <p class="item-folio__cat">
+                                   Android App Development
+                                </p>
+                            </div>
+    
+                            <div class="item-folio__caption">
+                                    <p>This app helps users to know about the major tourist spots in and around the city of Coimbatore, Tamil Nadu. The spots are broadly divided into four categories namely Nature, Temples, History and Leisure. It provides a gist about each of the tourist spot and also has the facility to open that particular place in Google Maps, thereby making it easier for the user to navigate.
+                                            <a href="http://bit.ly/mycoimbatore">Download Now !</a>
+                                        </p>
+                            </div>
+    
+                        </div> <!-- end item-folio -->
+                    </div> <!-- end masonry__brick -->
+    
+                    <div class="masonry__brick">
+                        <div class="item-folio">
+    
+                            <div class="item-folio__thumb">
+                                <a href="images/portfolio/modals/portfolio-4.jpg" class="thumb-link" data-size="1050x700">
+                                    <img src="images/portfolio/portfolio-4.jpg" alt="">
+                                    <span class="shadow-overlay"></span>
+                                </a>
+                            </div>
+    
+                            <div class="item-folio__text">
+                                <h3 class="item-folio__title">
+                                    Tribute to CSK
+                                </h3>
+                                <p class="item-folio__cat">
+                                    VFX | Video Editing
+                                </p>
+                            </div>
+    
+    
+                            <span class="item-folio__caption">
+                            <p>This is a small video clip as my tribute to CSK. I've used After Effects for VFX and Adobe Premiere Pro for editing.
+                                    <a href="http://bit.ly/">View now !</a>
+                            </p>
+                            </span>
+    
+                        </div> <!-- end item-folio -->
+                    </div> <!-- end masonry__brick -->
+    
+                    <div class="masonry__brick">
+                        <div class="item-folio">
+    
+                            <div class="item-folio__thumb">
+                                <a href="images/portfolio/modals/portfolio-3.jpg" class="thumb-link" data-size="1050x700">
+                                    <img src="images/portfolio/portfolio-3.jpg" alt="">
+                                    <span class="shadow-overlay"></span>
+                                </a>
+                            </div>
+    
+                            <div class="item-folio__text">
+                                <h3 class="item-folio__title">
+                                    Amrita QPapers
+                                </h3>
+                                <p class="item-folio__cat">
+                                    Python | Console Application
+                                </p>
+                            </div>
+    
+                
+    
+                            <span class="item-folio__caption">
+                                <p>
+                                        This is a command-line version of Amrita Repository App, coded in Python 3. It helps you download previous year question papers in a much easier way.
+                                        Available for both Linux | Windows. 
+                                        <a href="http://rajkumaar.co.in/amritaqp">Download it now !</a>
+                                </p>
+                            </span>
+    
+                        </div> <!-- end item-folio -->
+                    </div> <!-- end masonry__brick -->
+    
+                    <div class="masonry__brick">
+                        <div class="item-folio">
+    
+                            <div class="item-folio__thumb">
+                                <a href="images/portfolio/modals/portfolio-2.jpg" class="thumb-link" data-size="1050x700">
+                                    <img src="images/portfolio/portfolio-2.jpg" alt="">
+                                    <span class="shadow-overlay"></span>
+                                </a>
+                            </div>
+    
+                            <div class="item-folio__text">
+                                <h3 class="item-folio__title">
+                                    Know Your BMI
+                                </h3>
+                                <p class="item-folio__cat">
+                                    Android App Development
+                                </p>
+                            </div>
+    
+    
+                            <span class="item-folio__caption">
+                                    <p>
+                                        This is my very first,basic and simple-to-use Android Application that lets you calculate your BodyMassIndex.
+                                        <a href="http://bit.ly/knowbmiapp">Download it now !</a>
+                                    </p>
+                            </span>
+    
+                        </div> <!-- end item-folio -->
+                    </div> <!-- end masonry__brick -->
+    
+                    <div class="masonry__brick">
+                        <div class="item-folio">
+    
+                            <div class="item-folio__thumb">
+                                <a href="images/portfolio/modals/portfolio-1.jpg" class="thumb-link" data-size="1050x700">
+                                    <img src="images/portfolio/portfolio-1.jpg" alt="">
+                                    <span class="shadow-overlay"></span>
+                                </a>
+                            </div>
+    
+                            <div class="item-folio__text">
+                                <h3 class="item-folio__title">
+                                    Neriyaal | Short Film
+                                </h3>
+                                <p class="item-folio__cat">
+                                    Video Editing
+                                </p>
+                            </div>
+    
+                        
+    
+                            <span class="item-folio__caption">
+                                    <p>
+                                        This is my first short film as an editor.The story revolves around the ideology of women from a boy's perspective.
+                                        <a href="http://bit.ly/neriyaal">View now !</a>
+                                    </p>
+                            </span>
+    
+                        </div> <!-- end item-folio -->
+                    </div> <!-- end masonry__brick -->
+    
+                  
+    
+                </div>
+            </div> <!-- end masonry -->
 
-	      </div><!-- modal-01 End -->
+    </section> <!-- end works -->
 
-         <div id="modal-02" class="popup-modal mfp-hide">
-
-		      <img class="scale-with-grid" src="images/portfolio/modals/portfolio-2.jpg" alt="" />
-
-		      <div class="description-box">
-			      <h4>Know Your BMI</h4>
-			      <p>This is my very first,basic and simple-to-use Android Application that lets you calculate your BodyMassIndex.</p>
-               <span class="categories"><i class="fa fa-tag"></i>Android App Development</span>
-		      </div>
-
-            <div class="link-box">
-               <a href="https://drive.google.com/open?id=1mEmFWUVMiGUwrdLR4YjaBv_kq_VOUyk8">Download</a>
-		         <a class="popup-modal-dismiss">Close</a>
-            </div>
-
-	      </div><!-- modal-02 End -->
-
-         <div id="modal-03" class="popup-modal mfp-hide">
-
-		      <img class="scale-with-grid" src="images/portfolio/modals/portfolio-3.jpg" alt="" />
-
-		      <div class="description-box">
-			      <h4>AmritaQPapers</h4>
-                        <p>ONLY FOR AMRITIANS:<br>
-                              This is a .exe file that lets you download question papers without wasting much time on surfing.
-                              This works only when you're connected to Amrita Wi-Fi unfortunately.
-                        </p>
-               <span class="categories"><i class="fa fa-tag"></i>Python</span>
-		      </div>
-
-            <div class="link-box">
-               <a href="https://drive.google.com/open?id=1M5xe1IRNF1C0P9LOC5Me7bIUmF1SOwuo">Download</a>
-		         <a class="popup-modal-dismiss">Close</a>
-            </div>
-
-	      </div><!-- modal-03 End -->
-
-         <div id="modal-04" class="popup-modal mfp-hide">
-
-		      <img class="scale-with-grid" src="images/portfolio/modals/portfolio-4.jpg" alt="" />
-
-		      <div class="description-box">
-			      <h4>Tribute to CSK</h4>
-			      <p>This is a small video clip as my tribute to CSK. I've used AfterEffects for VFX and Adobe Premiere Pro for editing.</p>
-               <span class="categories"><i class="fa fa-tag"></i>Video Editing and VFX</span>
-		      </div>
-
-            <div class="link-box">
-               <a href="https://drive.google.com/file/d/1b2IPBX6SBskf1Cfm3d9Iy47PQ-G9MDo1/view?usp=sharing">View</a>
-		         <a class="popup-modal-dismiss">Close</a>
-            </div>
-
-	      </div><!-- modal-04 End -->
-	       <div id="modal-05" class="popup-modal mfp-hide">
-
-		      <img class="scale-with-grid" src="images/portfolio/modals/portfolio-5.png" alt="" />
-
-		      <div class="description-box">
-			      <h4>My Coimbatore</h4>
-			      <p>This app helps users to know about the major tourist spots in and around the city of Coimbatore, Tamil Nadu. The spots are broadly divided into four categories namely Nature, Temples, History and Leisure. It provides a gist about each of the tourist spot and also has the facility to open that particular place in Google Maps, thereby making it easier for the user to navigate.
-
-                        </p>
-               <span class="categories"><i class="fa fa-tag"></i>Android App Development</span>
-		      </div>
-
-            <div class="link-box">
-               <a href="https://drive.google.com/open?id=1walkzPYP_4fUvDdf7i-RB034ISXWJjRa">Download</a>
-		         <a class="popup-modal-dismiss">Close</a>
-            </div>
-
-	      </div><!-- modal-05 End -->
-	      <div id="modal-06" class="popup-modal mfp-hide">
-
-		      <img class="scale-with-grid" src="images/portfolio/modals/portfolio-6.jpg" alt="" />
-
-		      <div class="description-box">
-			      <h4>Amrita Repository</h4>
-			      <p>The Amrita Repository app delivers all previous year question papers at your fingertips.
-
-It is the must have app for every exam preparation, whether you're an early bird or a last minute learner.
-
-Any year, any department, we've got you covered. Amrita Repository houses question papers of all the courses offered at the institution.
-
-Choose to view or download the question papers of your choice.
-Find downloaded question papers in the Downloads section of the app.
-Rename and Delete options have also been provided for ease of use.
-
-Now, never lose track of forthcoming classes with the inbuilt Time-table feature.
-
-
-                        </p>
-               <span class="categories"><i class="fa fa-tag"></i>Android App Development</span>
-		      </div>
-
-            <div class="link-box">
-               <a href="http://bit.ly/2JMHbLJ">Download</a>
-		         <a class="popup-modal-dismiss">Close</a>
-            </div>
-
-	      </div><!-- modal-06 End -->
-
-         
-
-         
-
-
-      </div> <!-- row End -->
-
-   </section> <!-- Portfolio Section End-->
 
 
   
 
-   <!-- Contact Section
-   ================================================== -->
-   <section id="contact">
 
-         <div class="row section-head">
+    
 
-            <div class="two columns header-col">
 
-               <h1><span>Get In Touch.</span></h1>
+    <!-- s-stats
+    ================================================== -->
+    <section id="contact" class="s-contact target-section">
 
+        <div class="overlay"></div>
+
+        <div class="row narrow section-intro">
+            <div class="col-full">
+                <h3>Contact</h3>
+                <h1>Say Hello.</h1><br>
+            </div>
+        </div>
+
+        <div class="row contact__main">
+            <div class="col-eight tab-full contact__form">
+                <form name="contactForm" id="contactForm" method="post" action="https://formspree.io/rajkumaar2304@gmail.com">
+                    <fieldset>
+    
+                    <div class="form-field">
+                        <input name="contactName" type="text" id="contactName" placeholder="Name" value="" minlength="2" required="" aria-required="true" class="full-width">
+                    </div>
+                    <div class="form-field">
+                        <input name="contactEmail" type="email" id="contactEmail" placeholder="Email" value="" required="" aria-required="true" class="full-width">
+                    </div>
+                    <div class="form-field">
+                        <input name="contactSubject" type="text" id="contactSubject" placeholder="Subject" value="" class="full-width">
+                    </div>
+                    <div class="form-field">
+                        <textarea name="contactMessage" id="contactMessage" placeholder="message" rows="10" cols="50" required="" aria-required="true" class="full-width"></textarea>
+                    </div>
+                    <div class="form-field">
+                        <button class="full-width btn--primary">Submit</button>
+                        <div class="submit-loader">
+                            <div class="text-loader">Sending...</div>
+                            <div class="s-loader">
+                                <div class="bounce1"></div>
+                                <div class="bounce2"></div>
+                                <div class="bounce3"></div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    </fieldset>
+                </form>
+
+                <!-- contact-warning -->
+                <div class="message-warning">
+                    Something went wrong. Please try again.
+                </div> 
+            
+                <!-- contact-success -->
+                <div class="message-success">
+                    Your message was sent, thank you!<br>
+                </div>
+                        
+            </div>
+            <div class="col-four tab-full contact__infos">
+                <h4 class="h06">Phone</h4>
+                <p>
+                Mobile: (+91) 75929 - 03711
+                </p>
+
+                <h4 class="h06">Email</h4>
+                <p>rajkumaar2304@gmail.com
+                </p>
+
+                <h4 class="h06">Address</h4>
+                <p>
+                Palakkad, Kerala.
+                </p>
             </div>
 
-            <div class="ten columns">
+        </div>
 
-                  <p class="lead">Up for a coffee? Get in touch with me.<br>
-                        Feel free to contact me via email or fill up the following form.
-                  </p>
+    </section> <!-- end s-contact -->
 
+
+    <!-- footer
+    ================================================== -->
+    <footer>
+        <div class="row">
+            <div class="col-full">
+
+                <!-- <div class="footer-logo">
+                    <a class="footer-site-logo" href="#0"><img src="images/logo.png" alt="Homepage"></a>
+                </div> -->
+                <ul class="footer-social">
+                    <li><a href="https://github.com/rajkumaar23">
+                        <i class="im im-github" aria-hidden="true"></i>
+                        <span>Github</span>
+                    </a></li>
+                    <li><a href="https://linkedin.com/in/rajkumaar23">
+                        <i class="im im-linkedin" aria-hidden="true"></i>
+                        <span>LinkedIn</span>
+                    </a></li>
+                    <li><a href="https://instagram.com/rajkumaar23">
+                        <i class="im im-instagram" aria-hidden="true"></i>
+                        <span>Instagram</span>
+                    </a></li>
+                    <li><a href="https://facebook.com/rajkumaar23">
+                        <i class="im im-facebook" aria-hidden="true"></i>
+                        <span>Facebook</span>
+                    </a></li>
+                    <li><a href="https://twitter.com/rajkumaar23">
+                        <i class="im im-twitter" aria-hidden="true"></i>
+                        <span>Twitter</span>
+                    </a></li>
+                </ul>
+                    
+            </div>
+        </div>
+
+        <div class="row footer-bottom">
+
+            <div class="col-twelve">
+                <div class="copyright">
+                    <span>&copy; Copyright Rajkumar 2018</span>
+                </div>
+
+                <div class="go-top">
+                <a class="smoothscroll" title="Back to Top" href="#top"><i class="im im-arrow-up" aria-hidden="true"></i></a>
+                </div>
             </div>
 
-         </div>
+        </div> <!-- end footer-bottom -->
 
-         <div class="row">
+    </footer> <!-- end footer -->
 
-            <div class="eight columns">
 
-               <!-- form -->
-               <form action="https://formspree.io/rajkumaar2304@gmail.com" method="POST" id="contactForm" name="contactForm">
-					<fieldset>
+    <!-- photoswipe background
+    ================================================== -->
+    <div aria-hidden="true" class="pswp" role="dialog" tabindex="-1">
 
-                  <div>
-						   <label for="contactName">Name <span class="required">*</span></label>
-						   <input type="text" value="" size="35" id="contactName" name="contactName">
-                  </div>
+        <div class="pswp__bg"></div>
+        <div class="pswp__scroll-wrap">
 
-                  <div>
-						   <label for="contactEmail">Email <span class="required">*</span></label>
-						   <input type="text" value="" size="35" id="contactEmail" name="contactEmail">
-                  </div>
-
-                  <div>
-						   <label for="contactSubject">Subject</label>
-						   <input type="text" value="" size="35" id="contactSubject" name="contactSubject">
-                  </div>
-
-                  <div>
-                     <label for="contactMessage">Message <span class="required">*</span></label>
-                     <textarea cols="50" rows="15" id="contactMessage" name="contactMessage"></textarea>
-                  </div>
-
-                  <div>
-                     <button class="submit">Submit</button>
-                     <span id="image-loader">
-                        <img alt="" src="images/loader.gif">
-                     </span>
-                  </div>
-
-					</fieldset>
-				   </form> <!-- Form End -->
-
-               <!-- contact-warning -->
-               <div id="message-warning"> Error!</div>
-               <!-- contact-success -->
-				   <div id="message-success">
-                  <i class="fa fa-check"></i>Your message was sent, thank you!<br>
-				   </div>
-
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
             </div>
 
+            <div class="pswp__ui pswp__ui--hidden">
+                <div class="pswp__top-bar">
+                    <div class="pswp__counter"></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button> 
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                            <div class="pswp__preloader__cut">
+                                <div class="pswp__preloader__donut"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div>
+                </div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button> <button class="pswp__button pswp__button--arrow--right" title=
+                "Next (arrow right)"></button>
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center"></div>
+                </div>
+            </div>
 
-            <aside class="four columns footer-widgets">
+        </div>
 
-               <div class="widget widget_contact">
+    </div><!-- end photoSwipe background -->
 
-					   <h4>Address and Phone</h4>
-					   <p class="address">
-						   Rajkumar S<br>
-						   Palakkad <br>
-						   Kerala, India.<br>
-						   <span>(+91) 75929-03711</span>
-                                 </p>
-                                 <h4>Email - Address</h4>
-					   <p class="address">
-						   
-						   <a href="mailto:rajkumaar2304@gmail.com"><span>rajkumaar2304@gmail.com</span></a>
-                                 </p>
-                                 
-
-				   </div>
-
-               
-            </aside>
-
-      </div>
-
-   </section> <!-- Contact Section End-->
+    <div id="preloader">
+        <div id="loader"></div>
+    </div>
 
 
-   <!-- footer
-   ================================================== -->
-   <footer>
+    <!-- Java Script
+    ================================================== -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
 
-      <div class="row">
-
-         <div class="twelve columns">
-
-            <ul class="social-links">
-                    <li><a href="https://facebook.com/rajkumaar23"><i class="fa fa-facebook"></i></a></li>
-                    <li><a href="https://twitter.com/rajkumaar23"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="https://github.com/rajkumaar23"><i class="fa fa-github"></i></a></li>
-                    <li><a href="https://linkedin.com/in/rajkumaar23"><i class="fa fa-linkedin"></i></a></li>
-                    <li><a href="https://instagram.com/rajkumaar23"><i class="fa fa-instagram"></i></a></li>
-            </ul>
-
-            <ul class="copyright">
-               <li>&copy; Copyright 2018</li>
-               <li>Design by Rajkumar</a></li>   
-            </ul>
-
-         </div>
-
-         <div id="go-top"><a class="smoothscroll" title="Back to Top" href="#home"><i class="icon-up-open"></i></a></div>
-
-      </div>
-
-   </footer> <!-- Footer End-->
-
-   <!-- Java Script
-   ================================================== -->
-   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-   <script>window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')</script>
-   <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
-
-   <script src="js/jquery.flexslider.js"></script>
-   <script src="js/waypoints.js"></script>
-   <script src="js/jquery.fittext.js"></script>
-   <script src="js/magnific-popup.js"></script>
-   <script src="js/init.js"></script>
-<script>
-$(document).ready(function() {
-//Preloader
-$(window).on("load", function() {
-preloaderFadeOutTime = 500;
-function hidePreloader() {
-var preloader = $('.spinner-wrapper');
-preloader.fadeOut(preloaderFadeOutTime);
-}
-hidePreloader();
-});
-});
-</script>
 </body>
 
 </html>

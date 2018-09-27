@@ -517,7 +517,7 @@ form,
 }
 
 .pace .pace-progress {
-    background: #862121;
+    background: #da5214;
     position: fixed;
     z-index: 900;
     top: 0;
@@ -562,7 +562,7 @@ form,
     margin-left: -30px;
     margin-top: -30px;
     padding: 0;
-    background-color: #862121;
+    background-color: #da5214;
     border-radius: 100%;
     -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
     animation: sk-scaleout 1.0s infinite ease-in-out;

@@ -2,7 +2,11 @@
  * Hola - Main JS
  *
  * ------------------------------------------------------------------- */
-
+function sendMail(){
+    var formSubject=document.forms['contactForm'].elements['contactSubject'].value;
+    var formMessage=document.forms['contactForm'].elements['contactMessage'].value;
+    window.open('mailto:rajkumaar2304@gmail.com?subject='+formSubject+'&body='+formMessage);
+}
 (function($) {
 
     "use strict";

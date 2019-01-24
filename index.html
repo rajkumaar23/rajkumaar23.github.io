@@ -23,11 +23,14 @@
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/vendor.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/IonicaBizau/github-calendar/gh-pages/dist/github-calendar.css"/>
+
 
     <!-- script
     ================================================== -->
     <script src="js/modernizr.js"></script>
     <script src="js/pace.min.js"></script>
+    <script src="https://cdn.rawgit.com/IonicaBizau/github-calendar/gh-pages/dist/github-calendar.min.js"></script>
     <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
 
     <!-- favicons
@@ -174,8 +177,11 @@
 
                 </ul>
             </div>
-
         </div> <!-- end about-content -->
+        <div class="calendar">
+            <!-- Loading stuff -->
+            Loading the data...
+        </div>
 
         <div class="row about-content about-content--timeline">
 
@@ -447,7 +453,7 @@
 
 
                 </div>
-            </div> <!-- end masonry -->
+            </div> <!-- end masonry -->        
             <div class="work-content__buttons">
                     <a href="https://github.com/rajkumaar23" class="btn btn--primary">
                         My GitHub Profile
@@ -457,9 +463,6 @@
                     </a>
                 </div>
     </section> <!-- end works -->
-
-
-
 
 
 
@@ -625,6 +628,9 @@
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        new GitHubCalendar(".calendar", "rajkumaar23");
+    </script>
 
 </body>
 

@@ -178,7 +178,7 @@
                 </ul>
             </div>
         </div> <!-- end about-content -->
-        <div class="calendar">
+        <div id="github" class="calendar">
             <!-- Loading stuff -->
             Loading the data...
         </div>
@@ -191,12 +191,29 @@
 
             <div class="col-full text-center">
                 <div class="timeline">
+                        <div class="timeline__block">
+                                <div class="timeline__bullet"></div>
+                                <div class="timeline__header">
+                                    <p class="timeline__timeframe">June 2018 - Present</p>
+                                    <h3>Internshala</h3>
+                                    <h5>C/C++ Teaching Assistant</h5>
+                                </div>
+                                <div class="timeline__desc">
+                                    <p>
+                                        Responsibilities : <br>
+                                               1. Solving technical queries and doubts of the students enrolled in the C/C++ training program at <a href="http://trainings.internshala.com">Internshala Trainings.</a>
+                                               <br>
+                                               2. Evaluating students' assignments and project and provide feedback.<br>
+                                        <a href="https://internshala.com/student/certificate/12212674/8F8B60A6-1353-A48B-D171-6B3AC316C5FD"> View Certificate of Selection</a>
+                                            </p>
+                                </div>
+                            </div> <!-- end timeline__block -->
                      <div class="timeline__block">
                         <div class="timeline__bullet"></div>
                         <div class="timeline__header">
-                            <p class="timeline__timeframe">November 2018 - Present</p>
+                            <p class="timeline__timeframe">November 2018 - February 2019</p>
                             <h3>Anokha - Annual Techfest of Amrita University</h3>
-                            <h5>Senior Android Developer</h5>
+                            <h5>Android & Backend Developer</h5>
                         </div>
                         <div class="timeline__desc">
                             <p>
@@ -206,26 +223,14 @@
                                     3) Dark-Themed & Sleek User Interface
                                     <br>
                                     4) Push Notifications <br>
-                                    <!-- <i>Development in Progress</i> -->
                                 <a href="http://bit.ly/anokha2019"> Download the app.</a>
                                 </p>
-                        </div>
-                    </div> <!-- end timeline__block -->
-                    <div class="timeline__block">
-                        <div class="timeline__bullet"></div>
-                        <div class="timeline__header">
-                            <p class="timeline__timeframe">June 2018 - Present</p>
-                            <h3>Internshala</h3>
-                            <h5>C/C++ Teaching Assistant</h5>
-                        </div>
-                        <div class="timeline__desc">
-                            <p>
-                                Responsibilities : <br>
-                                       1. Solving technical queries and doubts of the students enrolled in the C/C++ training program at <a href="http://trainings.internshala.com">Internshala Trainings.</a>
-                                       <br>
-                                       2. Evaluating students' assignments and project and provide feedback.<br>
-                                <a href="https://internshala.com/student/certificate/12212674/8F8B60A6-1353-A48B-D171-6B3AC316C5FD"> View Certificate of Selection</a>
-                                    </p>
+                                <p>
+                                    Features added in the backend : <br>
+1) Integrated eWallet module into the existing Laravel app.<br>
+2) Makes better use of eloquent methods everywhere.<br>
+3) Adds additional routes for end points to return statistics.<br>
+                                </p>
                         </div>
                     </div> <!-- end timeline__block -->
 
@@ -630,6 +635,17 @@
     <script src="js/main.js"></script>
     <script>
         new GitHubCalendar(".calendar", "rajkumaar23");
+        window.onload = function () {
+        if (navigator.userAgent.match(/Android/i) ||
+            navigator.userAgent.match(/webOS/i) ||
+            navigator.userAgent.match(/iPhone/i) ||
+            navigator.userAgent.match(/iPad/i) ||
+            navigator.userAgent.match(/iPod/i) ||
+            navigator.userAgent.match(/BlackBerry/i) ||
+            navigator.userAgent.match(/Windows Phone/i)) {
+            $('#github').hide();
+        }
+    }
     </script>
 
 </body>

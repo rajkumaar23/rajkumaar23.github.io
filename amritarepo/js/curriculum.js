@@ -1,5 +1,15 @@
 let curriculum = $('#curriculum');
 function fetchCurriculum() {
+    let loading = new Loading({
+        title: 'Please wait',
+        titleColor: 'rgb(217, 83, 79)',
+        discription: 'Loading...',
+        discriptionColor: 'rgb(77, 150, 223)',
+        animationOriginColor: 'rgb(33, 179, 132)',
+        mask: true,
+        loadingPadding: '20px 50px',
+        defaultApply: true,
+    });
     let course = $('#course');
 
     $.ajax({
@@ -8,6 +18,7 @@ function fetchCurriculum() {
         success : (res) => {
            console.log(res);
            displayCurriculum(res);
+           loading.out();
         }
     });
 

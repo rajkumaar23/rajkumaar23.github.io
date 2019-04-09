@@ -6,11 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="https://raw.githubusercontent.com/rajkumaar23/AmritaRepo/master/app/src/main/res/drawable/logosq.png" type="image/png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://www.jqueryscript.net/demo/Customizable-Loading-Modal-Plugin/css/modal-loading.css" />
+    <link rel="stylesheet" type="text/css" href="https://www.jqueryscript.net/demo/Customizable-Loading-Modal-Plugin/css/modal-loading-animate.css" />
     <style>
         @import url("https://fonts.googleapis.com/css?family=Varela+Round");
         body {
-            background: #f3f3f3 url('../images/tile1.jpg');
+            background: #f3f3f3 url('/images/tile1.jpg');
             font-family: 'Varela Round', serif;
+        }
+         * {
+             margin: 0;
+             padding: 0;
+         }
+        .imgbox {
+            display: grid;
+            height: 100%;
+        }
+        .center-fit {
+            max-width: 100%;
+            max-height: 100vh;
+            margin: auto;
         }
     </style>
 </head>
@@ -33,45 +48,16 @@
     </div>
 </nav>
 <div class="container" style="margin-top: 20px">
-    <h3 class="text-white">Academic Timetable - Students</h3>
-    <br>
-    <select id="year" class="form-control">
-    </select>
-    <br>
-    <select id="course" onchange="courseChange(this.value);" class="form-control">
-        <option>BTech</option>
-        <option>BA</option>
-        <option>IMsc</option>
-        <option>MTech</option>
-        <option>MA</option>
-        <option>MBA</option>
-        <option>MCA</option>
-        <option>MSW</option>
-        <option>PGD</option>
-    </select>
-    <br>
-    <select id="branch" class="form-control">
-    </select>
-    <br>
-    <select id="sem" class="form-control">
-    </select>
-    <br>
-    <select id="batch" class="form-control">
-        <option>A</option>
-        <option>B</option>
-        <option>C</option>
-        <option>D</option>
-        <option>E</option>
-        <option>F</option>
-    </select>
-    <br>
-    <button type="button" onclick="viewOrDownload(this)" class="btn btn-block btn-primary">View/Download</button>
-    <br>
+    <h3 id="title" class="text-white"></h3>
+    <div class="imgbox">
+        <img class="center-fit" id="image">
+    </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-<script src="../js/academic-timetable.js"></script>
-<div class="footer-copyright text-white text-center py-3">Designed by<a href="https://mdbootstrap.com/education/bootstrap/"> Rajkumar</a></div>
+<script type="text/javascript" src="https://www.jqueryscript.net/demo/Customizable-Loading-Modal-Plugin/js/modal-loading.js"></script>
+<script src="js/view-image.js"></script>
+<div class="footer-copyright text-dark text-center py-3">Designed by<a href="https://mdbootstrap.com/education/bootstrap/"> Rajkumar</a></div>
 </body>
 </html>

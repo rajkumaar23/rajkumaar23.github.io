@@ -42,8 +42,7 @@ function viewOrDownload() {
     setCookie("branch",branch.index());
     setCookie("sem",sem.index());
     setCookie("batch",batch.index());
-
-    let win = window.open(url, '_blank');
+    let win = window.open("../view-image.html?src="+url+'&title='+course.val()+branch.val()+batch.val()+sem.val(), '_blank');
     win.focus();
 }
 

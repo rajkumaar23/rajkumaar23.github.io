@@ -17,10 +17,41 @@ $(document).ready(function(){
     $('#course option').eq(getCookie("course")).prop('selected', true);
     courseChange($('#course').val());
     $('#branch option').eq(getCookie("branch")).prop('selected', true);*/
+    let result = [];
+    $.ajax({
+        method: 'GET',
+        url: "https://intranet.cb.amrita.edu/TimeTable/Faculty/get_staff_list.php?q=a",
+        success: (res) => {
+            result = res.split('\n');
+            fillNames(result);
+        }
+    });
 });
 
-function autoComplete(value) {
-    $.ajax({url: "https://intranet.cb.amrita.edu/TimeTable/Faculty/get_staff_list.php?q="+value, success: function(result){
-            console.log(result);
-    }});
+function viewOrDownload() {
+    let data = {
+        "year": $('#year').val(),
+        "Nyear":$('#year').val(),
+        "sem":$('#sem').val(),
+        "Nsem":$('#sem').val(),
+        "NAMEshwbutton": "Show Details",
+        "faculty":$('#faculty').val()
+    };
+    $.ajax({
+        method: 'POST',
+        dataType:'jsonp',
+        url:"https://intranet.cb.amrita.edu/TimeTable/Faculty/index.php",
+        data: data,
+        success : (res) => {
+         console.log(res.findByElement('iframe'));
+        }
+    });
+}
+
+function fillNames(names) {
+    let nameSelect =$('#faculty');
+    nameSelect.empty();
+    for (let i=0 ;i<names.length;++i){
+        nameSelect.append($("<option></option>").text(names[i]));
+    }
 }

@@ -28,11 +28,11 @@ function verifyOTP(OTP) {
                 sessionStorage.setItem("logged-in",true);
                 sessionStorage.setItem("token",res.Token);
                 alert("SUCCESS "+sessionStorage.getItem("token"));
+                window.location.href = 'home.html';
             }else {
                 alert(res.Status);
             }
             loading.out();
-            window.location.href = 'home.html';
         } ,
         error : (err)=>{
             alert(err.toString());

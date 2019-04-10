@@ -31,7 +31,7 @@ function displayCurriculum(items) {
         curriculum.append('<ul class="list-group">');
         for (let j=0;j<items[i].length;++j){
             if(items[i][j]!=="")
-            curriculum.append('<li class="list-group-item list-group-item-dark">'+items[i][j]+'</li>');
+            curriculum.append('<li class="list-group-item">'+items[i][j]+'</li>');
         }
         curriculum.append('</ul>');
     }

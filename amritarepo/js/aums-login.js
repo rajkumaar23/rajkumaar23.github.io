@@ -2,7 +2,10 @@ $(document).ready(function () {
     if(sessionStorage.getItem("token") !== null){
         window.location.href = 'home.html';
     }
+    $('#dob').attr("value",getCookie("dob"));
+    $('#username').attr("value",getCookie("username"));
 });
+
 function verifyOTP(OTP) {
     let loading = new Loading({
         title: 'Please wait',
@@ -25,17 +28,16 @@ function verifyOTP(OTP) {
         dataType : 'json',
         success : (res) => {
             if(res.Status === "Y"){
-                sessionStorage.setItem("logged-in",true);
                 sessionStorage.setItem("token",res.Token);
-                alert("SUCCESS "+sessionStorage.getItem("token"));
                 window.location.href = 'home.html';
             }else {
-                alert(res.Status);
+                swal("Invalid OTP");
             }
+            console.log(res);
             loading.out();
         } ,
         error : (err)=>{
-            alert(err.toString());
+            swal("Invalid OTP");
             loading.out();
         }
     });
@@ -64,18 +66,58 @@ function login() {
                 sessionStorage.setItem("name",res.NAME);
                 sessionStorage.setItem("email",res.Email);
                 sessionStorage.setItem("username",$('#username').val());
+                setCookie("username",$('#username').val());
+                setCookie("dob",$('#dob').val());
                 console.log(sessionStorage.getItem("name"));
                 console.log(sessionStorage.getItem("email"));
-                let OTP = prompt("Enter the OTP you just received on your number registered in AUMS");
-                verifyOTP(OTP);
+                swal({
+                    title: "OTP Verification",
+                    text: "Enter the OTP you just received on your number registered in AUMS",
+                    icon: "success",
+                    content: "input",
+                    closeOnClickOutside : false,
+                    closeOnEsc : false,
+                    button: {
+                        text: "Submit",
+                        closeModal: false,
+                    },
+                }).then(OTP =>{
+                    verifyOTP(OTP);
+                });
+
             }else {
-                alert(res.Status);
+                swal(res.Status);
             }
             loading.out();
            } ,
         error : (err)=>{
-           alert(err.toString());
+           swal(err.message);
            loading.out();
         }
     });
+}
+
+//Sets a cookie on key=>value
+function setCookie(key,value) {
+    let d = new Date();
+    d.setTime(d.getTime() + (30 * 24 * 60 * 60 * 1000));
+    let expires = "expires="+d.toUTCString();
+    document.cookie = key + "=" + value + ";" + expires + ";path=/";
+}
+
+
+//Gets cookie from key
+function getCookie(cname) {
+    let name = cname + "=";
+    let ca = document.cookie.split(';');
+    for(let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) === ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) === 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
 }

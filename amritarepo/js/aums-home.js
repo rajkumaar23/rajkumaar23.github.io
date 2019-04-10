@@ -3,5 +3,5 @@ $(document).ready(function () {
         window.location.href = 'index.html';
     }
     let greeting = $('#greeting');
-    greeting.html(sessionStorage.getItem("name"));
+    greeting.html("Welcome "+sessionStorage.getItem("name"));
 });

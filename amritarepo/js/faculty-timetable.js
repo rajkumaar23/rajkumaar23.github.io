@@ -11,21 +11,24 @@ $(document).ready(function(){
     years.append('<option value="' + (currentYear) + "_" + (currentYear +1).toString().substring(2, 4) + '">' + (currentYear) + "_" + (currentYear+1).toString().substring(2, 4) +  '</option>');
     years.append('<option value="' + (currentYear + 1) + "_" + (currentYear +2).toString().substring(2, 4) + '">' + (currentYear + 1) + "_" + (currentYear+2).toString().substring(2, 4) +  '</option>');
 
-    /*$('#year option').eq(getCookie("year")).prop('selected', true);
-    $('#sem option').eq(getCookie("sem")).prop('selected', true);
-    $('#batch option').eq(getCookie("batch")).prop('selected', true);
-    $('#course option').eq(getCookie("course")).prop('selected', true);
-    courseChange($('#course').val());
-    $('#branch option').eq(getCookie("branch")).prop('selected', true);*/
     let result = [];
-    $.ajax({
-        method: 'GET',
-        url: "https://intranet.cb.amrita.edu/TimeTable/Faculty/get_staff_list.php?q=a",
-        success: (res) => {
-            result = res.split('\n');
-            fillNames(result);
-        }
+    $('#faculty').on('input', function() {
+        $.ajax({
+            method: 'POST',
+            url: "https://dev.rajkumaar.co.in/proxyhey.php",
+            data : {
+              'data' :   "https://intranet.cb.amrita.edu/TimeTable/Faculty/get_staff_list.php?q="+$('#faculty').val()
+            },
+            success: (res) => {
+                result = res.split('\n');
+                $("#faculty").autocomplete({
+                    source: result
+                });
+            }
+        });
     });
+
+
 });
 
 function viewOrDownload() {
@@ -39,7 +42,6 @@ function viewOrDownload() {
     };
     $.ajax({
         method: 'POST',
-        dataType:'jsonp',
         url:"https://intranet.cb.amrita.edu/TimeTable/Faculty/index.php",
         data: data,
         success : (res) => {

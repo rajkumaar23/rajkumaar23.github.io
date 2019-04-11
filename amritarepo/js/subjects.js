@@ -69,23 +69,21 @@ $(document).ready(function () {
 });
 
 function moveToNextPage(link) {
-    console.log(links[link]);
-    $.ajax({
-        type:'POST',
-        url: "https://dev.rajkumaar.co.in/proxy.php",
-        data:{
-            data : 'http://dspace.amritanet.edu:8080'+links[link]
-        },
-        success: (data) => {
-            let blob=new Blob([data]);
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", "https://dev.rajkumaar.co.in/proxy.php",true);
+    xhr.responseType = "blob";
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhr.onload = function () {
+        if (this.status === 200) {
+            let blob = xhr.response;
+            console.log(blob.size);
             let link=document.createElement('a');
             link.href=window.URL.createObjectURL(blob);
-            link.download=links[link]+'.pdf';
+            link.download=new Date().toUTCString()+".pdf";
             link.click();
-        },error : (err)=>{
-            swal(err.statusText);
         }
-    });
+    };
+    xhr.send("data=http://dspace.amritanet.edu:8080"+links[link]);
     /*let win = window.open('http://dspace.amritanet.edu:8080'+links[link], '_blank');
     win.focus();*/
 }

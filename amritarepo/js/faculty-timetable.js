@@ -41,6 +41,7 @@ $(document).ready(function(){
 function viewOrDownload() {
     let year = ($('#year').children("option:selected"));
     let sem = ($('#sem').children("option:selected"));
+    let faculty = $('#faculty');
 
     let data = {
         "year": year.val(),
@@ -48,7 +49,7 @@ function viewOrDownload() {
         "sem":sem.val(),
         "Nsem":sem.val(),
         "NAMEshwbutton": "Show Details",
-        "faculty":$('#faculty').val()
+        "faculty":faculty.val()
     };
     setCookie("fac-year",year.index());
     setCookie("fac-sem",sem.index());
@@ -57,9 +58,12 @@ function viewOrDownload() {
         url:"https://intranet.cb.amrita.edu/TimeTable/Faculty/index.php",
         data: data,
     success : (res) => {
-            let url = res.toString().split("<iframe")[1].split("src=\"")[1].split("\"")[0];
-        let win = window.open("https://intranet.cb.amrita.edu/TimeTable/Faculty/"+url, '_blank');
-        win.focus();
+            let url = "https://intranet.cb.amrita.edu/TimeTable/Faculty/"+res.toString().split("<iframe")[1].split("src=\"")[1].split("\"")[0];
+            if(!isMobile()){
+                $('.container').append('<br><h3 class="text-white">'+faculty.val()+'</h3><div class="myIframe"><iframe src="'+url+'"></iframe></div>');
+            }else{
+                window.location.replace(url);
+            }
         }
     });
 }
@@ -87,4 +91,15 @@ function getCookie(cname) {
         }
     }
     return "";
+}
+
+function isMobile() {
+    return !!(navigator.userAgent.match(/Android/i) ||
+        navigator.userAgent.match(/webOS/i) ||
+        navigator.userAgent.match(/iPhone/i) ||
+        navigator.userAgent.match(/iPad/i) ||
+        navigator.userAgent.match(/iPod/i) ||
+        navigator.userAgent.match(/BlackBerry/i) ||
+        navigator.userAgent.match(/Windows Phone/i));
+
 }

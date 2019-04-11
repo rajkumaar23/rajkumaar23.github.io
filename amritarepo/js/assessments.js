@@ -1,5 +1,5 @@
-let texts=[],links = [];
-function fetchSemesters() {
+let texts=[],links=[];
+$(document).ready(function () {
     let content = "";
     let loading = new Loading({
         title: 'Please wait',
@@ -11,39 +11,61 @@ function fetchSemesters() {
         loadingPadding: '20px 50px',
         defaultApply: true,
     });
-    let course = $('#course');
     let dummy = $('#dummy');
-    let sem = $('#semesters');
+    let assessments = $('#assessments');
+    let src = getUrlParameter("url");
+    if(src==null || src === "")
+        window.location.replace('index.html');
 
     $.ajax({
         type:'POST',
         url: "https://dev.rajkumaar.co.in/proxy.php",
         data:{
-            data : 'http://dspace.amritanet.edu:8080/xmlui/handle/123456789/'+course.val()
+            data : src
         },
         success: (res) => {
-            loading.out();
             content+=res.toString().split('<body>')[1];
             dummy.append(content);
             texts = [];links = [];
-            let response = (document.querySelector('div#aspect_artifactbrowser_CommunityViewer_div_community-view').getElementsByTagName('ul').item(0).getElementsByTagName('li'));
+            let ul = (document.querySelector('div#aspect_artifactbrowser_CommunityViewer_div_community-view').getElementsByTagName('ul'));
+            let response;
+            if (ul.length > 1)
+                response = ul.item(1).getElementsByTagName('li');
+            else
+                response = ul.item(0).getElementsByTagName('li');
             for(let i=0;i<response.length;++i){
                 texts.push(response.item(i).innerText);
                 links.push('http://dspace.amritanet.edu:8080'+response.item(i).getElementsByTagName("a").item(0).getAttribute("href"));
             }
-            content = '<br><h3 class="text-white">Semesters</h3><ul class="list-group">';
+            content = '<ul class="list-group">';
             for (let i=0;i<texts.length;++i){
                 content+='<li class="list-group-item list-group-item-action"  onclick="moveToNextPage('+i+')">'+texts[i]+'</li>'
             }
             content+='</ul>';
-            sem.append(content);
+            assessments.append(content);
+            loading.out();
         },error : (err)=>{
             swal(err.statusText);
             loading.out();
         }
     });
-}
+});
 
 function moveToNextPage(link) {
-    window.location.href = ('assessments.html?url='+links[link]);
+    window.location.href = ('subjects.html?url='+links[link]);
 }
+
+let getUrlParameter = function getUrlParameter(sParam) {
+    let sPageURL = window.location.search.substring(1),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+        }
+    }
+};

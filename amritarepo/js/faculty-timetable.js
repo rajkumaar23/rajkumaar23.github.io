@@ -59,11 +59,7 @@ function viewOrDownload() {
         data: data,
     success : (res) => {
             let url = "https://intranet.cb.amrita.edu/TimeTable/Faculty/"+res.toString().split("<iframe")[1].split("src=\"")[1].split("\"")[0];
-            if(!isMobile()){
-                $('.container').append('<br><h3 class="text-white">'+faculty.val()+'</h3><div class="myIframe"><iframe src="'+url+'"></iframe></div>');
-            }else{
-                window.location.replace(url);
-            }
+            $('.container').append('<br><h3 class="text-white">'+faculty.val()+'</h3><div class="myIframe"><iframe src="'+url+'"></iframe></div>');
         }
     });
 }

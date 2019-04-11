@@ -26,14 +26,16 @@ function fetchCurriculum() {
 
 function displayCurriculum(items) {
     curriculum.empty();
+    let content = "";
     for(let i=0;i<items.length;++i){
-        curriculum.append('<br><h3 class="text-white">Semester '+(i+1)+'</h3><br>');
-        curriculum.append('<ul class="list-group">');
+        content+=('<br><h3 class="text-white">Semester '+(i+1)+'</h3><br>');
+        content+=('<ul class="list-group">');
         for (let j=0;j<items[i].length;++j){
             if(items[i][j]!=="")
-            curriculum.append('<li class="list-group-item">'+items[i][j]+'</li>');
+            content+=('<li class="list-group-item">'+items[i][j]+'</li>');
         }
-        curriculum.append('</ul>');
+        content+=('</ul>');
     }
+    curriculum.append(content);
 }
 

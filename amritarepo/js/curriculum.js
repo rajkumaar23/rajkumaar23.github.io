@@ -14,11 +14,11 @@ function fetchCurriculum() {
 
     $.ajax({
         method: 'GET',
-        url : 'https://dev.rajkumaar.co.in/utils/btech.php?q='+course.val(),
-        success : (res) => {
-           console.log(res);
-           displayCurriculum(res);
-           loading.out();
+        url: 'https://dev.rajkumaar.co.in/utils/btech.php?q=' + course.val(),
+        success: (res) => {
+            console.log(res);
+            displayCurriculum(res);
+            loading.out();
         }
     });
 
@@ -27,14 +27,14 @@ function fetchCurriculum() {
 function displayCurriculum(items) {
     curriculum.empty();
     let content = "";
-    for(let i=0;i<items.length;++i){
-        content+=('<br><h3 class="text-white">Semester '+(i+1)+'</h3><br>');
-        content+=('<ul class="list-group">');
-        for (let j=0;j<items[i].length;++j){
-            if(items[i][j]!=="")
-            content+=('<li class="list-group-item">'+items[i][j]+'</li>');
+    for (let i = 0; i < items.length; ++i) {
+        content += ('<br><h3 class="text-white">Semester ' + (i + 1) + '</h3><br>');
+        content += ('<ul class="list-group">');
+        for (let j = 0; j < items[i].length; ++j) {
+            if (items[i][j] !== "")
+                content += ('<li class="list-group-item">' + items[i][j] + '</li>');
         }
-        content+=('</ul>');
+        content += ('</ul>');
     }
     curriculum.append(content);
 }

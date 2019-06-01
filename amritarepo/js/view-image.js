@@ -26,8 +26,8 @@ $(document).ready(function () {
     });
     let url = getUrlParameter("src");
     let title = getUrlParameter("title");
-    console.log(url+title);
-    $('#image').attr("src",url);
+    console.log(url + title);
+    $('#image').attr("src", url);
     document.title = title;
     loading.out();
 });

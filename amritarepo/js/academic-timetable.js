@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function () {
     //Adding semesters
     for (let i = 1; i <= 10; i++) {
         $('#sem').append('<option value="' + i + '">' + i + '</option>');
@@ -8,12 +8,12 @@ $(document).ready(function(){
     let d = new Date();
     let currentYear = d.getFullYear();
     let years = $("#year");
-    years.append('<option value="' + (currentYear - 4) + "_" + (currentYear - 3).toString().substring(2, 4) + '">' + (currentYear - 4) + "_" + (currentYear - 3).toString().substring(2, 4) +  '</option>');
-    years.append('<option value="' + (currentYear - 3) + "_" + (currentYear - 2).toString().substring(2, 4) + '">' + (currentYear - 3) + "_" + (currentYear - 2).toString().substring(2, 4) +  '</option>');
-    years.append('<option value="' + (currentYear - 2) + "_" + (currentYear - 1).toString().substring(2, 4) + '">' + (currentYear - 2) + "_" + (currentYear - 1).toString().substring(2, 4) +  '</option>');
-    years.append('<option value="' + (currentYear - 1) + "_" + (currentYear).toString().substring(2, 4) + '">' + (currentYear - 1) + "_" + (currentYear).toString().substring(2, 4) +  '</option>');
-    years.append('<option value="' + (currentYear) + "_" + (currentYear +1).toString().substring(2, 4) + '">' + (currentYear) + "_" + (currentYear+1).toString().substring(2, 4) +  '</option>');
-    years.append('<option value="' + (currentYear + 1) + "_" + (currentYear +2).toString().substring(2, 4) + '">' + (currentYear + 1) + "_" + (currentYear+2).toString().substring(2, 4) +  '</option>');
+    years.append('<option value="' + (currentYear - 4) + "_" + (currentYear - 3).toString().substring(2, 4) + '">' + (currentYear - 4) + "_" + (currentYear - 3).toString().substring(2, 4) + '</option>');
+    years.append('<option value="' + (currentYear - 3) + "_" + (currentYear - 2).toString().substring(2, 4) + '">' + (currentYear - 3) + "_" + (currentYear - 2).toString().substring(2, 4) + '</option>');
+    years.append('<option value="' + (currentYear - 2) + "_" + (currentYear - 1).toString().substring(2, 4) + '">' + (currentYear - 2) + "_" + (currentYear - 1).toString().substring(2, 4) + '</option>');
+    years.append('<option value="' + (currentYear - 1) + "_" + (currentYear).toString().substring(2, 4) + '">' + (currentYear - 1) + "_" + (currentYear).toString().substring(2, 4) + '</option>');
+    years.append('<option value="' + (currentYear) + "_" + (currentYear + 1).toString().substring(2, 4) + '">' + (currentYear) + "_" + (currentYear + 1).toString().substring(2, 4) + '</option>');
+    years.append('<option value="' + (currentYear + 1) + "_" + (currentYear + 2).toString().substring(2, 4) + '">' + (currentYear + 1) + "_" + (currentYear + 2).toString().substring(2, 4) + '</option>');
 
     $('#year option').eq(getCookie("year")).prop('selected', true);
     $('#sem option').eq(getCookie("sem")).prop('selected', true);
@@ -28,30 +28,30 @@ function viewOrDownload() {
     let url = 'https://intranet.cb.amrita.edu/TimeTable/PDF/';
     let year = ($('#year').children("option:selected"));
     let course = ($('#course').children("option:selected"));
-    let branch  = ($('#branch').children("option:selected"));
-    let batch  = ($('#batch').children("option:selected"));
-    let sem  = ($('#sem').children("option:selected"));
+    let branch = ($('#branch').children("option:selected"));
+    let batch = ($('#batch').children("option:selected"));
+    let sem = ($('#sem').children("option:selected"));
 
-    url+=year.val()+'/';
-    url+=course.val()+'/';
-    url+=branch.val()+'/';
-    url+=course.val()+branch.val()+batch.val()+sem.val()+'.jpg';
+    url += year.val() + '/';
+    url += course.val() + '/';
+    url += branch.val() + '/';
+    url += course.val() + branch.val() + batch.val() + sem.val() + '.jpg';
 
-    setCookie("year",year.index());
-    setCookie("course",course.index());
-    setCookie("branch",branch.index());
-    setCookie("sem",sem.index());
-    setCookie("batch",batch.index());
-    let win = window.open("../view-image.html?src="+url+'&title='+course.val()+branch.val()+batch.val()+sem.val(), '_blank');
+    setCookie("year", year.index());
+    setCookie("course", course.index());
+    setCookie("branch", branch.index());
+    setCookie("sem", sem.index());
+    setCookie("batch", batch.index());
+    let win = window.open("../view-image.html?src=" + url + '&title=' + course.val() + branch.val() + batch.val() + sem.val(), '_blank');
     win.focus();
 }
 
 
 //Sets a cookie on key=>value
-function setCookie(key,value) {
+function setCookie(key, value) {
     let d = new Date();
     d.setTime(d.getTime() + (30 * 24 * 60 * 60 * 1000));
-    let expires = "expires="+d.toUTCString();
+    let expires = "expires=" + d.toUTCString();
     document.cookie = key + "=" + value + ";" + expires + ";path=/";
 }
 
@@ -60,7 +60,7 @@ function setCookie(key,value) {
 function getCookie(cname) {
     let name = cname + "=";
     let ca = document.cookie.split(';');
-    for(let i = 0; i < ca.length; i++) {
+    for (let i = 0; i < ca.length; i++) {
         let c = ca[i];
         while (c.charAt(0) === ' ') {
             c = c.substring(1);
@@ -75,7 +75,7 @@ function getCookie(cname) {
 //Adding courses
 function courseChange(item) {
     let branches = [];
-    switch(item){
+    switch (item) {
         case "BTech":
             branches.push("AEE");
             branches.push("CHE");
@@ -135,9 +135,9 @@ function courseChange(item) {
             branches.push("JLM");
             break;
     }
-    let branchSelect =$('#branch');
+    let branchSelect = $('#branch');
     branchSelect.empty();
-    for (let i=0 ;i<branches.length;++i){
+    for (let i = 0; i < branches.length; ++i) {
         branchSelect.append($("<option></option>").text(branches[i]));
     }
 }

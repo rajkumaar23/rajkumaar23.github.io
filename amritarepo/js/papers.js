@@ -1,4 +1,4 @@
-let texts=[],links = [];
+let texts = [], links = [];
 function fetchSemesters() {
     let content = "";
     let loading = new Loading({
@@ -16,28 +16,28 @@ function fetchSemesters() {
     let sem = $('#semesters');
 
     $.ajax({
-        type:'POST',
+        type: 'POST',
         url: "https://dev.rajkumaar.co.in/proxy.php",
-        data:{
-            data : 'http://dspace.amritanet.edu:8080/xmlui/handle/123456789/'+course.val()
+        data: {
+            data: 'http://dspace.amritanet.edu:8080/xmlui/handle/123456789/' + course.val()
         },
         success: (res) => {
             loading.out();
-            content+=res.toString().split('<body>')[1];
+            content += res.toString().split('<body>')[1];
             dummy.append(content);
-            texts = [];links = [];
+            texts = []; links = [];
             let response = (document.querySelector('div#aspect_artifactbrowser_CommunityViewer_div_community-view').getElementsByTagName('ul').item(0).getElementsByTagName('li'));
-            for(let i=0;i<response.length;++i){
+            for (let i = 0; i < response.length; ++i) {
                 texts.push(response.item(i).innerText);
-                links.push('http://dspace.amritanet.edu:8080'+response.item(i).getElementsByTagName("a").item(0).getAttribute("href"));
+                links.push('http://dspace.amritanet.edu:8080' + response.item(i).getElementsByTagName("a").item(0).getAttribute("href"));
             }
             content = '<br><h3 class="text-white">Semesters</h3><ul class="list-group">';
-            for (let i=0;i<texts.length;++i){
-                content+='<li class="list-group-item list-group-item-action"  onclick="moveToNextPage('+i+')">'+texts[i]+'</li>'
+            for (let i = 0; i < texts.length; ++i) {
+                content += '<li class="list-group-item list-group-item-action"  onclick="moveToNextPage(' + i + ')">' + texts[i] + '</li>'
             }
-            content+='</ul>';
+            content += '</ul>';
             sem.append(content);
-        },error : (err)=>{
+        }, error: (err) => {
             swal(err.statusText);
             loading.out();
         }
@@ -45,5 +45,5 @@ function fetchSemesters() {
 }
 
 function moveToNextPage(link) {
-    window.location.href = ('assessments.html?url='+links[link]);
+    window.location.href = ('assessments.html?url=' + links[link]);
 }

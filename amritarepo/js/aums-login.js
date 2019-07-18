@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    if (sessionStorage.getItem("token") !== null) {
+    if (localStorage.getItem("token") !== null) {
         window.location.href = 'home.html';
     }
     $('#dob').attr("value", getCookie("dob"));
@@ -28,7 +28,7 @@ function verifyOTP(OTP) {
         dataType: 'json',
         success: (res) => {
             if (res.Status === "Y") {
-                sessionStorage.setItem("token", res.Token);
+                localStorage.setItem("token", res.Token);
                 window.location.href = 'home.html';
             } else {
                 swal("Invalid OTP");
@@ -63,13 +63,13 @@ function login() {
         dataType: 'json',
         success: (res) => {
             if (res.Status === "OK") {
-                sessionStorage.setItem("name", res.NAME);
-                sessionStorage.setItem("email", res.Email);
-                sessionStorage.setItem("username", $('#username').val());
+                localStorage.setItem("name", res.NAME);
+                localStorage.setItem("email", res.Email);
+                localStorage.setItem("username", $('#username').val());
                 setCookie("username", $('#username').val());
                 setCookie("dob", $('#dob').val());
-                console.log(sessionStorage.getItem("name"));
-                console.log(sessionStorage.getItem("email"));
+                console.log(localStorage.getItem("name"));
+                console.log(localStorage.getItem("email"));
                 swal({
                     title: "OTP Verification",
                     text: "Enter the OTP you just received on your number registered in AUMS",

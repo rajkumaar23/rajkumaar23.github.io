@@ -1,7 +1,7 @@
 $(document).ready(function () {
-    if (sessionStorage.getItem("token") == null) {
+    if (localStorage.getItem("token") == null) {
         window.location.href = 'index.html';
     }
     let greeting = $('#greeting');
-    greeting.html("Welcome " + sessionStorage.getItem("name"));
+    greeting.html("Welcome " + localStorage.getItem("name"));
 });

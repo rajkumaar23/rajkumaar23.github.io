@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    let token = sessionStorage.getItem("token");
+    let token = localStorage.getItem("token");
     if (token == null) {
         window.location.href = 'index.html';
     }
@@ -14,26 +14,26 @@ $(document).ready(function () {
         defaultApply: true,
     });
 
-    let url = "https://amritavidya.amrita.edu:8444/DataServices/rest/semAtdRes?rollno=" + sessionStorage.getItem("username");
+    let url = "https://amritavidya.amrita.edu:8444/DataServices/rest/semAtdRes?rollno=" + localStorage.getItem("username");
     let container = $('#semesters');
-    if (sessionStorage.getItem("sem-for-atd") == null) {
+    if (localStorage.getItem("sem-for-atd") == null) {
 
         $.ajax({
             method: 'GET',
             url: url,
             headers: {
-                "Authorization": "Basic YWRtaW46YWRtaW5AQW5kQVBQ", "token": sessionStorage.getItem("token")
+                "Authorization": "Basic YWRtaW46YWRtaW5AQW5kQVBQ", "token": localStorage.getItem("token")
             },
             dataType: 'json',
             success: (res) => {
                 try {
-                    sessionStorage.setItem("sem-for-atd", JSON.stringify(res));
+                    localStorage.setItem("sem-for-atd", JSON.stringify(res));
                     for (let i = 0; i < res.Semester.length; ++i) {
                         let current = res.Semester[i];
                         container.append('<li class="list-group-item list-group-item-action" onclick="attendance(this.value)" value=' + current.Id + '>' + "Semester " + current.Semester + '</li>');
                     }
                     loading.out();
-                    sessionStorage.setItem("token", res.Token);
+                    localStorage.setItem("token", res.Token);
                 } catch (e) {
                     alert(e.message);
                 }
@@ -45,7 +45,7 @@ $(document).ready(function () {
         });
     } else {
         try {
-            res = JSON.parse(sessionStorage.getItem("sem-for-atd"));
+            res = JSON.parse(localStorage.getItem("sem-for-atd"));
             for (let i = 0; i < res.Semester.length; ++i) {
                 let current = res.Semester[i];
                 container.append('<li class="list-group-item list-group-item-action" onclick="attendance(this.value)" value=' + current.Id + '>' + "Semester " + current.Semester + '</li>');
@@ -68,13 +68,13 @@ function attendance(sem) {
         loadingPadding: '20px 50px',
         defaultApply: true,
     });
-    let url = "https://amritavidya.amrita.edu:8444/DataServices/rest/attRes?rollno=" + sessionStorage.getItem("username") + "&sem=" + sem;
+    let url = "https://amritavidya.amrita.edu:8444/DataServices/rest/attRes?rollno=" + localStorage.getItem("username") + "&sem=" + sem;
     let container = $('#semesters');
     $.ajax({
         method: 'GET',
         url: url,
         headers: {
-            "Authorization": "Basic YWRtaW46YWRtaW5AQW5kQVBQ", "token": sessionStorage.getItem("token")
+            "Authorization": "Basic YWRtaW46YWRtaW5AQW5kQVBQ", "token": localStorage.getItem("token")
         },
         dataType: 'json',
         success: (res) => {
@@ -86,11 +86,11 @@ function attendance(sem) {
                         + current.CourseName + ' <span style="color: #ff0000;">( ' + current.TotalPercentage + '% )</span><br><span style="color: #108100;">' + 'You attended ' + current.ClassPresent + ' out of ' + current.ClassTotal + '</span></li>');
                 }
                 $("#title").html("Your Attendance");
-                sessionStorage.setItem("token", res.Token);
+                localStorage.setItem("token", res.Token);
                 loading.out();
             } catch (e) {
                 alert(e.toString());
-                sessionStorage.setItem("token", null);
+                localStorage.setItem("token", null);
                 window.location.href = 'index.html';
             }
         },

@@ -1,5 +1,5 @@
 /*
-	Aerial by HTML5 UP
+	Astral by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
@@ -10,18 +10,37 @@
 		opacity: 1 !important;
 	}
 
-/* Overlay */
+/* Nav */
 
-	#overlay {
-		opacity: 1 !important;
+	#nav a {
+		opacity: 1.0;
 	}
 
-/* Header */
-
-	#header {
-		opacity: 1 !important;
-	}
-
-		#header nav li {
-			opacity: 1 !important;
+		#nav a:before, #nav a:after {
+			display: none;
 		}
+
+		#nav a span {
+			top: 0;
+			opacity: 1.0;
+		}
+
+			#nav a span:after {
+				display: none;
+			}
+
+/* Main */
+
+	#main {
+		background: none;
+		box-shadow: none;
+	}
+
+		#main > .panel {
+			background: #ffffff;
+			margin-bottom: 2em;
+		}
+
+			#main > .panel:last-child {
+				margin-bottom: 0;
+			}

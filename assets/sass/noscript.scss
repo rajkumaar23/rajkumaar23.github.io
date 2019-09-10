@@ -3,9 +3,10 @@
 @import 'libs/mixins';
 @import 'libs/vendor';
 @import 'libs/breakpoints';
+@import 'libs/html-grid';
 
 /*
-	Aerial by HTML5 UP
+	Astral by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
@@ -16,20 +17,40 @@
 		opacity: 1 !important;
 	}
 
-/* Overlay */
+/* Nav */
 
-	#overlay {
-		opacity: 1 !important;
+	#nav {
+		a {
+			opacity: 1.0;
+
+			&:before,
+			&:after {
+				display: none;
+			}
+
+			span {
+				top: 0;
+				opacity: 1.0;
+
+				&:after {
+					display: none;
+				}
+			}
+		}
 	}
 
-/* Header */
+/* Main */
 
-	#header {
-		opacity: 1 !important;
+	#main {
+		background: none;
+		box-shadow: none;
 
-		nav {
-			li {
-				opacity: 1 !important;
+		> .panel {
+			background: #ffffff;
+			margin-bottom: 2em;
+
+			&:last-child {
+				margin-bottom: 0;
 			}
 		}
 	}

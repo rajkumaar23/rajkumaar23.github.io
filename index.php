@@ -1,10 +1,10 @@
-<?php
-if($_SERVER['REQUEST_URI']==".well-known/acme-challenge/7-bMrx--11u1LlkAuvAUrcPz0ZIYQJ9P-yCH14IeFjs"){
-	echo "7-bMrx--11u1LlkAuvAUrcPz0ZIYQJ9P-yCH14IeFjs.5uukuO-u75VcP6ZJFzI2vsULWz3SlF_3OJ0c6w7ijCU";
-}else{
-	echo $_SERVER['REQUEST_URI'];
-}
-?>
+//<?php
+// if($_SERVER['REQUEST_URI']==".well-known/acme-challenge/7-bMrx--11u1LlkAuvAUrcPz0ZIYQJ9P-yCH14IeFjs"){
+// 	echo "7-bMrx--11u1LlkAuvAUrcPz0ZIYQJ9P-yCH14IeFjs.5uukuO-u75VcP6ZJFzI2vsULWz3SlF_3OJ0c6w7ijCU";
+// }else{
+// 	echo $_SERVER['REQUEST_URI'];
+// }
+// ?>
 <!DOCTYPE HTML>
 <!--
 	Astral by HTML5 UP

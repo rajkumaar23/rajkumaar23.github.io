@@ -45,7 +45,7 @@
     		Content Copyrights - <a href="https://amrita.edu">Amrita Vishwa Vidyapeetham</a>
     	</p>
     <p>
- &copy; Copyright <?php echo date('Y'); ?> <a href="https://rajkumaar.co.in">Rajkumar</a>
+ &copy; Copyright <?php echo date('Y'); ?> <a href="http://rajkumaar.co.in">Rajkumar</a>
     </p>
   </div>
 </footer>

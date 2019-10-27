@@ -78,7 +78,7 @@ function invalidParam(){
         B.Tech Curriculum for Amrita University in JSON
       </h1>
       <h2 class="subtitle">
-        Brought to you from amrita.edu by <a class="button is-small is-link" href="https://rajkumaar.co.in">Rajkumar</a>
+        Brought to you from amrita.edu by <a class="button is-small is-link" href="http://rajkumaar.co.in">Rajkumar</a>
       </h2>
     </div>
   </div>
@@ -110,7 +110,7 @@ function invalidParam(){
             Content Copyrights - <a href="https://amrita.edu">Amrita Vishwa Vidyapeetham</a>
         </p>
     <p>
- &copy; Copyright <?php echo date('Y'); ?> <a href="https://rajkumaar.co.in">Rajkumar</a>
+ &copy; Copyright <?php echo date('Y'); ?> <a href="http://rajkumaar.co.in">Rajkumar</a>
     </p>
   </div>
 </footer>

@@ -98,8 +98,9 @@
 					<h2>About Me</h2>
 				</header>
 				<p>
-					An ambitious computer engineering student, ever in awe of the wonders that 0s & 1s could create,
-					passionate about Product Development with experience in mobile & web frameworks.
+				An ambitious computer science engineering student, ever in awe of the wonders that 0s & 1s 
+				could create, passionate about Product Development with 
+				proven experience in mobile & web app frameworks such as PHP, NodeJS, Android etc.
 				</p>
 				<section>
 					<center>

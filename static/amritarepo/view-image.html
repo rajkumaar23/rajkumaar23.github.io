@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Academic Timetable</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="https://raw.githubusercontent.com/rajkumaar23/AmritaRepo/master/app/src/main/res/drawable/logosq.png"
+          rel="icon"
+          type="image/png">
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
+    <link href="https://www.jqueryscript.net/demo/Customizable-Loading-Modal-Plugin/css/modal-loading.css"
+          rel="stylesheet"
+          type="text/css"/>
+    <link href="https://www.jqueryscript.net/demo/Customizable-Loading-Modal-Plugin/css/modal-loading-animate.css"
+          rel="stylesheet"
+          type="text/css"/>
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Varela+Round");
+
+        body {
+            background: #f3f3f3 url('/images/tile1.jpg');
+            font-family: 'Varela Round', serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .imgbox {
+            display: grid;
+            height: 100%;
+        }
+
+        .center-fit {
+            max-width: 100%;
+            max-height: 100vh;
+            margin: auto;
+        }
+    </style>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/amritarepo">Amrita Repository</a>
+    <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+            class="navbar-toggler"
+            data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="http://bit.ly/amritarepo">Android App</a>
+            </li>
+            <li class="nav-item">
+                <a aria-disabled="true" class="nav-link" href="http://rajkumaar.co.in" tabindex="-1">About</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container" style="margin-top: 20px">
+    <h3 class="text-white" id="title"></h3>
+    <div class="imgbox">
+        <img alt="Sorry. The timetable has not yet been uploaded. Please check back later." class="center-fit"
+             id="image">
+    </div>
+</div>
+<script crossorigin="anonymous"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        src="https://code.jquery.com/jquery-3.3.1.slim.min.js">
+</script>
+<script crossorigin="anonymous"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js">
+</script>
+<script crossorigin="anonymous"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js">
+</script>
+<script src="https://www.jqueryscript.net/demo/Customizable-Loading-Modal-Plugin/js/modal-loading.js"
+        type="text/javascript"></script>
+<script src="js/view-image.js"></script>
+<div class="footer-copyright text-dark text-center py-3">Designed by<a href="http://rajkumaar.co.in"> Rajkumar</a>
+</div>
+</body>
+
+</html>

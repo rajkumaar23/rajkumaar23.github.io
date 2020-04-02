@@ -39,11 +39,11 @@ theme = "hello-friend-ng"
 
   [[params.social]]
     name = "linkedin"
-    url  = "https://www.linkedin.com/rajkumaar23"
+    url  = "https://www.linkedin.com/in/rajkumaar23"
 
   [[params.social]]
-    name = "twitter"
-    url  = "https://twitter.com/rajkumaar23"
+    name = "instagram"
+    url  = "https://instagram.com/rajkumaar23"
 
   [[params.social]]
     name = "email"

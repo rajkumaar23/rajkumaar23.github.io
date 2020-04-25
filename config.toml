@@ -1,64 +1,61 @@
 baseURL = "https://rajkumaar.co.in"
-title   = "Online Home of Rajkumar S"
-
+title = "Online Home of Rajkumar S"
 DefaultContentLanguage = "en"
 theme = "hello-friend-ng"
 
 [author]
-  name = "Rajkumar S"
+name = "Rajkumar S"
 
 [params]
-  dateform        = "Jan 2, 2006"
-  dateformShort   = "Jan 2"
-  dateformNum     = "2006-01-02"
-  dateformNumTime = "2006-01-02 15:04 -0700"
+dateform = "Jan 2, 2006"
+dateformShort = "Jan 2"
+dateformNum = "2006-01-02"
+dateformNumTime = "2006-01-02 15:04 -0700"
+description = "Online home of Rajkumar S"
+keywords = "homepage, portfolio, vCard, rajkumar, rajkumaar23"
+homeSubtitle = "Full Stack & Mobile App Developer"
+defaultTheme = "dark"
+themeColor = "#252627"
 
-  description = "Online home of Rajkumar S"
-  keywords = "homepage, portfolio, vCard, rajkumar, rajkumaar23"
+# Colors for favicons
+[params.favicon.color]
+mask = "#252627"
+msapplication = "#252627"
+theme = "#252627"
 
-  homeSubtitle = "Full Stack & Mobile App Developer"
+[params.logo]
+logoText = "$ cd /home"
+logoHomeLink = "/"
 
-  # Default theme "light" or "dark"
-  defaultTheme = "dark"
-  themeColor = "#252627"
+# Social icons
+[[params.social]]
+name = "github"
+url = "https://github.com/rajkumaar23"
 
-  # Colors for favicons
-  [params.favicon.color]
-    mask = "#252627"
-    msapplication = "#252627"
-    theme = "#252627"
+[[params.social]]
+name = "linkedin"
+url = "https://www.linkedin.com/in/rajkumaar23"
 
-  [params.logo]
-    logoText     = "$ cd /home"
-    logoHomeLink = "/"
+[[params.social]]
+name = "instagram"
+url = "https://instagram.com/rajkumaar23"
 
-  # Social icons
-  [[params.social]]
-    name = "github"
-    url  = "https://github.com/rajkumaar23"
+[[params.social]]
+name = "email"
+url = "mailto:rajkumaar2304@icloud.com"
 
-  [[params.social]]
-    name = "linkedin"
-    url  = "https://www.linkedin.com/in/rajkumaar23"
-
-  [[params.social]]
-    name = "instagram"
-    url  = "https://instagram.com/rajkumaar23"
-
-  [[params.social]]
-    name = "email"
-    url  = "mailto:rajkumaar2304@icloud.com"
-
-  [[params.social]]
-    name = "keybase"
-    url  = "https://keybase.io/rajkumaar2304/pgp_keys.asc?fingerprint=fe3e32cf8da4ac10f95cee076743a018e6542872"
+[[params.social]]
+name = "telegram"
+url = "https://t.me/rajkumaar23"
 
 [menu]
-  [[menu.main]]
-    identifier = "about"
-    name       = "about"
-    url        = "about/"
-  [[menu.main]]
-    identifier = "resume"
-    name       = "resume"
-    url        = "resume/"
+
+[[menu.main]]
+identifier = "about"
+name = "about"
+url = "about/"
+
+[[menu.main]]
+identifier = "resume"
+name = "resume"
+url = "resume/"

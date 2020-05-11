@@ -55,6 +55,6 @@ Here ends the one month long interview process and I’m selected for the Softwa
 - Prepare your LinkedIn profile and be an active user. You might find an opportunity anytime just like I did. It also helps you to improve your professional network.
 
 ## Preview Video of the Web App I built
-[<img src="https://img.youtube.com/vi/197v5LXos6A/maxresdefault.jpg">](https://youtu.be/197v5LXos6A)
+{{< youtube "197v5LXos6A" >}}
 
 Find the source code [here](https://github.com/rajkumaar23/codechef-contest-arena).

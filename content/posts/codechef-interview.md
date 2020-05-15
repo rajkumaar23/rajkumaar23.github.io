@@ -11,11 +11,11 @@ including its parent [Directi](Directi). Due to COVID-19, my whole interview pro
 
 
 ## Online Coding Round at CodeChef – 3 hours
-- 1 st and 2 nd question were of beginner level ([Reference](https://www.codechef.com/problems/school/))
-- 3 rd question (Easy) – You are given an array `A1,A2,...,An` of size N. A pair `(i,j)` is good if and only if `1≤i<j≤N` and `Ai+Aj` is a prime number. You need to find the number of good pairs in this array. (Trick: Using Sieve of Eratosthenes
+- 1st and 2nd question were of beginner level ([Reference](https://www.codechef.com/problems/school/))
+- 3rd question (Easy) – You are given an array `A1,A2,...,An` of size N. A pair `(i,j)` is good if and only if `1≤i<j≤N` and `Ai+Aj` is a prime number. You need to find the number of good pairs in this array. (Trick: Using Sieve of Eratosthenes
 for finding primes)
-- 4 th question (Medium) - Modified knapsack question (Dynamic Programming)
-- 5 th question (Hard) – Based on graphs
+- 4th question (Medium) - Modified knapsack question (Dynamic Programming)
+- 5th question (Hard) – Based on DSU
 
 Out of these, I was able to solve 4 of them and I got into the next round.
 
@@ -40,10 +40,10 @@ each word in your [resume](https://rajkumaar.co.in/resume)).
 - After some time of thinking and discussing with the interviewer, I was able to come up with a solution using hash-maps in quadratic time. Then, I was asked to optimise. After doing a dry run through few examples I observed something (replacing any element with the sum of itself and maximum element in the array), and came up with a solution in linear time. And then I was asked to code the same in my favourite language(C++).
 - My suggestion here is to _Think Aloud_. Your thinking process matters more than the solution itself.
 
-## Final round of Interview with CTO, CodeChef – 30 mins
+## Final round of Interview – 30 mins
 - This was more of an informal discussion about me, my family background, interests. All I had to do was to stay confident and share my stories.
 - He also shared about the evolution of CodeChef and its culture.
-- I was immediately informed by the CTO that I was in.
+- I was immediately informed that I was in.
 
 Here ends the one month long interview process and I’m selected for the Software Engineer Internship at CodeChef 🎉️
 

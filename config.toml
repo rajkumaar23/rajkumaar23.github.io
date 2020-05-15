@@ -17,6 +17,7 @@ keywords = "homepage, portfolio, vCard, rajkumar, rajkumaar23"
 homeSubtitle = "Software Engineer Intern | CodeChef"
 defaultTheme = "dark"
 themeColor = "#252627"
+disqusShortname = "rajkumaar23"
 
 # Colors for favicons
 [params.favicon.color]

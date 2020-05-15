@@ -87,10 +87,8 @@
             </div>
         {{ end }}
 
-        {{- if .Site.DisqusShortname }}
-            <div id="comments" class="thin">
-                {{ template "_internal/disqus.html" . }}
-            </div>
-        {{- end }}
+        <div id="comments" class="thin">
+            {{ template "_internal/disqus.html" . }}
+        </div>
     </main>
 {{ end }}

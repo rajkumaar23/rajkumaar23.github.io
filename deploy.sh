@@ -19,7 +19,7 @@ msg="rebuilding site $(date)"
 if [ -n "$*" ]; then
 	msg="$*"
 fi
-git commit -m "$msg"
+git commit -m "$msg" | echo "Nothing to commit"
 git push origin master
 
 printf "\033[0;32mPushing source code to GitHub...\033[0m\n"

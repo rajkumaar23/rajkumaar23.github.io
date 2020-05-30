@@ -1,6 +1,6 @@
 ---
 title: "Amrita Repository - Suite of Apps"
-date: 2020-05-20T18:34:00+05:30
+date: 2020-05-30T18:34:00+05:30
 ---
 
 ![Banner](https://raw.githubusercontent.com/rajkumaar23/amrita-repository/master/banner.jpg)

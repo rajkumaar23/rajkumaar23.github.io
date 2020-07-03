@@ -2,3 +2,6 @@
 	path = public
 	url = git@github.com:rajkumaar23/rajkumaar23.github.io.git
 	branch = master
+[submodule "static/amritarepo"]
+	path = static/amritarepo
+	url = git@github.com:amrita-repository/web-app.git

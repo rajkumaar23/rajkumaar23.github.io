@@ -18,6 +18,7 @@ homeSubtitle = "Software Engineer Intern | CodeChef"
 defaultTheme = "dark"
 themeColor = "#252627"
 disqusShortname = "rajkumaar23"
+googleAnalytics = "UA-125197278-2"
 
 # Colors for favicons
 [params.favicon.color]

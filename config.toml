@@ -2,7 +2,7 @@ baseURL = "https://rajkumaar.co.in"
 title = "Online Home of Rajkumar S"
 DefaultContentLanguage = "en"
 theme = "hello-friend-ng"
-googleAnalytics = "UA-125197278-2"
+publishDir = "docs"
 
 [author]
 name = "Rajkumar S"

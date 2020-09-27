@@ -16,7 +16,7 @@ description = "Online home of Rajkumar S"
 contentTypeName = "posts"
 keywords = "homepage, portfolio, vCard, rajkumar, rajkumaar23"
 homeSubtitle = "Software Engineer Intern | CodeChef"
-defaultTheme = "dark"
+defaultTheme = "light"
 themeColor = "#252627"
 disqusShortname = "rajkumaar23"
 

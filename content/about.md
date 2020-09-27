@@ -30,10 +30,12 @@ I am also a huge fan of Apple products, and their obsession in UI detailing
 I have a strong dislike towards tablet-sized mobile phones (oxymoron?), because of which 
 I currently own a **4-inch** iPhone SE (1<sup>st</sup> generation), and I use MacBook Air
 (i5 10<sup>th</sup> gen) as my personal laptop.
+
+![iPhone SE](/iPhone.jpg) 
  
 ## Security x Privacy 👻 
 I have always had a fantasy for breaking stuff as much as I love developing software, 
-and I look forward to learning more stuff about it, especially on web security.
+and I look forward to learning more about it, especially on web security.
 ***
 I also care/preach a lot about [privacy](https://privacytools.io) and 
 how it's exploited these days.

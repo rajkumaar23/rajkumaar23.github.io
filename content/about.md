@@ -1,9 +1,8 @@
 +++
-title = "$ whoami"
+title = "About"
 id = "about"
 +++
 
-## Basics 🤓
 I am Rajkumar, an ambitious computer science engineering senior, currently working as a 
 Software Engineer Intern at [CodeChef](https://codechef.com), ever in awe of the wonders 
 that 0s & 1s could create, passionate about Open Source & Product Development. 
@@ -17,7 +16,7 @@ The set of software I mostly use are :
 - [Duckduckgo](https://duck.com) mostly, [Startpage](https://startpage.com) rarely.
 
 ## Linux &hearts; Open Source
-Ever since I felt bad/disgusted about using pirated Windows in my first year of college,
+Ever since I felt bad/disgusted about using non-activated Windows in my first year of college,
 I switched to Linux &hearts; (Ubuntu initially) and never looked back. 
 During my four years of college, I have hopped between multiple Linux distributions 
 and out of everything, my favourite has been [elementaryOS](https://elementary.io) 

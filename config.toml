@@ -20,6 +20,11 @@ defaultTheme = "light"
 themeColor = "#252627"
 disqusShortname = "rajkumaar23"
 
+[markup]
+    [markup.goldmark]
+        [markup.goldmark.renderer]
+            unsafe = true
+
 # Colors for favicons
 [params.favicon.color]
 mask = "#252627"

@@ -26,11 +26,7 @@ because it's simple, clean and less intrusive thus letting me be more productive
 ## Apple 👨🏻‍💻
 I am also a huge fan of Apple products, and their obsession in UI detailing 
 &amp; providing a seamless user experience across their products. 
-I have a strong dislike towards tablet-sized mobile phones (oxymoron?), because of which 
-I currently own a **4-inch** iPhone SE (1<sup>st</sup> generation), and I use MacBook Air
-(i5 10<sup>th</sup> gen) as my personal laptop.
-
-![iPhone SE](/iPhone.jpg) 
+I currently use an iPhone XR, and a MacBook Air (i5 10<sup>th</sup> gen) as my daily drivers.
  
 ## Security x Privacy 👻 
 I have always had a fantasy for breaking stuff as much as I love developing software, 

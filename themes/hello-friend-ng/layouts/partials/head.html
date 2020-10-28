@@ -1,26 +1,32 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="author" content="{{ if .Params.author }}{{ .Params.author }}{{ else }}{{ range .Site.Author }}{{ . }} {{ end }}{{ end }}">
-<meta name="description" content="{{ if .IsHome }}{{ .Site.Params.homeSubtitle }}{{ else }}{{ .Summary | plainify }}{{ end }}" />
-<meta name="keywords" content="{{ .Site.Params.keywords }}{{ if .Params.tags }}{{ range .Params.tags }}, {{ . }}{{ end }}{{ end }}" />
-<meta name="robots" content="noodp" />
-<meta name="theme-color" content="{{ .Site.Params.themeColor }}" />
-<link rel="canonical" href="{{ .Permalink }}" />
+<meta name="author"
+      content="{{ if .Params.author }}{{ .Params.author }}{{ else }}{{ range .Site.Author }}{{ . }} {{ end }}{{ end }}">
+<meta name="description"
+      content="{{ if .IsHome }}{{ .Site.Params.homeSubtitle }}{{ else }}{{ .Summary | plainify }}{{ end }}"/>
+<meta name="keywords"
+      content="{{ .Site.Params.keywords }}{{ if .Params.tags }}{{ range .Params.tags }}, {{ . }}{{ end }}{{ end }}"/>
+<meta name="robots" content="noodp"/>
+<meta name="theme-color" content="{{ .Site.Params.themeColor }}"/>
+<link rel="canonical" href="{{ .Permalink }}"/>
+
+<meta content="{{ if .IsHome }}{{ $.Site.Title }} {{ with $.Site.Params.Subtitle }} — {{ . }} {{ end }}{{ else }}{{ .Title }} - {{ $.Site.Title }} {{ with $.Site.Params.Subtitle }} — {{ . }}{{ end }}{{ end }}"
+      property="og:title" />
+<meta content="{{ if .IsHome }}{{ .Site.Params.homeSubtitle }}{{ else }}{{ .Summary | plainify }}{{ end }}"
+      property="og:description"/>
+<meta property="og:url" content="{{ .Permalink }}" />
+<meta property="og:type" content="website" />
+<meta content="{{ .Site.Params.profileImage }}" property="og:image" />
 
 {{ block "title" . }}
-<title>
-    {{ if .IsHome }}
-    {{ $.Site.Title }} {{ with $.Site.Params.Subtitle }} — {{ . }} {{ end }}
-    {{ else }}
-    {{ .Title }} - {{ $.Site.Title }} {{ with $.Site.Params.Subtitle }} — {{ . }}{{ end }}
-    {{ end }}
-</title>
+<title>{{ if .IsHome }} {{ $.Site.Title }} {{ with $.Site.Params.Subtitle }} — {{ . }} {{ end }} {{ else }} {{ .Title }}
+    - {{ $.Site.Title }} {{ with $.Site.Params.Subtitle }} — {{ . }}{{ end }} {{ end }}</title>
 {{ end }}
 
 <!-- CSS -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
-    type="text/css">
+      type="text/css">
 
 {{ $options := (dict "targetPath" "main.css" "outputStyle" "compressed" "enableSourceMap" true) }}
 {{ $style := resources.Get "scss/main.scss" | resources.ToCSS $options | resources.Minify | resources.Fingerprint }}

@@ -1,8 +1,17 @@
 ---
 title: "CodeChef Interview Experience"
 date: 2020-05-11T18:34:00+05:30
+tags:
+- CodeChef
+- internship
+- summer internship
+- software development engineer
+- interview
+- dsa
+- algorithms
+- data structures
 ---
-![CodeChef Logo](https://cdn.clipart.email/ba093e45995da29c80b7227374bfe76e_download-hd-logo-rgb-mustach-codechef-png-transparent-png-image-_4032-1564.png)
+![CodeChef Logo](https://www.codechef.com/sites/all/themes/abessive/logo.svg)
 
 I’m a regular user at [LinkedIn](https://linkedin.com/in/rajkumaar23) and I came across the **Software Development Engineer
 Internship**’s poster by [CodeChef](https://codechef.com) when I was browsing through the feed one day.

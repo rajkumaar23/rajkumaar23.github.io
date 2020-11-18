@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author"
+      content="Rajkumar S ">
+<meta name="description"
+      content="Let&amp;rsquo;s see how to build a basic Java Enterprise (fondly known as J2EE) application, made up of a Servlet and a JSP file, with the help of the popular IDE by Jetbrains, IntelliJ Idea. Finally, we will have a look at how to deploy the same on the Heroku cloud.
+In the first place, I&amp;rsquo;m writing this blog because I couldn&amp;rsquo;t find a full-fledged write-up on how to do this myself initially and I had to try and err to find out the right way to do it."/>
+<meta name="keywords"
+      content="rajkumar, homepage, portfolio, vCard, rajkumar, rajkumaar23, j2ee, Heroku, IntelliJ, java, tomcat"/>
+<meta name="robots" content="noodp"/>
+<meta name="theme-color" content="#252627"/>
+<link rel="canonical" href="https://rajkumaar.co.in/posts/j2ee/"/>
+
+<meta content="Building a J2EE app using IntelliJ Idea and deploying on Heroku - Online Home of Rajkumar S "
+      property="og:title" />
+<meta content="Let&amp;rsquo;s see how to build a basic Java Enterprise (fondly known as J2EE) application, made up of a Servlet and a JSP file, with the help of the popular IDE by Jetbrains, IntelliJ Idea. Finally, we will have a look at how to deploy the same on the Heroku cloud.
+In the first place, I&amp;rsquo;m writing this blog because I couldn&amp;rsquo;t find a full-fledged write-up on how to do this myself initially and I had to try and err to find out the right way to do it."
+      property="og:description"/>
+<meta property="og:url" content="https://rajkumaar.co.in/posts/j2ee/" />
+<meta property="og:type" content="website" />
+<meta content="https://avatars0.githubusercontent.com/u/37476886?s=460&amp;v=4" property="og:image" />
+
+
+<title> Building a J2EE app using IntelliJ Idea and deploying on Heroku
+    - Online Home of Rajkumar S  </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+      type="text/css">
+
+
+
+<link rel="stylesheet" href="/main.min.201034209e5f7717d04336960b8dfced9b8ab0fcc5efdcbb5c5614d6e0de6e8d.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+<meta itemprop="name" content="Building a J2EE app using IntelliJ Idea and deploying on Heroku">
+<meta itemprop="description" content="Let&rsquo;s see how to build a basic Java Enterprise (fondly known as J2EE) application, made up of a Servlet and a JSP file, with the help of the popular IDE by Jetbrains, IntelliJ Idea. Finally, we will have a look at how to deploy the same on the Heroku cloud.
+In the first place, I&rsquo;m writing this blog because I couldn&rsquo;t find a full-fledged write-up on how to do this myself initially and I had to try and err to find out the right way to do it.">
+<meta itemprop="datePublished" content="2020-11-18T12:23:35+05:30" />
+<meta itemprop="dateModified" content="2020-11-18T12:23:35+05:30" />
+<meta itemprop="wordCount" content="812">
+
+
+
+<meta itemprop="keywords" content="j2ee,Heroku,IntelliJ,java,tomcat," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Building a J2EE app using IntelliJ Idea and deploying on Heroku"/>
+<meta name="twitter:description" content="Let&rsquo;s see how to build a basic Java Enterprise (fondly known as J2EE) application, made up of a Servlet and a JSP file, with the help of the popular IDE by Jetbrains, IntelliJ Idea. Finally, we will have a look at how to deploy the same on the Heroku cloud.
+In the first place, I&rsquo;m writing this blog because I couldn&rsquo;t find a full-fledged write-up on how to do this myself initially and I had to try and err to find out the right way to do it."/>
+
+
+
+
+
+    <meta property="article:published_time" content="2020-11-18 12:23:35 &#43;0530 IST" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd /home</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://rajkumaar.co.in/about/">about</a></li><li><a href="https://rajkumaar.co.in/posts">posts</a></li><li><a href="https://rajkumaar.co.in/resume/">resume</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+    <main class="post">
+
+        <div class="post-info">
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>4 minutes
+
+            
+
+            </p>
+        </div>
+
+        <article>
+            <h1 class="post-title">
+                <a href="https://rajkumaar.co.in/posts/j2ee/">Building a J2EE app using IntelliJ Idea and deploying on Heroku</a>
+            </h1>
+
+            
+
+            <div class="post-content">
+                <p>Let&rsquo;s see how to build a basic Java Enterprise (fondly known as J2EE) application, made up of a Servlet and a JSP file, with the help of the popular IDE by Jetbrains, IntelliJ Idea. Finally, we will have a look at how to deploy the same on the Heroku cloud.</p>
+<p>In the first place, I&rsquo;m writing this blog because I couldn&rsquo;t find a full-fledged write-up on how to do this myself initially and I had to try and err to find out the right way to do it.</p>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li><strong>Java Development Kit</strong>, which can be downloaded from <a href="https://www.oracle.com/in/java/technologies/javase-downloads.html">here</a>.</li>
+<li><strong>IntelliJ Idea Ultimate Edition</strong>, download it <a href="https://www.jetbrains.com/idea/download">here</a>. The ultimate edition is <strong>paid</strong>, but comes with a 30-day trial license. However, as long as you are a student, you can claim an educational license for free. More about it <a href="https://www.jetbrains.com/community/education/#students">here</a>.</li>
+<li><strong>Heroku</strong> account. If you don&rsquo;t have, create one for free <a href="https://signup.heroku.com">here</a>.</li>
+<li>Heroku <strong>CLI</strong>. Find the instructions <a href="https://devcenter.heroku.com/articles/heroku-cli">here</a>.</li>
+<li><strong>Tomcat</strong> server. You need to download the same from <a href="https://tomcat.apache.org/download-90.cgi">this link</a>, under Binary Distributions &gt; Core &gt; zip. After downloading, make sure to extract the contents to any folder of your wish.</li>
+</ul>
+<h2 id="lets-start-engineering">Let&rsquo;s start engineering!</h2>
+<ul>
+<li>Open IntelliJ Idea Ultimate and create a new project.
+<img src="/j2ee/intellij-home.png" alt="IntelliJ Idea home"></li>
+<li>Create a Java Enterprise project, with Maven as the build tool, JUnit as the test runner, and Java as the language.
+<img src="/j2ee/create-j2ee.png" alt="Creating J2EE project"></li>
+<li>In the next window, under Specifications, mark the checkbox for <strong>Servlet</strong> and ignore the rest.
+<img src="/j2ee/create-j2ee-servlet.png" alt="Creating J2EE project"></li>
+<li>Regarding the project name and properties, you can fill in as you wish, and click on Finish!
+<img src="/j2ee/project-properties.png" alt="Project Properties"></li>
+<li>Now, the creation of the project is complete and the IDE might take sometime to load all the necessary plugins/dependencies.</li>
+<li>If you look at the project directory, there will be a <strong>pom.xml</strong> at the root of the file. This is the file which Maven uses to maintain the dependencies of your project. Essentially, it&rsquo;s similar to a package.json in NodeJS (or) composer.json in PHP.</li>
+</ul>
+<blockquote>
+<p>Incase you ever want to add a library, say MySQL connector, you&rsquo;ll need to get its dependency XML tag from <a href="https://mvnrepository.com/artifact/mysql/mysql-connector-java/8.0.21">here</a> and paste inside your pom.xml. After which, you&rsquo;ll see a tiny dialog on your top-right with a refresh button which on clicking will install the newly added package.</p>
+</blockquote>
+<h2 id="jsp">JSP</h2>
+<ul>
+<li>Let&rsquo;s create a <a href="https://www.tutorialspoint.com/jsp/index.htm">JSP</a> file. Right click on <code>Project Folder &gt; src &gt; main &gt; webapp</code> from the sidebar, and create a JSP file named <strong>hello.jsp</strong>, and fill in some JSP content.
+<img src="/j2ee/create-jsp.png" alt="Creating JSP file"></li>
+<li>Click on <strong>Add configuration</strong> at the center top. After the window opens, click on the <strong>+</strong> button as instructed, and choose <code>Tomcat server &gt; Local</code>.</li>
+<li>Give it a name as you wish, and near the <strong>Application server</strong> input box, click on the <strong>configure</strong> button. Now, enter the folder path where you extracted the zip of the Tomcat server.
+<img src="/j2ee/tomcat-dir.png" alt="Setting up tomcat"></li>
+<li>If you see a warning at the bottom saying <strong>No artifacts marked for deployment</strong>, click the <strong>Fix</strong> button near the warning and choose <strong>ProjectName:war exploded</strong>. Then, click Okay.</li>
+<li>Now, you&rsquo;ll see a neat Run button at the top. Click on it and wait until Java compiles your web app and opens your default browser.</li>
+<li>Your browser would have opened the URL of your application context, similar to <code>localhost:8080/J2EEDemo_war_exploded</code>. This is the root of your web application. Append <strong>/hello.jsp</strong> to your current URL (it becomes <code>http://localhost:8080/J2EEDemo_war_exploded/hello.jsp</code>) and enter. You&rsquo;ll see the contents you wrote in your hello.jsp.</li>
+</ul>
+<h2 id="servlet">Servlet</h2>
+<ul>
+<li>Let&rsquo;s create a Servlet now. Right-click on <code>Project Folder &gt; src &gt; main &gt; java</code> from the sidebar and create a new Java Servlet. Enter the name and package as you wish.
+<img src="/j2ee/new-servlet.png" alt="Creating servlet">
+<img src="/j2ee/servlet.png" alt="Creating servlet"></li>
+<li>Under the doGet() method, paste the following code :</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@WebServlet</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;LoginServlet&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LoginServlet</span> <span style="color:#66d9ef">extends</span> HttpServlet <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">doGet</span><span style="color:#f92672">(</span>HttpServletRequest request<span style="color:#f92672">,</span> HttpServletResponse response<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> ServletException<span style="color:#f92672">,</span> IOException <span style="color:#f92672">{</span>
+        PrintWriter out <span style="color:#f92672">=</span> response<span style="color:#f92672">.</span><span style="color:#a6e22e">getWriter</span><span style="color:#f92672">();</span>
+        out<span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;You are at login page&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><ul>
+<li>Next thing to do is assign an URL to this servlet. Open <code>src/main/webapp/WEB-INF/web.xml</code> and paste the following :</li>
+</ul>
+<blockquote>
+<p>Make sure you change the servlet-class according to your package and class name.</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#f92672">&lt;web-app</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://xmlns.jcp.org/xml/ns/javaee&#34;</span>
+         <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+         <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&#34;</span>
+         <span style="color:#a6e22e">version=</span><span style="color:#e6db74">&#34;4.0&#34;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;servlet&gt;</span>
+        <span style="color:#f92672">&lt;servlet-name&gt;</span>LoginServlet<span style="color:#f92672">&lt;/servlet-name&gt;</span>
+        <span style="color:#f92672">&lt;servlet-class&gt;</span>in.co.rajkumaar.LoginServlet<span style="color:#f92672">&lt;/servlet-class&gt;</span>
+    <span style="color:#f92672">&lt;/servlet&gt;</span>
+    <span style="color:#f92672">&lt;servlet-mapping&gt;</span>
+        <span style="color:#f92672">&lt;servlet-name&gt;</span>LoginServlet<span style="color:#f92672">&lt;/servlet-name&gt;</span>
+        <span style="color:#f92672">&lt;url-pattern&gt;</span>/login<span style="color:#f92672">&lt;/url-pattern&gt;</span>
+    <span style="color:#f92672">&lt;/servlet-mapping&gt;</span>
+<span style="color:#f92672">&lt;/web-app&gt;</span>
+</code></pre></div><ul>
+<li>Now, click on the Run button again and select Restart server.</li>
+<li>Visit <a href="http://localhost:8080/J2EEDemo_war_exploded/login">http://localhost:8080/J2EEDemo_war_exploded/login</a> to get the contents from the servlet.</li>
+</ul>
+<h2 id="heroku">Heroku</h2>
+<ul>
+<li>
+<p>Visit <a href="https://dashboard.heroku.com/new-app">https://dashboard.heroku.com/new-app</a> and create a new app.
+<img src="/j2ee/heroku-new.png" alt="Creating new Heroku app"></p>
+</li>
+<li>
+<p>On your IntelliJ Idea Ultimate, open the <strong>Build</strong> menu and click on Build artifacts. Choose AppName:war &gt; Build.</p>
+</li>
+<li>
+<p>You&rsquo;ll be able to see a <code>J2EEDemo-1.0-SNAPSHOT.war</code> file inside the <code>target/</code> directory of your application. Right-click on the file and copy &gt; Absolute Path.
+<img src="/j2ee/target.png" alt="Target directory with WAR file"></p>
+</li>
+<li>
+<p>Open up your terminal/command prompt, and run <code>heroku login</code>.</p>
+</li>
+<li>
+<p>Authorize on the website it opens up for you.</p>
+</li>
+<li>
+<p>Come back to the terminal, and run <code>heroku plugins:install java</code>.</p>
+</li>
+<li>
+<p>Then, run the following command. Make sure you replace the <strong>path for the WAR file</strong> and your <strong>application name</strong>.</p>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">heroku war:deploy /Users/rajkumar/Projects/J2EEDemo/target/J2EEDemo-1.0-SNAPSHOT.war -a j2ee-test-raj
+</code></pre></div><hr>
+<ul>
+<li>Visit the following links and expect the same result as you saw in your local server.
+<ul>
+<li><a href="https://j2ee-test-raj.herokuapp.com/login">https://j2ee-test-raj.herokuapp.com/login</a></li>
+<li><a href="https://j2ee-test-raj.herokuapp.com/hello.jsp">https://j2ee-test-raj.herokuapp.com/hello.jsp</a></li>
+</ul>
+</li>
+</ul>
+
+            </div>
+        </article>
+
+        <hr />
+	
+
+<style>
+    #share-buttons {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    #share-buttons:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+    #share-buttons > a {
+        position: relative;
+        height: 36px;
+        width: 32px;
+        float: left;
+        text-align: center;
+    }
+
+    #share-buttons > a > svg {
+        height: 16px;
+        fill: #d5d5d5;
+        margin-top: 10px;
+    }
+
+    #share-buttons > a:hover {
+        cursor: pointer;
+    }
+
+    #share-buttons > a.facebook:hover > svg {
+        fill: #3B5998;
+    }
+
+    #share-buttons > a.twitter:hover > svg {
+        fill: #55ACEE;
+    }
+
+    #share-buttons > a.linkedin:hover > svg {
+        fill: #0077b5;
+    }
+
+    #share-buttons > a.mail:hover > svg {
+        fill: #7D7D7D;
+    }
+
+    #share-buttons > a.whatsapp:hover > svg {
+        fill: #2dce01;
+    }
+
+    #share-buttons > a.telegram:hover > svg {
+        fill: #0077b5;
+    }
+
+    #share-buttons > a.facebook > svg {
+        height: 18px;
+        margin-top: 9px;
+    }
+
+    #share-buttons > a.twitter > svg {
+        height: 20px;
+        margin-top: 8px;
+    }
+
+    #share-buttons > a.linkedin > svg {
+        height: 19px;
+        margin-top: 7px;
+    }
+
+    #share-buttons > a.mail > svg {
+        height: 14px;
+        margin-top: 11px;
+    }
+
+    #share-buttons > a.whatsapp > svg {
+        height: 18px;
+        margin-top: 9px;
+    }
+
+    #share-buttons > a.telegram > svg {
+        height: 17px;
+        margin-top: 11px;
+    }
+</style>
+
+<span style="color: silver;">Share on : </span>
+<div id="share-buttons">
+    <a class="facebook" title="Share this on Facebook"
+       href="http://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2frajkumaar.co.in%2fposts%2fj2ee%2f" target="_blank">
+        <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z"/>
+        </svg>
+    </a>
+    <a class="twitter" title="Share this on Twitter"
+       href="http://twitter.com/intent/tweet?text=https%3a%2f%2frajkumaar.co.in%2fposts%2fj2ee%2f" target="_blank">
+        <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z"/>
+        </svg>
+    </a>
+    <a class="linkedin" title="Share this on Linkedin"
+       href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2frajkumaar.co.in%2fposts%2fj2ee%2f&title=&summary=&source="
+       target="_blank">
+        <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+            <path d="M477 625v991h-330v-991h330zm21-306q1 73-50.5 122t-135.5 49h-2q-82 0-132-49t-50-122q0-74 51.5-122.5t134.5-48.5 133 48.5 51 122.5zm1166 729v568h-329v-530q0-105-40.5-164.5t-126.5-59.5q-63 0-105.5 34.5t-63.5 85.5q-11 30-11 81v553h-329q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5 114.5-15.5q171 0 275 113.5t104 332.5z"/>
+        </svg>
+    </a>
+    <a class="mail" title="Share this through Email" href="mailto:?&body=https%3a%2f%2frajkumaar.co.in%2fposts%2fj2ee%2f" target="_blank">
+        <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1792 710v794q0 66-47 113t-113 47h-1472q-66 0-113-47t-47-113v-794q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 100-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38-42.5-30.5q-91-64-262-182.5t-205-142.5q-62-42-117-115.5t-55-136.5q0-78 41.5-130t118.5-52h1472q65 0 112.5 47t47.5 113z"/>
+        </svg>
+    </a>
+    <a class="telegram" title="Share this through Telegram" href="https://t.me/share/url?url=https%3a%2f%2frajkumaar.co.in%2fposts%2fj2ee%2f"
+       target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M.707 8.475C.275 8.64 0 9.508 0 9.508s.284.867.718 1.03l5.09 1.897 1.986 6.38a1.102 1.102 0 0 0 1.75.527l2.96-2.41a.405.405 0 0 1 .494-.013l5.34 3.87a1.1 1.1 0 0 0 1.046.135 1.1 1.1 0 0 0 .682-.803l3.91-18.795A1.102 1.102 0 0 0 22.5.075L.706 8.475z"/>
+        </svg>
+    </a>
+    <a class="whatsapp" title="Share this through WhatsApp" href="whatsapp://send?text=https%3a%2f%2frajkumaar.co.in%2fposts%2fj2ee%2f"
+       target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M20.1 3.9C17.9 1.7 15 .5 12 .5 5.8.5.7 5.6.7 11.9c0 2 .5 3.9 1.5 5.6L.6 23.4l6-1.6c1.6.9 3.5 1.3 5.4 1.3 6.3 0 11.4-5.1 11.4-11.4-.1-2.8-1.2-5.7-3.3-7.8zM12 21.4c-1.7 0-3.3-.5-4.8-1.3l-.4-.2-3.5 1 1-3.4L4 17c-1-1.5-1.4-3.2-1.4-5.1 0-5.2 4.2-9.4 9.4-9.4 2.5 0 4.9 1 6.7 2.8 1.8 1.8 2.8 4.2 2.8 6.7-.1 5.2-4.3 9.4-9.5 9.4zm5.1-7.1c-.3-.1-1.7-.9-1.9-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1s-1.2-.5-2.3-1.4c-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6s.3-.3.4-.5c.2-.1.3-.3.4-.5.1-.2 0-.4 0-.5C10 9 9.3 7.6 9 7c-.1-.4-.4-.3-.5-.3h-.6s-.4.1-.7.3c-.3.3-1 1-1 2.4s1 2.8 1.1 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.3-.3-.4-.6-.5z"/>
+        </svg>
+    </a>
+</div>
+
+
+        <div class="post-info">
+                <p>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg><span class="tag"><a href="https://rajkumaar.co.in/tags/j2ee">j2ee</a></span><span class="tag"><a href="https://rajkumaar.co.in/tags/heroku">Heroku</a></span><span class="tag"><a href="https://rajkumaar.co.in/tags/intellij">IntelliJ</a></span><span class="tag"><a href="https://rajkumaar.co.in/tags/java">java</a></span><span class="tag"><a href="https://rajkumaar.co.in/tags/tomcat">tomcat</a></span>
+                </p>
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>812 Words</p>
+
+            <p><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>2020-11-18 12:23 &#43;0530</p>
+        </div>
+
+        
+            <div class="pagination">
+                <div class="pagination__title">
+                    <span class="pagination__title-h"></span>
+                    <hr />
+                </div>
+
+                <div class="pagination__buttons">
+                    
+
+                    
+                        <span class="button next">
+                            <a href="https://rajkumaar.co.in/posts/badgie/">
+                                <span class="button__text">Badgie - My first native GTK app</span>
+                                <span class="button__icon">→</span>
+                            </a>
+                        </span>
+                    
+                </div>
+            </div>
+        
+
+        <div id="comments" class="thin">
+            <div id="disqus_thread"></div>
+<script>
+(function() {
+var d = document, s = d.createElement('script');
+s.src = 'https://rajkumaar23.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+        </div>
+    </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2020</span>
+            
+                <span>Rajkumar S</span>
+            
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="/bundle.min.5d030e04cbd0a8b2ca33590b85601060b4f1dcaecbca539b6dd67ba70aaaa39b9a402f9d1405c0c95bce01bee2af55ab732c0d3702391184f890970f7342c496.js" integrity="sha512-XQMOBMvQqLLKM1kLhWAQYLTx3K7LylObbdZ7pwqqo5uaQC&#43;dFAXAyVvOAb7ir1WrcywNNwI5EYT4kJcPc0LElg=="></script>
+
+<script async data-goatcounter="https://rajkumaar23.goatcounter.com/count" src="//gc.zgo.at/count.js"></script>
+
+
+
+    </body>
+</html>

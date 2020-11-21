@@ -9,9 +9,11 @@ tags:
   - tomcat
 ---
 
-Let's see how to build a basic Java Enterprise (fondly known as J2EE) application, made up of a Servlet and a JSP file, with the help of the popular IDE by Jetbrains, IntelliJ Idea. Finally, we will have a look at how to deploy the same on the Heroku cloud.
+Let's see how to build a basic Java Enterprise (fondly known as J2EE) application, made up of a Servlet and a JSP file, with the help of the popular IDE by Jetbrains, IntelliJ Idea. Finally, we will have a look at how to deploy the same on the Heroku cloud. 🌧
 
 In the first place, I'm writing this blog because I couldn't find a full-fledged write-up on how to do this myself initially and I had to try and err to find out the right way to do it.
+
+> Let me know how you like this post, in the comments section at the bottom of the page. 😬
 
 ## Requirements
 - **Java Development Kit**, which can be downloaded from [here](https://www.oracle.com/in/java/technologies/javase-downloads.html).

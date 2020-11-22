@@ -92,7 +92,7 @@ public class LoginServlet extends HttpServlet {
 - Come back to the terminal, and run `heroku plugins:install java`.
 - Then, run the following command. Make sure you replace the **path for the WAR file** and your **application name**.
 ```bash
-heroku war:deploy /Users/rajkumar/Projects/J2EEDemo/target/J2EEDemo-1.0-SNAPSHOT.war -a j2ee-test-raj
+heroku war:deploy "/Users/rajkumar/Projects/J2EEDemo/target/J2EEDemo-1.0-SNAPSHOT.war" -a j2ee-test-raj
 ```
 
 ***

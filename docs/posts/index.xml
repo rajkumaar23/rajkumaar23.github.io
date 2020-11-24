@@ -26,7 +26,12 @@ In the first place, I&amp;rsquo;m writing this blog because I couldn&amp;rsquo;t
 <li><strong>IntelliJ Idea Ultimate Edition</strong>, download it <a href="https://www.jetbrains.com/idea/download">here</a>. The ultimate edition is <strong>paid</strong>, but comes with a 30-day trial license. However, as long as you are a student, you can claim an educational license for free. More about it <a href="https://www.jetbrains.com/community/education/#students">here</a>.</li>
 <li><strong>Heroku</strong> account. If you don&rsquo;t have, create one for free <a href="https://signup.heroku.com">here</a>.</li>
 <li>Heroku <strong>CLI</strong>. Find the instructions <a href="https://devcenter.heroku.com/articles/heroku-cli">here</a>.</li>
-<li><strong>Tomcat</strong> server. You need to download the same from <a href="https://tomcat.apache.org/download-90.cgi">this link</a>, under Binary Distributions &gt; Core &gt; zip. After downloading, make sure to extract the contents to any folder of your wish.</li>
+<li><strong>Tomcat</strong> server. You need to download the same from <a href="https://tomcat.apache.org/download-90.cgi">this link</a>, under Binary Distributions &gt; Core &gt; zip. After downloading, make sure to extract the contents to any folder of your wish.
+<ul>
+<li>If you&rsquo;re on Linux/macOS, you&rsquo;ll need to enable executable permission for the tomcat binaries by running the following command on your terminal.</li>
+<li><code>sudo chmod +x -R &lt;path-to-tomcat-extracted-folder&gt;/bin</code></li>
+</ul>
+</li>
 </ul>
 <h2 id="lets-start-engineering">Let&rsquo;s start engineering!</h2>
 <ul>

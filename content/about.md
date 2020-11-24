@@ -3,13 +3,13 @@ title = "About"
 id = "about"
 +++
 
-I am Rajkumar, an ambitious computer science engineering senior, currently working as a 
+I am Rajkumar, an ambitious computer science engineering undergrad, currently working part-time as a 
 Software Engineer Intern at [CodeChef](https://codechef.com), ever in awe of the wonders 
-that 0s & 1s could create, passionate about Open Source & Product Development. 
+that 0<sub>s</sub> & 1<sub>s</sub> could create, and passionate about Open Source & Product Development. 
 I started my development with mainly Android apps made out of Java, 
 then got to explore web technologies such as [Laravel](https://laravel.com), NodeJS, Angular etc.
 
-The set of software I mostly use are :
+The software I mostly use are :
 - Jetbrains suite of IDEs for development.
 - Sublime Text for quick text editing.
 - Sublime Merge for complex git stuff.
@@ -26,7 +26,7 @@ because it's simple, clean and less intrusive thus letting me be more productive
 ## Apple 👨🏻‍💻
 I am also a huge fan of Apple products, and their obsession in UI detailing 
 &amp; providing a seamless user experience across their products. 
-I currently use an iPhone XR, and a MacBook Air (i5 10<sup>th</sup> gen) as my daily drivers.
+I currently possess an iPhone XR, and a MacBook Air (i5 10<sup>th</sup> gen) for my daily personal usage.
  
 ## Security x Privacy 👻 
 I have always had a fantasy for breaking stuff as much as I love developing software, 
@@ -36,6 +36,9 @@ I also care/preach a lot about [privacy](https://privacytools.io) and
 how it's exploited these days.
 
 > If you are not paying for a product, then you're the product.
+
+## Analytics 📈
+This site uses privacy-friendly web analytics called [goatcounter](https://www.goatcounter.com) 🐐, which doesn't track any of your personal data.
 
 ## Contact 💬
 If you would like to discuss something with me, 

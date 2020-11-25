@@ -22,7 +22,7 @@ In the first place, I'm writing this blog because I couldn't find a full-fledged
 - Heroku **CLI**. Find the instructions [here](https://devcenter.heroku.com/articles/heroku-cli).
 - **Tomcat** server. You need to download the same from [this link](https://tomcat.apache.org/download-90.cgi), under Binary Distributions > Core > zip. After downloading, make sure to extract the contents to any folder of your wish.
   - If you're on Linux/macOS, you'll need to enable executable permission for the tomcat binaries by running the following command on your terminal. 
-  - `sudo chmod +x -R <path-to-tomcat-extracted-folder>/bin`
+  - `sudo chmod -R +x <path-to-tomcat-extracted-folder>/bin`
 
 ## Let's start engineering!
 - Open IntelliJ Idea Ultimate and create a new project.

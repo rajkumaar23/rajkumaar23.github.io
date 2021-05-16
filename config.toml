@@ -67,7 +67,7 @@ url = "about/"
 [[menu.main]]
 identifier = "resume"
 name = "resume"
-url = "resume/"
+url = "resume.pdf"
 
 [[menu.main]]
 name = "posts"

@@ -12,18 +12,18 @@
       content="rajkumar, homepage, portfolio, vCard, rajkumar, rajkumaar23"/>
 <meta name="robots" content="noodp"/>
 <meta name="theme-color" content="#252627"/>
-<link rel="canonical" href="https://rajkumaar.co.in/tags/j2ee/"/>
+<link rel="canonical" href="https://rajkumaar.co.in/books/shelf/"/>
 
-<meta content="j2ee - Online Home of Rajkumar S "
+<meta content="Book Shelf - Online Home of Rajkumar S "
       property="og:title" />
 <meta content=""
       property="og:description"/>
-<meta property="og:url" content="https://rajkumaar.co.in/tags/j2ee/" />
+<meta property="og:url" content="https://rajkumaar.co.in/books/shelf/" />
 <meta property="og:type" content="website" />
 <meta content="https://avatars0.githubusercontent.com/u/37476886?s=460&amp;v=4" property="og:image" />
 
 
-<title> j2ee
+<title> Book Shelf
     - Online Home of Rajkumar S  </title>
 
 
@@ -46,11 +46,17 @@
     <meta name="msapplication-TileColor" content="#252627">
     <meta name="theme-color" content="#252627">
 
-<meta itemprop="name" content="j2ee">
-<meta itemprop="description" content="Online home of Rajkumar S">
+<meta itemprop="name" content="Book Shelf">
+<meta itemprop="description" content="">
+
+<meta itemprop="wordCount" content="0">
+
+
+
+<meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="j2ee"/>
-<meta name="twitter:description" content="Online home of Rajkumar S"/>
+<meta name="twitter:title" content="Book Shelf"/>
+<meta name="twitter:description" content=""/>
 
 
 
@@ -58,7 +64,6 @@
 
 
 
-<link rel="alternate" type="application/rss+xml" href="https://rajkumaar.co.in/tags/j2ee/index.xml" title="Online Home of Rajkumar S" />
 
 
 
@@ -112,25 +117,74 @@
 
             <div class="content">
                 
-    <main class="posts">
-        <h1>j2ee</h1>
-            <div class="posts-group">
-                <div class="post-year">2020</div>
+<style>
+    .column {
+        float: left;
+        width: 25%;
+        padding: 15px;
+    }
 
-                <ul class="posts-list">
-                        <li class="post-item">
-                            <a href="https://rajkumaar.co.in/posts/j2ee/">
-                                <span class="post-title">Building a J2EE app using IntelliJ Idea and deploying on Heroku</span>
-                                <span class="post-day">
-                                    
-                                        Nov 18
-                                    
-                                </span>
-                            </a>
-                        </li>
-                </ul>
-            </div>
-    </main>
+     
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    @media screen and (max-width: 600px) {
+        .column {
+            width: 100%;
+        }
+
+        .shelf-type {
+            display: table;
+            margin: auto;
+        }
+    }
+
+    img {
+        width: 180px;
+        height: 269px;
+    }
+</style>
+<main style="padding: 10px;margin: 10px auto;">
+    <h2 class="shelf-type">Currently reading</h2>
+    <div class="row" id="currently-reading"></div>
+    <hr>
+    <h2 class="shelf-type">Already read</h2>
+    <div class="row" id="already-read"></div>
+    <hr>
+    <h2 class="shelf-type">Want to read</h2>
+    <div class="row" id="want-to-read"></div>
+    <script>
+        const xmlHttpRequest = new XMLHttpRequest();
+        const url = "https://raw.githubusercontent.com/rajkumaar23/open-library-reading-log/main/_data/reading-log.json";
+
+        const parseAndModifyDOM = (data, id) => {
+            let tempStore = '';
+            data[id].forEach(item => {
+                tempStore += (`
+                        <a class="column" href="${item.link}" target="_blank">
+                            <div style="display: table; margin: auto;">
+                                <img src="${item.image}" alt="${item.title}">
+                            </div>
+                        </a>
+                    `)
+            })
+            document.getElementById(id).innerHTML = tempStore
+        }
+        xmlHttpRequest.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                const data = JSON.parse(this.responseText);
+                parseAndModifyDOM(data, 'currently-reading')
+                parseAndModifyDOM(data, 'already-read')
+                parseAndModifyDOM(data, 'want-to-read')
+            }
+        };
+        xmlHttpRequest.open("GET", url, true);
+        xmlHttpRequest.send();
+    </script>
+</main>
 
             </div>
 

@@ -72,3 +72,7 @@ url = "resume.pdf"
 [[menu.main]]
 name = "posts"
 url = "/posts"
+
+[[menu.main]]
+name = "bookshelf"
+url = "/books/shelf"

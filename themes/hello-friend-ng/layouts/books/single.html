@@ -1,0 +1,70 @@
+{{ define "main" }}
+<style>
+    .column {
+        float: left;
+        width: 25%;
+        padding: 15px;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    @media screen and (max-width: 600px) {
+        .column {
+            width: 100%;
+        }
+
+        .shelf-type {
+            display: table;
+            margin: auto;
+        }
+    }
+
+    img {
+        width: 180px;
+        height: 269px;
+    }
+</style>
+<main style="padding: 10px;margin: 10px auto;">
+    <h2 class="shelf-type">Currently reading</h2>
+    <div class="row" id="currently-reading"></div>
+    <hr>
+    <h2 class="shelf-type">Already read</h2>
+    <div class="row" id="already-read"></div>
+    <hr>
+    <h2 class="shelf-type">Want to read</h2>
+    <div class="row" id="want-to-read"></div>
+    <script>
+        const xmlHttpRequest = new XMLHttpRequest();
+        const url = "https://raw.githubusercontent.com/rajkumaar23/open-library-reading-log/main/_data/reading-log.json";
+
+        const parseAndModifyDOM = (data, id) => {
+            let tempStore = '';
+            data[id].forEach(item => {
+                tempStore += (`
+                        <a class="column" href="${item.link}" target="_blank">
+                            <div style="display: table; margin: auto;">
+                                <img src="${item.image}" alt="${item.title}">
+                            </div>
+                        </a>
+                    `)
+            })
+            document.getElementById(id).innerHTML = tempStore
+        }
+        xmlHttpRequest.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                const data = JSON.parse(this.responseText);
+                parseAndModifyDOM(data, 'currently-reading')
+                parseAndModifyDOM(data, 'already-read')
+                parseAndModifyDOM(data, 'want-to-read')
+            }
+        };
+        xmlHttpRequest.open("GET", url, true);
+        xmlHttpRequest.send();
+    </script>
+</main>
+{{ end }}

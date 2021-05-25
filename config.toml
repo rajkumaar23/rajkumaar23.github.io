@@ -50,6 +50,10 @@ name = "twitter"
 url = "https://twitter.com/rajkumaar23"
 
 [[params.social]]
+name = "gpg"
+url = "/pgp.txt"
+
+[[params.social]]
 name = "email"
 url = "mailto:rajkumaar2304@icloud.com"
 

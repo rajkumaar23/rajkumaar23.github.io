@@ -1,0 +1,233 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Online Home of Rajkumar S</title><link>https://rajkumaar.co.in/posts/</link><description>Recent content in Posts on Online Home of Rajkumar S</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Wed, 18 Nov 2020 12:23:35 +0530</lastBuildDate><atom:link href="https://rajkumaar.co.in/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Building a J2EE app using IntelliJ Idea and deploying on Heroku</title><link>https://rajkumaar.co.in/posts/j2ee/</link><pubDate>Wed, 18 Nov 2020 12:23:35 +0530</pubDate><guid>https://rajkumaar.co.in/posts/j2ee/</guid><description>Let&amp;rsquo;s see how to build a basic Java Enterprise (fondly known as J2EE) application, made up of a Servlet and a JSP file, with the help of the popular IDE by Jetbrains, IntelliJ Idea. Finally, we will have a look at how to deploy the same on the Heroku cloud. 🌧
+In the first place, I&amp;rsquo;m writing this blog because I couldn&amp;rsquo;t find a full-fledged write-up on how to do this myself initially and I had to try and err to find out the right way to do it.</description><content type="html"><![CDATA[<p>Let&rsquo;s see how to build a basic Java Enterprise (fondly known as J2EE) application, made up of a Servlet and a JSP file, with the help of the popular IDE by Jetbrains, IntelliJ Idea. Finally, we will have a look at how to deploy the same on the Heroku cloud. 🌧</p>
+<p>In the first place, I&rsquo;m writing this blog because I couldn&rsquo;t find a full-fledged write-up on how to do this myself initially and I had to try and err to find out the right way to do it.</p>
+<blockquote>
+<p>Let me know how you like this post, in the comments section at the bottom of the page. 😬</p>
+</blockquote>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li><strong>Java Development Kit</strong>, which can be downloaded from <a href="https://www.oracle.com/in/java/technologies/javase-downloads.html">here</a>.</li>
+<li><strong>IntelliJ Idea Ultimate Edition</strong>, download it <a href="https://www.jetbrains.com/idea/download">here</a>. The ultimate edition is <strong>paid</strong>, but comes with a 30-day trial license. However, as long as you are a student, you can claim an educational license for free. More about it <a href="https://www.jetbrains.com/community/education/#students">here</a>.</li>
+<li><strong>Heroku</strong> account. If you don&rsquo;t have, create one for free <a href="https://signup.heroku.com">here</a>.</li>
+<li>Heroku <strong>CLI</strong>. Find the instructions <a href="https://devcenter.heroku.com/articles/heroku-cli">here</a>.</li>
+<li><strong>Tomcat</strong> server. You need to download the same from <a href="https://tomcat.apache.org/download-90.cgi">this link</a>, under Binary Distributions &gt; Core &gt; zip. After downloading, make sure to extract the contents to any folder of your wish.
+<ul>
+<li>If you&rsquo;re on Linux/macOS, you&rsquo;ll need to enable executable permission for the tomcat binaries by running the following command on your terminal.</li>
+<li><code>sudo chmod -R +x &lt;path-to-tomcat-extracted-folder&gt;/bin</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="lets-start-engineering">Let&rsquo;s start engineering!</h2>
+<ul>
+<li>Open IntelliJ Idea Ultimate and create a new project.
+<img src="/j2ee/intellij-home.png" alt="IntelliJ Idea home"></li>
+<li>Create a Java Enterprise project, with Maven as the build tool, JUnit as the test runner, and Java as the language.
+<img src="/j2ee/create-j2ee.png" alt="Creating J2EE project"></li>
+<li>In the next window, under Specifications, mark the checkbox for <strong>Servlet</strong> and ignore the rest.
+<img src="/j2ee/create-j2ee-servlet.png" alt="Creating J2EE project"></li>
+<li>Regarding the project name and properties, you can fill in as you wish, and click on Finish!
+<img src="/j2ee/project-properties.png" alt="Project Properties"></li>
+<li>Now, the creation of the project is complete and the IDE might take sometime to load all the necessary plugins/dependencies.</li>
+<li>If you look at the project directory, there will be a <strong>pom.xml</strong> at the root of the file. This is the file which Maven uses to maintain the dependencies of your project. Essentially, it&rsquo;s similar to a package.json in NodeJS (or) composer.json in PHP.</li>
+</ul>
+<blockquote>
+<p>Incase you ever want to add a library, say MySQL connector, you&rsquo;ll need to get its dependency XML tag from <a href="https://mvnrepository.com/artifact/mysql/mysql-connector-java/8.0.21">here</a> and paste inside your pom.xml. After which, you&rsquo;ll see a tiny dialog on your top-right with a refresh button which on clicking will install the newly added package.</p>
+</blockquote>
+<h2 id="jsp">JSP</h2>
+<ul>
+<li>Let&rsquo;s create a <a href="https://www.tutorialspoint.com/jsp/index.htm">JSP</a> file. Right click on <code>Project Folder &gt; src &gt; main &gt; webapp</code> from the sidebar, and create a JSP file named <strong>hello.jsp</strong>, and fill in some JSP content.
+<img src="/j2ee/create-jsp.png" alt="Creating JSP file"></li>
+<li>Click on <strong>Add configuration</strong> at the center top. After the window opens, click on the <strong>+</strong> button as instructed, and choose <code>Tomcat server &gt; Local</code>.</li>
+<li>Give it a name as you wish, and near the <strong>Application server</strong> input box, click on the <strong>configure</strong> button. Now, enter the folder path where you extracted the zip of the Tomcat server.
+<img src="/j2ee/tomcat-dir.png" alt="Setting up tomcat"></li>
+<li>If you see a warning at the bottom saying <strong>No artifacts marked for deployment</strong>, click the <strong>Fix</strong> button near the warning and choose <strong>ProjectName:war exploded</strong>. Then, click Okay.</li>
+<li>Now, you&rsquo;ll see a neat Run button at the top. Click on it and wait until Java compiles your web app and opens your default browser.</li>
+<li>Your browser would have opened the URL of your application context, similar to <code>localhost:8080/J2EEDemo_war_exploded</code>. This is the root of your web application. Append <strong>/hello.jsp</strong> to your current URL (it becomes <code>http://localhost:8080/J2EEDemo_war_exploded/hello.jsp</code>) and enter. You&rsquo;ll see the contents you wrote in your hello.jsp.</li>
+</ul>
+<h2 id="servlet">Servlet</h2>
+<ul>
+<li>Let&rsquo;s create a Servlet now. Right-click on <code>Project Folder &gt; src &gt; main &gt; java</code> from the sidebar and create a new Java Servlet. Enter the name and package as you wish.
+<img src="/j2ee/new-servlet.png" alt="Creating servlet">
+<img src="/j2ee/servlet.png" alt="Creating servlet"></li>
+<li>Under the doGet() method, paste the following code :</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@WebServlet</span><span style="color:#f92672">(</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;LoginServlet&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">LoginServlet</span> <span style="color:#66d9ef">extends</span> HttpServlet <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">protected</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">doGet</span><span style="color:#f92672">(</span>HttpServletRequest request<span style="color:#f92672">,</span> HttpServletResponse response<span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> ServletException<span style="color:#f92672">,</span> IOException <span style="color:#f92672">{</span>
+        PrintWriter out <span style="color:#f92672">=</span> response<span style="color:#f92672">.</span><span style="color:#a6e22e">getWriter</span><span style="color:#f92672">();</span>
+        out<span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;You are at login page&#34;</span><span style="color:#f92672">);</span>
+    <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><ul>
+<li>Next thing to do is assign an URL to this servlet. Open <code>src/main/webapp/WEB-INF/web.xml</code> and paste the following :</li>
+</ul>
+<blockquote>
+<p>Make sure you change the servlet-class according to your package and class name.</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<span style="color:#f92672">&lt;web-app</span> <span style="color:#a6e22e">xmlns=</span><span style="color:#e6db74">&#34;http://xmlns.jcp.org/xml/ns/javaee&#34;</span>
+         <span style="color:#a6e22e">xmlns:xsi=</span><span style="color:#e6db74">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+         <span style="color:#a6e22e">xsi:schemaLocation=</span><span style="color:#e6db74">&#34;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&#34;</span>
+         <span style="color:#a6e22e">version=</span><span style="color:#e6db74">&#34;4.0&#34;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;servlet&gt;</span>
+        <span style="color:#f92672">&lt;servlet-name&gt;</span>LoginServlet<span style="color:#f92672">&lt;/servlet-name&gt;</span>
+        <span style="color:#f92672">&lt;servlet-class&gt;</span>in.co.rajkumaar.LoginServlet<span style="color:#f92672">&lt;/servlet-class&gt;</span>
+    <span style="color:#f92672">&lt;/servlet&gt;</span>
+    <span style="color:#f92672">&lt;servlet-mapping&gt;</span>
+        <span style="color:#f92672">&lt;servlet-name&gt;</span>LoginServlet<span style="color:#f92672">&lt;/servlet-name&gt;</span>
+        <span style="color:#f92672">&lt;url-pattern&gt;</span>/login<span style="color:#f92672">&lt;/url-pattern&gt;</span>
+    <span style="color:#f92672">&lt;/servlet-mapping&gt;</span>
+<span style="color:#f92672">&lt;/web-app&gt;</span>
+</code></pre></div><ul>
+<li>Now, click on the Run button again and select Restart server.</li>
+<li>Visit <a href="http://localhost:8080/J2EEDemo_war_exploded/login">http://localhost:8080/J2EEDemo_war_exploded/login</a> to get the contents from the servlet.</li>
+</ul>
+<h2 id="heroku">Heroku</h2>
+<ul>
+<li>
+<p>Visit <a href="https://dashboard.heroku.com/new-app">https://dashboard.heroku.com/new-app</a> and create a new app.
+<img src="/j2ee/heroku-new.png" alt="Creating new Heroku app"></p>
+</li>
+<li>
+<p>On your IntelliJ Idea Ultimate, open the <strong>Build</strong> menu and click on Build artifacts. Choose AppName:war &gt; Build.</p>
+</li>
+<li>
+<p>You&rsquo;ll be able to see a <code>J2EEDemo-1.0-SNAPSHOT.war</code> file inside the <code>target/</code> directory of your application. Right-click on the file and copy &gt; Absolute Path.
+<img src="/j2ee/target.png" alt="Target directory with WAR file"></p>
+</li>
+<li>
+<p>Open up your terminal/command prompt, and run <code>heroku login</code>.</p>
+</li>
+<li>
+<p>Authorize on the website it opens up for you.</p>
+</li>
+<li>
+<p>Come back to the terminal, and run <code>heroku plugins:install java</code>.</p>
+</li>
+<li>
+<p>Then, run the following command. Make sure you replace the <strong>path for the WAR file</strong> and your <strong>application name</strong>.</p>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">heroku war:deploy <span style="color:#e6db74">&#34;/Users/rajkumar/Projects/J2EEDemo/target/J2EEDemo-1.0-SNAPSHOT.war&#34;</span> -a j2ee-test-raj
+</code></pre></div><hr>
+<ul>
+<li>Visit the following links and expect the same result as you saw in your local server.
+<ul>
+<li><a href="https://j2ee-test-raj.herokuapp.com/login">https://j2ee-test-raj.herokuapp.com/login</a></li>
+<li><a href="https://j2ee-test-raj.herokuapp.com/hello.jsp">https://j2ee-test-raj.herokuapp.com/hello.jsp</a></li>
+</ul>
+</li>
+</ul>
+]]></content></item><item><title>Badgie - My first native GTK app</title><link>https://rajkumaar.co.in/posts/badgie/</link><pubDate>Sat, 30 May 2020 19:47:00 +0530</pubDate><guid>https://rajkumaar.co.in/posts/badgie/</guid><description>elementary OS has been my favourite Linux distro for quite a long time because of its beautiful UI, less bloatware which lets me focus on the work that needs to be done. After having used the OS, I wanted to contribute to it in some way or the other. And I started doing so by contributing to a currency converter app called Moneta which is available to download from elementary&amp;rsquo;s AppCenter.</description><content type="html"><![CDATA[<p><img src="https://pbs.twimg.com/media/EVFxTHyU0AMMZMm?format=jpg&amp;name=large" alt=""></p>
+<p><a href="https://elementary.io">elementary</a> OS has been my favourite Linux distro for quite a long time because of its beautiful UI, less bloatware which lets me focus on the work that needs to be done. After having used the OS, I wanted to contribute to it in some way or the other. And I started doing so by contributing to a currency converter app called <a href="https://appcenter.elementary.io/com.github.matfantinel.moneta/">Moneta</a> which is available to download from elementary&rsquo;s AppCenter. <a href="https://github.com/matfantinel/moneta/commits?author=rajkumaar23">Here</a> is my commit to the same.</p>
+<p>I had built a mini playstore <a href="https://github.com/rajkumaar23/playstore-api">API</a> using Slim PHP sometime back for generating badges for one of my android <a href="/posts/amrita-repository">app&rsquo;s</a> README file with real-time data from Google Playstore such as Version, Number of Installs, Rating etc. So, I had this crazy idea of building a tiny native GTK app from the scratch for the same. And after around 2 months, Badgie has passed the review and is live on elementary AppCenter <a href="https://appcenter.elementary.io/com.github.rajkumaar23.badgie">here</a>.</p>
+<p>View the source code <a href="https://github.com/rajkumaar23/badgie">here</a>.</p>
+<p><img src="/badgie.png" alt=""></p>
+]]></content></item><item><title>Amrita Repository - Suite of Apps</title><link>https://rajkumaar.co.in/posts/amrita-repository/</link><pubDate>Sat, 30 May 2020 18:34:00 +0530</pubDate><guid>https://rajkumaar.co.in/posts/amrita-repository/</guid><description>In my first year of college, during the time of examinations more than 60% of my class used to pester those one or two guys who used to download the previous year question papers for reference from an intranet site (which still remains a mystery to most of the students). Being a hard-core techie, I wanted to bring an end to this and hence Amrita Repository was developed.
+It started off as a Python CLI application providing access to only question papers which later extended itself to an android app and a telegram bot with much more helpful features.</description><content type="html"><![CDATA[<p><img src="https://raw.githubusercontent.com/rajkumaar23/amrita-repository/master/banner.jpg" alt="Banner"></p>
+<p>In my first year of college, during the time of examinations more than 60% of my class used to pester those one or two guys who used to download the previous year question papers for reference from an intranet site (which still remains a mystery to most of the students). Being a hard-core techie, I wanted to bring an end to this and hence Amrita Repository was developed.</p>
+<p>It started off as a Python CLI application providing access to only question papers which later extended itself to an android app and a telegram bot with much more helpful features. The suite of apps aim at helping students of Amrita Vishwa Vidyapeetham to find all the materials pertaining to their curriculum of study under one portal with an easy to use interface. It has features including access to previous year question papers, student/faculty timetable, examination schedules, curriculum for various courses, attendance, grades, course resources uploaded by the faculty and latest news regarding the campus. The app has received 8000+ downloads in Play Store as on date, an appreciation letter from the Dean of Engineering, an average of ~4000 monthly active users and great responses from all the students as well as faculty.</p>
+<h3 id="honours">Honours</h3>
+<ul>
+<li>Mentioned under <strong>achievements</strong> -&gt; <strong>students</strong> section in the university <a href="https://www.amrita.edu/school/engineering/coimbatore/computer-science">website</a>.</li>
+</ul>
+<p><img src="/amrita-website-mention.png" alt=""></p>
+<ul>
+<li>View the Letter of Appreciation from Dean of Engineering <a href="/loa-amrita.jpg">here</a>.</li>
+</ul>
+<h3 id="links">Links</h3>
+<ul>
+<li>
+<p>Android App</p>
+<ul>
+<li>Download from <a href="http://bit.ly/amritarepo">Play Store</a></li>
+<li>View the <a href="https://github.com/rajkumaar23/amrita-repository">source code</a>.</li>
+</ul>
+</li>
+<li>
+<p>Telegram Bot</p>
+<ul>
+<li>Chat with the bot <a href="https://t.me/amrepobot">here</a>
+<ul>
+<li>If the link doesn&rsquo;t work, search for <code>@amrepobot</code> on your Telegram app.</li>
+</ul>
+</li>
+<li>View the <a href="https://github.com/rajkumaar23/amritarepo-bot">source code</a>.</li>
+</ul>
+</li>
+<li>
+<p>Python CLI app</p>
+<ul>
+<li>View the <a href="https://github.com/rajkumaar23/amritaqpapers">source code</a></li>
+</ul>
+</li>
+</ul>
+]]></content></item><item><title>Farewell at Internshala</title><link>https://rajkumaar.co.in/posts/internshala-farewell/</link><pubDate>Fri, 15 May 2020 19:35:00 +0530</pubDate><guid>https://rajkumaar.co.in/posts/internshala-farewell/</guid><description>Today was my last working day at Internshala and guess what! They sent me this picture as a farewell gesture! Looks amazing, isn&amp;rsquo;t it ? :D
+Internshala is a technology company on a mission to equip students with relevant skills &amp;amp; practical exposure through internships and online trainings. Back in June 2018, when I was in my summer vacation after first year at college, all I knew was C and C++.</description><content type="html"><![CDATA[<p><img src="/internshala-farewell.jpg" alt="Farewell"></p>
+<p>Today was my last working day at Internshala and guess what! They sent me this picture as a farewell gesture! Looks amazing, isn&rsquo;t it ? :D</p>
+<p><a href="https://internshala.com">Internshala</a> is a technology company on a mission to equip students with relevant skills &amp; practical exposure through internships and online trainings. Back in June 2018, when I was in my summer vacation after first year at college, all I knew was C and C++. Hence, when I found this posting of C/C++ Teaching Assistant at <a href="https://trainings.internshala.com">Internshala Trainings</a> on their website, I wanted to give it a shot. Being offered an internship initially for 3 months, I&rsquo;m now bidding my farewell to Internshala after 2 years!</p>
+<p>My main responsibility was to answer the student queries on the C/C++ Trainings forum, which taught me a lot of things especially patience. I also had difficult queries which I myself had never seen. The good thing about Internshala is that eventhough I was a remote intern, my suggestions/feedbacks were taken into consideration.</p>
+<p>If it was not Internshala, I would not have been able to buy my first ever iPhone with the stipend I was given. It was a really good experience.</p>
+<p><img src="/iPhone.jpg" alt="Internshala"></p>
+]]></content></item><item><title>CodeChef Interview Experience</title><link>https://rajkumaar.co.in/posts/codechef-interview/</link><pubDate>Mon, 11 May 2020 18:34:00 +0530</pubDate><guid>https://rajkumaar.co.in/posts/codechef-interview/</guid><description>I’m a regular user at LinkedIn and I came across the Software Development Engineer Internship’s poster by CodeChef when I was browsing through the feed one day. CodeChef’s interview process is very different unlike most other companies including its parent Directi. Due to COVID-19, my whole interview process was virtual.
+Online Coding Round at CodeChef – 3 hours 1st and 2nd question were of beginner level (Reference) 3rd question (Easy) – You are given an array A1,A2,.</description><content type="html"><![CDATA[<p><img src="https://www.codechef.com/sites/all/themes/abessive/logo.svg" alt="CodeChef Logo"></p>
+<p>I’m a regular user at <a href="https://linkedin.com/in/rajkumaar23">LinkedIn</a> and I came across the <strong>Software Development Engineer
+Internship</strong>’s poster by <a href="https://codechef.com">CodeChef</a> when I was browsing through the feed one day.
+CodeChef’s interview process is very different unlike most other companies
+including its parent <a href="Directi">Directi</a>. Due to COVID-19, my whole interview process was virtual.</p>
+<h2 id="online-coding-round-at-codechef--3-hours">Online Coding Round at CodeChef – 3 hours</h2>
+<ul>
+<li>1st and 2nd question were of beginner level (<a href="https://www.codechef.com/problems/school/">Reference</a>)</li>
+<li>3rd question (Easy) – You are given an array <code>A1,A2,...,An</code> of size N. A pair <code>(i,j)</code> is good if and only if <code>1≤i&lt;j≤N</code> and <code>Ai+Aj</code> is a prime number. You need to find the number of good pairs in this array. (Trick: Using Sieve of Eratosthenes
+for finding primes)</li>
+<li>4th question (Medium) - Modified knapsack question (Dynamic Programming)</li>
+<li>5th question (Hard) – Based on DSU</li>
+</ul>
+<p>Out of these, I was able to solve 4 of them and I got into the next round.</p>
+<h2 id="web-app-development-round--10-days-of-time">Web App Development Round – 10 days of time</h2>
+<ul>
+<li>I was given the tech stack which I had to use – PHP (Slim Framework) + MySQL + ReactJS.</li>
+<li>I was given access to the official CodeChef API and the task was to build a contest arena with features like searching of contests, problems in it etc.</li>
+<li>Interesting thing here was that CodeChef APIs are rate limited. So I had to cache the data at an intermediate server for a specified interval of time and then serve the results to the frontend.</li>
+<li>I was asked to submit the code by pushing into a private GitHub repo.</li>
+</ul>
+<h2 id="web-app-discussion--technical-round--1-hour">Web App Discussion + Technical Round – 1 hour</h2>
+<ul>
+<li>The interview started with how I built the web app and what were the
+challenges faced.</li>
+<li>Then I was asked some fundamental questions from OS, DBMS &amp;
+Networks.</li>
+<li>I was also asked to explain about the technologies I had mentioned in my
+resume like Docker, MongoDB etc. (Pro Tip: Make sure you know to explain
+each word in your <a href="https://rajkumaar.co.in/resume">resume</a>).</li>
+</ul>
+<h2 id="the-most-awaited-dsa-round--1-hour">The most-awaited DSA round – 1 hour</h2>
+<ul>
+<li>I was interviewed by someone who is an ICPC World Finalist for 2 times.</li>
+<li>Given an array of n positive integers with duplicates, how will you convert the array such that all elements are distinct with minimum number of moves. The catch is, you’re allowed to do only <em>one</em> kind of operation but can be repeated any number of times; for any pair in the array <code>(Ai, Aj)</code> can be converted to <code>(Ai, Ai + Aj)</code></li>
+<li>After some time of thinking and discussing with the interviewer, I was able to come up with a solution using hash-maps in quadratic time. Then, I was asked to optimise. After doing a dry run through few examples I observed something (replacing any element with the sum of itself and maximum element in the array), and came up with a solution in linear time. And then I was asked to code the same in my favourite language(C++).</li>
+<li>My suggestion here is to <em>Think Aloud</em>. Your thinking process matters more than the solution itself.</li>
+</ul>
+<h2 id="final-round-of-interview--30-mins">Final round of Interview – 30 mins</h2>
+<ul>
+<li>This was more of an informal discussion about me, my family background, interests. All I had to do was to stay confident and share my stories.</li>
+<li>He also shared about the evolution of CodeChef and its culture.</li>
+<li>I was immediately informed that I was in.</li>
+</ul>
+<p>Here ends the one month long interview process and I’m selected for the Software Engineer Internship at CodeChef 🎉️</p>
+<h2 id="preparation-strategies-and-tips">Preparation Strategies and Tips</h2>
+<ul>
+<li>There’s no shortcut to mastery. Practice. DSA is very essential for any computer science engineer, which I realised very lately, since web frameworks may come and go but this subject has existed and will continue to do so as long as data exists. Hence, the high priority given to it by most product development companies.</li>
+<li>If you’ve long enough time to prepare, you can improve your logical thinking skills by solving problems at <a href="https://codechef.com">CodeChef</a>, <a href="https://codeforces.com/">Codeforces</a> and also follow the next point.</li>
+<li>But if the time is short, then it’s better to go for practising standard DSA questions on <a href="https://geeksforgeeks.org">GeeksForGeeks</a>, <a href="https://hackerrank.com/">HackerRank</a>, <a href="https://leetcode.com/">Leetcode</a>.</li>
+<li>Well even if you’re good at DSA, it isn’t sufficient to pass an interview of this kind unless you’ve some experience with web development. For that I would suggest you to learn some latest web/mobile app technologies and build some side projects. Also try contributing to open-source projects in <a href="https://github.com/">GitHub</a> so you’ve a better understanding of how coding looks like in real life.</li>
+<li>Prepare your LinkedIn profile and be an active user. You might find an opportunity anytime just like I did. It also helps you to improve your professional network.</li>
+</ul>
+<h2 id="preview-video-of-the-web-app-i-built">Preview Video of the Web App I built</h2>
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/197v5LXos6A" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<p>Find the source code <a href="https://github.com/rajkumaar23/codechef-contest-arena">here</a>.</p>
+]]></content></item></channel></rss>

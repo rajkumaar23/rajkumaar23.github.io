@@ -1,0 +1,234 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+\usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\classesList}[4]{
+    \item\small{
+        {#1 #2 #3 #4 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \text{\small#3} & \text{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \text{\small#1} & \text{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   \textbf{\href{http://rajkumaar.co.in/}{\Huge Rajkumar S}} & Email : \href{mailto:rajkumaar2304@icloud.com}{rajkumaar2304@icloud.com}\\
+%   \href{https://rajkumaar.co.in/}{https://rajkumaar.co.in} & Mobile : +91-759-290-3711\\
+%  \end{tabular*}
+
+\begin{center}
+    \textbf{{\Huge Rajkumar S}} \\ \vspace{6pt}
+    \small \raisebox{-0.1\height}\faPhone\ +91-7592903711 ~ \href{mailto:rajkumaar2304@icloud.com}{\raisebox{-0.2\height}\faEnvelope\  \underline{rajkumaar2304@icloud.com}} ~ 
+    \href{https://rajkumaar.co.in}{\raisebox{-0.2\height}\faGlobe\ \underline{rajkumaar.co.in}}  ~
+    \href{https://github.com/rajkumaar23}{\raisebox{-0.2\height}\faGithub\ \underline{rajkumaar23}}  ~
+    \vspace{-8pt}
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading  {Amrita Vishwa Vidyapeetham, Coimbatore}{July 2017 -- June 2021} {Bachelor of Technology in Computer Science and Engineering} {CGPA: 8.51/10}
+  \resumeSubHeadingListEnd
+  
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {CodeChef (Unacademy Group)}{May 2020 -- Present}
+      {Software Engineer Intern}{Bangalore, Karnataka}
+      \resumeItemListStart
+        \resumeItem{Optimised various SQL queries upto a maximum of \textbf{10x}.}
+        \resumeItem{Revamped the entire Host Your Contest portal, used by contest managers, to ReactJS.}
+        \resumeItem{Mitigated and fixed variety of vulnerabilities from reports of our Bug Bounty Program.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Internshala}{June 2018 -- May 2020}
+      {C/C++ Virtual Teaching Assistant}{Remote}
+      \resumeItemListStart
+        \resumeItem{Demystified technical queries of students,  evaluated assignments and provided feedback.}
+        \resumeItem{Helped in upgrading the training content at https://trainings.internshala.com.}
+    \resumeItemListEnd
+    
+    \resumeSubheading
+      {Anokha (Amrita University's Techfest)}{Nov 2019 -- Feb 2020}
+      {Head of the Software Development Team}{Coimbatore, Tamilnadu}
+      \resumeItemListStart
+        \resumeItem{Managed a \textbf{team of 10} in building and delivering a suite of applications essential for organising the techfest.}
+        \resumeItem{The apps included a mobile-friendly PWA based on NuxtJS,  an android app,  an API service built using Laravel,  and an administration portal built using Angular8.}
+    \resumeItemListEnd    
+    
+    \resumeSubheading
+      {PSG Software Technologies}{May 2019 -- June 2019}
+      {Mobile App Developer Intern}{Coimbatore, Tamilnadu}
+      \resumeItemListStart
+        \resumeItem{Devised and delivered a cross-platform mobile application using NativeScript,  for maintaining the health profiles of families in community areas of PSG Urban Health Centre.}
+    \resumeItemListEnd
+    
+  \resumeSubHeadingListEnd
+\vspace{-16pt}
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \vspace{-5pt}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{Amrita Repository} $|$ \text{Android, SQLite, Web Scraping, PHP} $|$ \href{https://github.com/rajkumaar23/amrita-repository}{\underline {Repository Link}}}{}
+          \resumeItemListStart
+            \resumeItem{Engineered an android application and a telegram bot for my peers to avail old question papers, timetables,  exam schedules,  attendance,  grades with OTP based login and much more.}
+            \resumeItem{As on date, the application has received \textbf{7200+} downloads in Play Store,  with an average of \textbf{4000} monthly active users.}
+            \resumeItem{Received a letter of appreciation from the Dean of engineering department for making the academic lives of students easier.}
+          \resumeItemListEnd
+          \vspace{-13pt}
+      \resumeProjectHeading
+          {\textbf{Amrita Wallet} $|$ \text{Android, NodeJS, MongoDB, jQuery, PM2}}{}
+          \resumeItemListStart
+            \resumeItem{Developed an android app for scanning cards and making payments,  with the help of a centralised NodeJS server on top of a MongoDB cluster added with an admin portal built using VueJS for monitoring.}          
+            \resumeItem{Standardised payments across the university including cafeterias by replacing cash with ID cards,  that are rechargeable at stations around the campus,  with \textbf{3000+} active cards as on date.}
+          \resumeItemListEnd 
+          \vspace{-13pt}
+          \resumeProjectHeading
+          {\textbf{Campus Management System} $|$ \text{PHP, Laravel, MySQL, Android} $|$ \href{https://cms.cb.amrita.edu/humans.txt}{\underline{Website Link}}}{}
+          \resumeItemListStart
+            \resumeItem{The campus management system notably tracks day-to-day entry/exit of students from campus,  is used by security guards and monitored by the college authorities.}
+            \resumeItem{Contributed REST APIs in Laravel and an Android app  to the system,  and deployed with the help of our university’s IT Team.}
+          \resumeItemListEnd 
+    \resumeSubHeadingListEnd
+\vspace{-15pt}
+
+
+%
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: C/C++, PHP, Java, HTML/CSS, JavaScript, SQL, Python with the ability to learn any language required.} \\
+     \textbf{Technologies/Frameworks}{: Android, Laravel, Angular, ReactJS, NodeJS, Docker, Apache2/Nginx, Drupal} \\
+    }}
+ \end{itemize}
+ \vspace{-16pt}
+
+
+%-----------INVOLVEMENT---------------
+\section{Awards / Extracurricular}
+            \resumeItemListStart
+                \resumeItem{Secured 2nd position out of 30 teams in PolyCodeGlot, during Anokha 2020.}\vspace{-5pt}
+                \resumeItem{Secured 4th position out of 140 in NJACK Winter of Code 2019, organised by IIT-Patna.}\vspace{-5pt}
+                \resumeItem{Assisted school kids at a workshop conducted by Mango Education, Coimbatore for them to learn Android application development using the tool,  MIT App Inventor.}\vspace{-5pt}
+                \resumeItem{Conducted various workshops as the Head of Android, at Developer Student Club powered by Google Developers,  wherein 50+ students from all branches of engineering got benefited.}\vspace{-5pt}
+            \resumeItemListEnd
+
+
+\end{document}

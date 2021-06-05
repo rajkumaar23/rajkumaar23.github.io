@@ -131,6 +131,14 @@
         clear: both;
     }
 
+    .shelf hr {
+        width: 90%;
+    }
+
+    .shelf-type {
+        font-family: cursive;
+    }
+
     @media screen and (max-width: 600px) {
         .column {
             width: 100%;
@@ -142,35 +150,93 @@
         }
     }
 
-    img {
+    img, .img {
         width: 180px;
         height: 269px;
     }
+
+    .shelf-container {
+        padding: 5px;
+    }
+
+    @media screen and (min-width: 760px) and (max-width: 1024px) {
+        .shelf-type {
+            margin-left: 30px;
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+        .shelf-container {
+            padding: 20px;
+            margin: 0 50px;
+        }
+
+        .shelf-type {
+            margin-left: 60px;
+            font-size: xx-large;
+        }
+    }
+
+    .loader {
+        border: 8px solid #f3f3f3;
+        border-top: 8px solid #424242;
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        animation: spin 2s linear infinite;
+        display: table;
+        margin: auto;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    .shelf {
+        display: none;
+    }
 </style>
-<main style="padding: 10px;margin: 10px auto;">
-    <h2 class="shelf-type">Currently reading</h2>
-    <div class="row" id="currently-reading"></div>
-    <hr>
-    <h2 class="shelf-type">Already read</h2>
-    <div class="row" id="already-read"></div>
-    <hr>
-    <h2 class="shelf-type">Want to read</h2>
-    <div class="row" id="want-to-read"></div>
+<main class="shelf-container">
+    <div class="loader"></div>
+    <div class="shelf">
+        <h2 class="shelf-type">Currently reading</h2>
+        <div class="row" id="currently-reading"></div>
+        <hr>
+        <h2 class="shelf-type">Already read</h2>
+        <div class="row" id="already-read"></div>
+        <hr>
+        <h2 class="shelf-type">Want to read</h2>
+        <div class="row" id="want-to-read"></div>
+    </div>
     <script>
         const xmlHttpRequest = new XMLHttpRequest();
         const url = "https://raw.githubusercontent.com/rajkumaar23/open-library-reading-log/main/_data/reading-log.json";
 
         const parseAndModifyDOM = (data, id) => {
             let tempStore = '';
-            data[id].forEach(item => {
-                tempStore += (`
+            if (data[id]) {
+                data[id].forEach(item => {
+                    tempStore += (`
                         <a class="column" href="${item.link}" target="_blank">
                             <div style="display: table; margin: auto;">
                                 <img src="${item.image}" alt="${item.title}">
                             </div>
                         </a>
                     `)
-            })
+                })
+            } else {
+                tempStore += `
+                    <div>
+                        <span class='img'>None at the moment</span>
+                    </div>
+                `
+            }
             document.getElementById(id).innerHTML = tempStore
         }
         xmlHttpRequest.onreadystatechange = function () {
@@ -179,6 +245,8 @@
                 parseAndModifyDOM(data, 'currently-reading')
                 parseAndModifyDOM(data, 'already-read')
                 parseAndModifyDOM(data, 'want-to-read')
+                document.querySelector('.shelf').style.display = 'block'
+                document.querySelector('.loader').style.display = 'none'
             }
         };
         xmlHttpRequest.open("GET", url, true);

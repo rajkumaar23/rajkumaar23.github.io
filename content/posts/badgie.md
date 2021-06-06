@@ -2,7 +2,7 @@
 title: "Badgie - My first native GTK app"
 date: 2020-05-30T19:47:00+05:30
 ---
-![](https://pbs.twimg.com/media/EVFxTHyU0AMMZMm?format=jpg&name=large)
+![](/elementary-os.jpeg)
 
 [elementary](https://elementary.io) OS has been my favourite Linux distro for quite a long time because of its beautiful UI, less bloatware which lets me focus on the work that needs to be done. After having used the OS, I wanted to contribute to it in some way or the other. And I started doing so by contributing to a currency converter app called [Moneta](https://appcenter.elementary.io/com.github.matfantinel.moneta/) which is available to download from elementary's AppCenter. [Here](https://github.com/matfantinel/moneta/commits?author=rajkumaar23) is my commit to the same.
 

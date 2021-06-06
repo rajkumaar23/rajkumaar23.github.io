@@ -96,8 +96,3 @@ public class LoginServlet extends HttpServlet {
 ```bash
 heroku war:deploy "/Users/rajkumar/Projects/J2EEDemo/target/J2EEDemo-1.0-SNAPSHOT.war" -a j2ee-test-raj
 ```
-
-***
-- Visit the following links and expect the same result as you saw in your local server.
-  - https://j2ee-test-raj.herokuapp.com/login
-  - https://j2ee-test-raj.herokuapp.com/hello.jsp

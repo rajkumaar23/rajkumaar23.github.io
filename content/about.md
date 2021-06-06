@@ -3,7 +3,7 @@ title = "About"
 id = "about"
 +++
 
-I am Rajkumar, an ambitious computer science engineering undergrad, currently working part-time as a 
+I am Rajkumar, an ambitious computer science engineering undergrad, currently working full-time as a 
 Software Engineer Intern at [CodeChef](https://codechef.com), ever in awe of the wonders 
 that 0<sub>s</sub> & 1<sub>s</sub> could create, and passionate about Open Source & Product Development. 
 I started my development with mainly Android apps made out of Java, 

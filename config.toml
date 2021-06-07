@@ -58,12 +58,12 @@ url = "https://t.me/rajkumaar23"
 [[menu.main]]
 identifier = "about"
 name = "about"
-url = "about/"
+url = "/about"
 
 [[menu.main]]
 identifier = "resume"
 name = "resume"
-url = "resume.pdf"
+url = "/resume"
 
 [[menu.main]]
 name = "posts"

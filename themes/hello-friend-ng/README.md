@@ -205,7 +205,6 @@ $ npm install
   - [normalize.css](https://github.com/necolas/normalize.css)
   - [Feather Open Source Icons](https://github.com/feathericons/feather)
   - [Simple Icons](https://simpleicons.org/)
-  - [Flag Icon](https://github.com/lipis/flag-icon-css)
 
 ## Licence
 

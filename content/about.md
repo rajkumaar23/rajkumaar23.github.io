@@ -42,5 +42,4 @@ This site uses privacy-friendly web analytics called [goatcounter](https://www.g
 
 ## Contact 💬
 If you would like to discuss something with me, 
-either drop a mail to [rajkumaar2304@icloud.com](mailto:rajkumaar2304@icloud.com) 
-(or) ping me on [Telegram](https://t.me/rajkumaar23).
+either drop a mail to [me@rajkumaar.co.in](mailto:me@rajkumaar.co.in).

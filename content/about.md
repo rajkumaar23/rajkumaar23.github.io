@@ -29,8 +29,9 @@ I am also a huge fan of Apple products, and their obsession in UI detailing
 I currently possess an iPhone XR, and a MacBook Air (i5 10<sup>th</sup> gen) for my daily personal usage.
  
 ## Security x Privacy 👻 
-I have always had a fantasy for breaking stuff as much as I love developing software, 
-and I look forward to learning more about it, especially on web security.
+I have always had a fantasy for exploiting software as much as I loved developing them, 
+and I look forward to learning more about it, especially on web security. Until now, I have reported more than 
+a couple of bugs, and have received bounties worth $400 in total.
 ***
 I also care/preach a lot about [privacy](https://privacytools.io) and 
 how it's exploited these days.
@@ -38,8 +39,7 @@ how it's exploited these days.
 > If you are not paying for a product, then you're the product.
 
 ## Analytics 📈
-This site uses privacy-friendly web analytics called [goatcounter](https://www.goatcounter.com) 🐐, which doesn't track any of your personal data.
+This site uses privacy-friendly web analytics software called [goatcounter](https://www.goatcounter.com) 🐐, which doesn't track any of your personal data.
 
 ## Contact 💬
-If you would like to discuss something with me, 
-either drop a mail to [me@rajkumaar.co.in](mailto:me@rajkumaar.co.in).
+If you would like to discuss something with me, drop a mail to [me@rajkumaar.co.in](mailto:me@rajkumaar.co.in)

@@ -14,7 +14,9 @@ jobs:
           hugo-version: '0.83.1'
 
       - name: Build
-        run: hugo --minify
+        run: |
+          sudo timedatectl set-timezone "Asia/Kolkata"
+          hugo --minify
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

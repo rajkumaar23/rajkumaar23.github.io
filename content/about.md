@@ -3,8 +3,7 @@ title = "About"
 id = "about"
 +++
 
-I am Rajkumar, a proud computer science engineer, currently working full-time as an 
-Application Engineer at [CodeChef](https://codechef.com), ever in awe of the wonders 
+I am Rajkumar, an ambitious software engineer, ever in awe of the wonders 
 that 0<sub>s</sub> & 1<sub>s</sub> could create. 
 I started my development with mainly Android apps made out of Java, 
 then got to explore web technologies such as [Laravel](https://laravel.com), NodeJS, Angular etc.

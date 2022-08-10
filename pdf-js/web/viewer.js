@@ -130,7 +130,7 @@ const defaultOptions = {
     kind: OptionKind.VIEWER
   },
   sidebarViewOnLoad: {
-    value: false,
+    value: 0,
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
   },
   scrollModeOnLoad: {
@@ -14049,7 +14049,7 @@ class BasePreferences {
         "ignoreDestinationZoom": false,
         "pdfBugEnabled": false,
         "renderer": "canvas",
-        "sidebarViewOnLoad": -1,
+        "sidebarViewOnLoad": 0,
         "scrollModeOnLoad": -1,
         "spreadModeOnLoad": -1,
         "textLayerMode": 1,

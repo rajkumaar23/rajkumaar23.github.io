@@ -3,8 +3,9 @@ title = "About"
 id = "about"
 +++
 
-I am Rajkumar, an ambitious software engineer, ever in awe of the wonders 
-that 0<sub>s</sub> & 1<sub>s</sub> could create. 
+I am Rajkumar, a curious engineer, ever in awe of the wonders 
+that 0<sub>s</sub> & 1<sub>s</sub> could create, currently doing my Master of Science in Computer Science at Arizona State University. 
+
 I started my development with mainly Android apps made out of Java, 
 then got to explore web technologies such as [Laravel](https://laravel.com), NodeJS, Angular etc.
 

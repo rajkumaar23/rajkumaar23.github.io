@@ -16,7 +16,6 @@ When I came to the US for my master's, it was an unavoidable need to have access
 ### Download
 You can find the latest version of APK on [GitHub](https://github.com/rajkumaar23/notify-abroad/releases/latest).
 
-
 ### Instructions
 - Create a telegram account if you don't have one already, before proceeding to the next step.
 - Create a Telegram bot with the help of [Botfather](https://t.me/botfather).
@@ -27,6 +26,10 @@ You can find the latest version of APK on [GitHub](https://github.com/rajkumaar2
 - Enter both the values into the fields in the app and save the settings.
 - Hola! All your messages/calls will be forwarded to your Telegram chat.
 - Ensure that the device, this app is installed on, is charged and connected to the internet all the time.
+
+### Source Code
+
+Find the source code on [GitHub](https://github.com/rajkumaar23/notify-abroad).
 
 ### Privacy Policy
 No analytics, no tracking, and no BS.

@@ -9,7 +9,7 @@ tags:
   - application
 ---
 
-When I came to the US for my master's, it was an unavoidable need to have access to the OTPs or calls that come to my Indian number, which, by the way, I left at home. Since it was not feasible to contact a human in India, who can relay the OTPs, everytime it is received by the Indian number, I built an app to forward 'em automatically to my telegram chat and called it 'Notify Abroad'.
+When I came to the US for my master's, it was an unavoidable need to have access to the OTPs or calls that come to my Indian number, which, by the way, I left at home. Since it was not feasible to contact a human in India, who can relay the OTPs, everytime it is received by the Indian number, I built an app to forward 'em automatically to my Telegram chat and called it 'Notify Abroad'.
 
 ![banner](/notify-abroad/banner.png)
 
@@ -17,13 +17,14 @@ When I came to the US for my master's, it was an unavoidable need to have access
 You can find the latest version of APK on [GitHub](https://github.com/rajkumaar23/notify-abroad/releases/latest).
 
 ### Instructions
-- Create a telegram account if you don't have one already, before proceeding to the next step.
+- Create a Telegram account if you don't have one already, before proceeding to the next step.
 - Create a Telegram bot with the help of [Botfather](https://t.me/botfather).
 - Note down the token associated with the bot.
-- And press the **START** button in the bot's chat.
-  - This is important! Otherwise, the bot can't send you any message.
-- Note down your own Telegram user ID with the help of a bot like [this](https://t.me/chatid_echo_bot) one.
-- Enter both the values into the fields in the app and save the settings.
+  - Do not share this token with anyone.
+- Open your bot's chat and press the **START** button.
+  - This is important! Otherwise, the bot can't send you any notification.
+- With the help of [Chat ID Echo Bot](https://t.me/chatid_echo_bot), note down your own Telegram user ID.
+- Open the Notify Abroad app, enter both the token & your user ID and save the settings.
 - Hola! All your messages/calls will be forwarded to your Telegram chat.
 - Ensure that the device, this app is installed on, is charged and connected to the internet all the time.
 

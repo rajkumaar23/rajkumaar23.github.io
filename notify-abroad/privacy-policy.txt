@@ -1,0 +1,6 @@
+Privacy Policy for Notify Abroad
+
+No analytics, no tracking, and no BS.
+
+This app merely acts as a relay between your device & Telegram's(https://telegram.org) servers. Apart from that, the app does not do anything with your data. 
+If you would like to read how Telegram processes your data, go here : https://telegram.org/privacy?setln=en.

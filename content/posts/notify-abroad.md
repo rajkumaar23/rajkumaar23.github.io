@@ -9,7 +9,7 @@ tags:
   - application
 ---
 
-When I came to the US for my master's, it was an unavoidable need to have access to the OTPs or calls that come to my Indian number, which, by the way, I left at home. Since it was not feasible to contact a human in India, who can relay the OTPs, everytime it is received by the Indian number, I built an app to forward 'em automatically to my Telegram chat and called it 'Notify Abroad'.
+When I came to the US for my master’s, it was an unavoidable need to have access to the OTPs or calls that come to my Indian number, which, by the way, I left at home. Since it was not feasible to make a human relay the OTPs every time the Indian number received one, I built an app to forward them automatically to my Telegram chat and called it ‘Notify Abroad’.
 
 ![banner](/notify-abroad/banner.png)
 

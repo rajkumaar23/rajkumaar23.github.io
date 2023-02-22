@@ -39,7 +39,7 @@ how it's exploited these days.
 > If you are not paying for a product, then you're the product.
 
 ## Analytics 📈
-This site uses privacy-friendly web analytics software called [goatcounter](https://www.goatcounter.com) 🐐, which doesn't track any of your personal data.
+This site uses privacy-friendly web analytics software called [Plausible](https://plausible.io), which doesn't track any of your personal data and is hosted on a Raspberry Pi at my home.
 
 ## Contact 💬
 If you would like to discuss something with me, drop a mail to [me@rajkumaar.co.in](mailto:me@rajkumaar.co.in)

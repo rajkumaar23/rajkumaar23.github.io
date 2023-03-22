@@ -3,43 +3,18 @@ title = "About"
 id = "about"
 +++
 
-I am Rajkumar, a curious engineer, ever in awe of the wonders 
-that 0<sub>s</sub> & 1<sub>s</sub> could create, currently doing my Master of Science in Computer Science at Arizona State University. 
+I am a curious software engineer pursuing Master of Science in CS at Arizona State University. I have a great appreciation for the wonders that 0<sub>s</sub> and 1<sub>s</sub> can create, and I'm constantly in awe of the incredible possibilities that technology has to offer.
 
-I started my development with mainly Android apps made out of Java, 
-then got to explore web technologies such as [Laravel](https://laravel.com), NodeJS, Angular etc.
+As a developer, I've delved into various technologies, including Java for Android app development, Laravel, NodeJS, Angular, and more. When it comes to software, I'm a big fan of the Jetbrains suite of IDEs for development, Sublime Text for quick text editing, and Sublime Merge for all my complex git needs. As for search engines, I mostly use Duckduckgo, although I do occasionally dabble with Google for programming related queries.
 
-The software I mostly use are :
-- Jetbrains suite of IDEs for development.
-- Sublime Text for quick text editing.
-- Sublime Merge for complex git stuff.
-- [Duckduckgo](https://duck.com) mostly, [Startpage](https://startpage.com) rarely.
+I have a particular passion for Linux &hearts; and open-source software. In fact, I've been a proud Linux user since my first year of college, and I've hopped between multiple distributions over the years. My favorite is currently [elementaryOS](https://elementary.io) for its simple, clean, and non-intrusive interface, which allows me to be more productive.
 
-## Linux &hearts; Open Source
-Ever since I felt bad/disgusted about using non-activated Windows in my first year of college,
-I switched to Linux &hearts; (Ubuntu initially) and never looked back. 
-During my four years of college, I have hopped between multiple Linux distributions 
-and out of everything, my favourite has been [elementaryOS](https://elementary.io) 
-because it's simple, clean and less intrusive thus letting me be more productive.
+Aside from Linux, I'm also a huge fan of Apple products and their obsession with providing a seamless user experience. I currently use an iPhone XR and a MacBook Air (i5 10<sup>th</sup> gen) for my daily personal usage.
 
+One of my biggest fascinations is software exploitation, and I find myself just as intrigued with breaking software as I am with building it. I've reported numerous bugs and have even received bounties. I'm particularly interested in web security and look forward to learning more about it.
 
-## Apple 👨🏻‍💻
-I am also a huge fan of Apple products, and their obsession in UI detailing 
-&amp; providing a seamless user experience across their products. 
-I currently possess an iPhone XR, and a MacBook Air (i5 10<sup>th</sup> gen) for my daily personal usage.
- 
-## Security x Privacy 👻 
-I have always had a fantasy for exploiting software as much as I loved developing them, 
-and I look forward to learning more about it, especially on web security. Until now, I have reported more than 
-a couple of bugs, and have received bounties worth $400 in total.
-***
-I also care/preach a lot about [privacy](https://privacytools.io) and 
-how it's exploited these days.
+In addition to software security, I'm also a strong advocate for privacy. As they say, "If you're not paying for a product, then you're the product." That's why I care deeply about privacy and often preach about it on my website. I encourage everyone to check out [privacytools.io](https://privacytools.io) to learn more.
 
-> If you are not paying for a product, then you're the product.
+As for analytics, my website uses privacy-friendly web analytics software called [Plausible](https://plausible.io), which doesn't track any of your personal data and is hosted on a Raspberry Pi at my home.
 
-## Analytics 📈
-This site uses privacy-friendly web analytics software called [Plausible](https://plausible.io), which doesn't track any of your personal data and is hosted on a Raspberry Pi at my home.
-
-## Contact 💬
-If you would like to discuss something with me, drop a mail to [me@rajkumaar.co.in](mailto:me@rajkumaar.co.in)
+If you'd like to discuss anything with me, don't hesitate to drop me a line at [me@rajkumaar.co.in](mailto:me@rajkumaar.co.in). I'd be more than happy to chat!

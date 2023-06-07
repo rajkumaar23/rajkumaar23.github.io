@@ -14,9 +14,9 @@ dateformNumTime = "2006-01-02 15:04 -0700"
 description = "Online Home of Rajkumar"
 contentTypeName = "posts"
 keywords = "rajkumar, homepage, portfolio, vCard, rajkumaar23"
-homeSubtitle = "MSCS [at] ASU | ex. CodeChef"
+homeSubtitle = "SWE Intern at Cruise LLC <br> MSCS at ASU | Ex. CodeChef"
 profileImage = "https://avatars0.githubusercontent.com/u/37476886?s=460&v=4"
-defaultTheme = "dark"
+defaultTheme = "light"
 themeColor = "#252627"
 
 [markup]

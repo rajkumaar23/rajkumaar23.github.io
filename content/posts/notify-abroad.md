@@ -1,6 +1,7 @@
 ---
 title: "Notify Abroad"
 date: 2022-10-20T13:49:08-07:00
+images: ["/notify-abroad/banner.png"]
 tags:
   - masters
   - abroad

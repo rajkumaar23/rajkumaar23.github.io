@@ -1,7 +1,7 @@
 ---
 title: "vCard Editor"
 date: 2023-07-02T16:15:06-07:00
-images: ["/vcard-editor/screenshot.png"]
+images: ["/vcard-editor.png"]
 tags:
   - vcard
   - masters
@@ -11,7 +11,7 @@ tags:
 
 Are you preparing for an exciting journey abroad? Picture this scenario -> you've just arrived in a foreign country, full of anticipation and ready to embark on new adventures. You eagerly open WhatsApp to connect with your friends and family back home, only to find a long list of unnamed contacts staring back at you. Quite frustrating, isn't it? But fear not! I have the perfect solution to spare you the hassle of manually updating each contact with the correct country code. Allow me to introduce vCard Editor, an exceptional web app that effortlessly resolves this problem!
 
-![vCard Editor Banner](/vcard-editor/screenshot.png)
+![vCard Editor Banner](/vcard-editor.png)
 
 Welcome to yet another chapter in my journey of developing software that I wished existed. During my first international trip for my post-graduate education in the United States, I encountered a perplexing issue. Upon arrival, I noticed that most of my WhatsApp chats displayed unnamed contacts. It dawned on me that this occurred due to switching to a US carrier, which silently added an invisible *(+1)* prefix to contacts in my list lacking a country code.
 

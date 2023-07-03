@@ -9,23 +9,29 @@
 </blockquote>
 <h3 id="detailed-steps">Detailed Steps</h3>
 <p>To effortlessly add country codes to your contacts using vCard Editor, follow these straightforward steps:</p>
-<ol>
+<ul>
 <li>
 <p>Export your contacts as a <code>.vcf</code> file. Detailed instructions on how to export your contacts can be found on the <a href="https://vcard-editor.rajkumaar.co.in">web app</a>.</p>
 </li>
 <li>
 <p>Visit <a href="https://vcard-editor.rajkumaar.co.in">vcard-editor.rajkumaar.co.in</a> and upload the <code>.vcf</code> file you exported in the previous step.</p>
+<ul>
+<li>Adjust the configurations as necessary.</li>
+</ul>
 </li>
 <li>
-<p>Click on the &ldquo;Export updated .vcf&rdquo; button on the web app.</p>
+<p>Click on the &ldquo;Export Updated .vcf&rdquo; button on the web app.</p>
 </li>
 <li>
-<p>Import the newly generated file back onto your mobile device. Most modern devices should automatically <strong>update</strong> the existing contacts without creating duplicates. However, if you encounter any duplicates, delete all contacts and import the updated file again.</p>
+<p>Import the newly generated file back onto your mobile device. Please note that vCard Editor will only update contacts that do not already have a country code. Existing contacts with a country code will remain unchanged.</p>
+<ul>
+<li>Most modern devices should automatically <strong>update</strong> the existing contacts without creating duplicates. However, if you encounter any duplicates, delete all contacts and import the updated file again.</li>
+</ul>
 </li>
 <li>
-<p>Voila! All your contacts will now be equipped with the correct country code!</p>
+<p>Voila! All your contacts without a country code will now be equipped with the country code you chose!</p>
 </li>
-</ol>
+</ul>
 <h3 id="experience-smooth-sailing">Experience Smooth Sailing</h3>
 <p>Should you encounter any issues with the app, please report them <a href="https://github.com/rajkumaar23/vcard-editor/issues">here</a>. Your feedback is invaluable and will contribute to the continuous improvement of vCard Editor.</p>
 <h3 id="privacy-at-the-forefront">Privacy at the Forefront</h3>

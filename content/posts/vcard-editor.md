@@ -7,6 +7,7 @@ tags:
   - masters
   - abroad
   - contacts
+  - vcf
 ---
 
 Are you preparing for an exciting journey abroad? Picture this scenario -> you've just arrived in a foreign country, full of anticipation and ready to embark on new adventures. You eagerly open WhatsApp to connect with your friends and family back home, only to find a long list of unnamed contacts staring back at you. Quite frustrating, isn't it? But fear not! I have the perfect solution to spare you the hassle of manually updating each contact with the correct country code. Allow me to introduce vCard Editor, an exceptional web app that effortlessly resolves this problem!
@@ -27,15 +28,17 @@ Traveling abroad should be about embracing new experiences, not fretting over co
 
 To effortlessly add country codes to your contacts using vCard Editor, follow these straightforward steps:
 
-1. Export your contacts as a `.vcf` file. Detailed instructions on how to export your contacts can be found on the [web app](https://vcard-editor.rajkumaar.co.in).
+- Export your contacts as a `.vcf` file. Detailed instructions on how to export your contacts can be found on the [web app](https://vcard-editor.rajkumaar.co.in).
 
-2. Visit [vcard-editor.rajkumaar.co.in](https://vcard-editor.rajkumaar.co.in) and upload the `.vcf` file you exported in the previous step.
+- Visit [vcard-editor.rajkumaar.co.in](https://vcard-editor.rajkumaar.co.in) and upload the `.vcf` file you exported in the previous step.
+  - Adjust the configurations as necessary.
 
-3. Click on the "Export updated .vcf" button on the web app.
+- Click on the "Export Updated .vcf" button on the web app.
 
-4. Import the newly generated file back onto your mobile device. Most modern devices should automatically **update** the existing contacts without creating duplicates. However, if you encounter any duplicates, delete all contacts and import the updated file again.
-
-5. Voila! All your contacts will now be equipped with the correct country code!
+- Import the newly generated file back onto your mobile device. Please note that vCard Editor will only update contacts that do not already have a country code. Existing contacts with a country code will remain unchanged.
+   - Most modern devices should automatically **update** the existing contacts without creating duplicates. However, if you encounter any duplicates, delete all contacts and import the updated file again.
+   
+- Voila! All your contacts without a country code will now be equipped with the country code you chose!
 
 ### Experience Smooth Sailing
 

@@ -17,7 +17,11 @@
       property="og:description"/>
 <meta property="og:url" content="{{ .Permalink }}" />
 <meta property="og:type" content="website" />
+{{- with $.Params.images -}}
+<meta content="{{ index . 0 | absURL }}" property="og:image" />
+{{ else }}
 <meta content="{{ .Site.Params.profileImage }}" property="og:image" />
+{{ end }}
 
 {{ block "title" . }}
 <title>{{ if .IsHome }} {{ $.Site.Title }} {{ with $.Site.Params.Subtitle }} — {{ . }} {{ end }} {{ else }} {{ .Title }}

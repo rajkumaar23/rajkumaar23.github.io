@@ -1,0 +1,27 @@
+- name: vCard Editor
+  description: a simple webapp to add country code to contacts in bulk.
+  repo: vcard-editor
+  url: https://vcard-editor.rajkumaar.co.in
+  article: vcard-editor
+- name: Notify Abroad
+  description: an android app to forward your text messages and/or call logs to your telegram chat.
+  github_url: notify-abroad
+  article: notify-abroad
+- name: Flowgramming
+  description: a platform-independent graphical authoring tool which allows users to draw and execute programs using flowcharts.
+  repo: flowgramming
+  url: https://flowgrammers-org.github.io/flowgramming
+- name: Playstore API
+  description: an unofficial api for getting real-time details of your android app from PlayStore.
+  repo: playstore-api
+  url: https://api-playstore.rajkumaar.co.in
+- name: Amrita Repository
+  description: the must-have app for an Amrita student, which delivers previous year question papers and more resources under one roof.
+  repo: amrita-repository
+  url: http://bit.ly/amritarepo
+  article: amrita-repository
+- name: Badgie
+  description: a linux app to generate badges for your android app's README with realtime data from Google Playstore such as Version, Number of Installs, Rating etc.
+  repo: badgie
+  url: https://appcenter.elementary.io/com.github.rajkumaar23.badgie
+  article: badgie

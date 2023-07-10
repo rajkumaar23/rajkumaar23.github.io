@@ -54,7 +54,7 @@
     &-item {
       border-bottom: 1px grey dashed;
 
-      a {
+      a, div:nth-child(1) {
         display: flex;
         justify-content: space-between;
         align-items: baseline;

@@ -76,3 +76,8 @@ url = "/books/shelf"
 [[menu.main]]
 name = "uptime"
 url = "https://status.rajkumaar.co.in"
+
+[[menu.main]]
+identifier = "projects"
+name = "projects"
+url = "/projects/"

@@ -16,7 +16,7 @@ jobs:
       - name: Build
         run: |
           sudo timedatectl set-timezone "Asia/Kolkata"
-          hugo --minify
+          hugo --minify --cleanDestinationDir
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

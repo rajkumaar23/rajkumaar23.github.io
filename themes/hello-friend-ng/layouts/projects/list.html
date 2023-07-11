@@ -1,41 +1,16 @@
 {{ define "main" }}
-<style>
-  #project-links-right {
-    display: none;
-  }
-
-  #project-links-bottom {
-    display: flex;
-  }
-
-  @media (max-width: 684px) {
-    #project-title {
-      margin-top: 1.5rem;
-    }
-  }
-
-  @media (min-width: 684px) {
-    #project-links-right {
-      display: flex;
-    }
-
-    #project-links-bottom {
-      display: none;
-    }
-  }
-</style>
 <main class="posts">
   <h1>{{ .Title }}</h1>
 
   <ul class="posts-list">
     {{- range $.Site.Data.projects }}
-    <p class="post-year" style="margin-top: 1rem;">
+    <p class="post-year" style="padding-top: 6px; margin-top: 1rem">
       {{.name}}
     </p>
-    <li class="post-item" style="margin-top: -2rem;">
+    <li class="post-item project-item">
       <div>
-        <span class="post-title" id="project-title">{{.description | markdownify}}</span>
-        <span class="post-day" id="project-links-right">
+        <span class="post-title">{{.description | markdownify}}</span>
+        <span class="post-day link-icons-right">
             <a style="margin-right: 1rem;" href="https://github.com/rajkumaar23/{{ .repo }}" target="_blank" title="github repo">{{ partial "svg.html" (dict "name" "github") }}</a> 
             {{- if .url }}
             <a style="margin-right: 1rem;" href="{{.url}}" title="website">{{ partial "svg.html" (dict "name" "website") }}</a> 
@@ -45,7 +20,7 @@
             {{- end}}
         </span>
       </div>
-      <div class="post-day" id="project-links-bottom" style="margin: -1rem 0 0.5rem 0;">
+      <div class="post-day link-icons-bottom" style="margin: -1rem 0 0.5rem 0;">
           <a style="margin-right: 1rem;" href="https://github.com/rajkumaar23/{{ .repo }}" target="_blank" title="github repo">{{ partial "svg.html" (dict "name" "github") }}</a> 
           {{- if .url }}
           <a style="margin-right: 1rem;" href="{{.url}}" title="website">{{ partial "svg.html" (dict "name" "website") }}</a> 

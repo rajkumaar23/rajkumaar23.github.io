@@ -48,3 +48,16 @@
   src: url("../fonts/Inter-UI-BoldItalic.woff2") format("woff2"),
        url("../fonts/Inter-UI-BoldItalic.woff") format("woff");
 }
+
+
+@font-face {
+  font-family: 'Comic Mono';
+  font-weight: normal;
+  src: url(https://cdn.jsdelivr.net/npm/comic-mono@0.0.1/ComicMono.ttf);
+}
+
+@font-face {
+  font-family: 'Comic Mono';
+  font-weight: bold;
+  src: url(https://cdn.jsdelivr.net/npm/comic-mono@0.0.1/ComicMono-Bold.ttf);
+}

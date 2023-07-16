@@ -91,10 +91,10 @@
     <script>
         var r = new XMLHttpRequest();
         r.addEventListener('load', function() {
-            document.querySelector('#stats').innerText = "Viewed by " + this.responseText + " users"
+            document.querySelector('#stats').innerText = "Viewed by " + JSON.parse(this.responseText).count_unique + " users"
             document.getElementById('stats-container').style.display = 'block'
         })
-        r.open('GET', 'https://stats.rajkumaar.co.in?page=' + encodeURIComponent(location.pathname))
+        r.open('GET', 'https://rajkumaar23.goatcounter.com/counter/' + encodeURIComponent(location.pathname.replace(/\/$/, '')) + '.json')
         r.send()
     </script>
 {{ end }}

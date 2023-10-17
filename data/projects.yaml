@@ -5,7 +5,7 @@
   article: vcard-editor
 - name: Notify Abroad
   description: an android app to forward your text messages and/or call logs to your telegram chat.
-  github_url: notify-abroad
+  repo: notify-abroad
   article: notify-abroad
 - name: Flowgramming
   description: a platform-independent graphical authoring tool which allows users to draw and execute programs using flowcharts.

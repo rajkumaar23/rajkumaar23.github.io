@@ -1,0 +1,28 @@
+{{ define "main" }}
+<header>
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">{{ .Title }}</h1>
+</header>
+<section class="mt-0 prose flex max-w-full flex-col dark:prose-invert lg:flex-row">
+    <div class="min-h-0 min-w-0 max-w-prose grow">
+        {{ .Content | emojify }}
+    </div>
+</section>
+<section class="mt-8">
+    {{ range .Pages }}
+    <article class="pb-6 mb-6">
+        <a class="flex group" href="{{ .Params.externalUrl }}" target="_blank">
+            <div>
+                <h3
+                    class="flex text-xl font-semibold group-hover:underline group-hover:decoration-primary-500 group-hover:underline-offset-2">
+                    {{ .Title }}
+                </h3>
+                <p class="text-sm text-neutral-500">{{ .Description }}</p>
+            </div>
+        </a>
+    </article>
+    {{ end }}
+    <div class="prose dark:prose-invert mt-6">See more projects I'm working on at
+        <a href="https://github.com/rajkumaar23" target="_blank">GitHub</a> →
+    </div>
+</section>
+{{ end }}

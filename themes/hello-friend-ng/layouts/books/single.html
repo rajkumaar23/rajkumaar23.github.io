@@ -1,139 +1,115 @@
 {{ define "main" }}
 <style>
-    .column {
-        float: left;
-        width: 33%;
-        padding: 15px;
-    }
-
-    /* Clear floats after the columns */
-    .row:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-
-    .shelf hr {
-        width: 90%;
-    }
-
-    @media screen and (max-width: 600px) {
-        .column {
-            width: 100%;
-        }
-
-        .shelf-type {
-            display: table;
-            margin: auto;
-        }
-    }
-
-    img, .img {
-        width: 180px;
-        height: 269px;
-    }
-
-    .shelf-container {
-        padding: 5px;
-    }
-
-    @media screen and (min-width: 760px) and (max-width: 1024px) {
-        .shelf-type {
-            margin-left: 30px;
-        }
-
-        .shelf-container {
-            width: 90%;
-        }
-    }
-
-    @media screen and (min-width: 1024px) {
-        .shelf-container {
-            padding: 20px;
-            margin: 0 50px;
-            width: 70%;
-        }
-
-        .shelf-type {
-            margin-left: 60px;
-            font-size: xx-large;
-        }
-    }
-
-    .loader {
-        border: 8px solid #f3f3f3;
-        border-top: 8px solid #424242;
-        border-radius: 50%;
-        width: 80px;
-        height: 80px;
-        animation: spin 2s linear infinite;
-        display: table;
-        margin: auto;
-    }
-
-    @keyframes spin {
-        0% {
-            transform: rotate(0deg);
-        }
-
-        100% {
-            transform: rotate(360deg);
-        }
-    }
-
-    .shelf {
-        display: none;
+    .book-title {
+        margin-bottom: 0px;
     }
 </style>
-<main class="shelf-container">
-    <div class="loader"></div>
-    <div class="shelf">
-        <h2 class="shelf-type">Currently reading</h2>
-        <div class="row" id="currently-reading"></div>
-        <hr>
-        <h2 class="shelf-type">Already read</h2>
-        <div class="row" id="already-read"></div>
-        <hr>
-        <h2 class="shelf-type">Want to read</h2>
-        <div class="row" id="want-to-read"></div>
-    </div>
-    <script>
-        const xmlHttpRequest = new XMLHttpRequest();
-        const url = "https://raw.githubusercontent.com/rajkumaar23/open-library-reading-log/main/_data/reading-log.json";
-
-        const parseAndModifyDOM = (data, id) => {
-            let tempStore = '';
-            if (data[id]) {
-                data[id].forEach(item => {
-                    tempStore += (`
-                        <a class="column" href="${item.link}" target="_blank">
-                            <div style="display: table; margin: auto;">
-                                <img src="${item.image}" alt="${item.title}">
-                            </div>
-                        </a>
-                    `)
-                })
-            } else {
-                tempStore += `
-                    <div>
-                        <span class='img'>None at the moment</span>
-                    </div>
-                `
-            }
-            document.getElementById(id).innerHTML = tempStore
-        }
-        xmlHttpRequest.onreadystatechange = function () {
-            if (this.readyState === 4 && this.status === 200) {
-                const data = JSON.parse(this.responseText);
-                parseAndModifyDOM(data, 'currently-reading')
-                parseAndModifyDOM(data, 'already-read')
-                parseAndModifyDOM(data, 'want-to-read')
-                document.querySelector('.shelf').style.display = 'block'
-                document.querySelector('.loader').style.display = 'none'
-            }
-        };
-        xmlHttpRequest.open("GET", url, true);
-        xmlHttpRequest.send();
-    </script>
+<main class="posts">
+    <h1 class="book-title">Currently reading</h1>
+    <ul class="posts-list literal-items" handle="rajkumaar23" status="IS_READING"></ul>
+    <h1 class="book-title">Finished</h1>
+    <ul class="posts-list literal-items" handle="rajkumaar23" status="FINISHED"></ul>
+    <h1 class="book-title">Dropped</h1>
+    <div class="posts-list literal-items" handle="rajkumaar23" status="DROPPED"></div>
+    <h1 class="book-title">Want to read</h1>
+    <div class="posts-list literal-items" handle="rajkumaar23" status="WANTS_TO_READ"></div>
 </main>
+<script>
+    const targets = document.querySelectorAll('.literal-items');
+    for (let target of targets) {
+        const variables = {
+            handle: target.getAttribute('handle'),
+            readingStatus: target.getAttribute('status'),
+            layout: target.getAttribute('layout'),
+            limit: parseInt(target.getAttribute('limit')) || 100,
+        };
+
+        fetch('https://backend.literal.club/', {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                query: `
+                    query booksByReadingStateAndHandle($limit: Int!, $offset: Int!, $readingStatus: ReadingStatus!, $handle: String!) {
+                        booksByReadingStateAndHandle(
+                            limit: $limit
+                            offset: $offset
+                            readingStatus: $readingStatus
+                            handle: $handle
+                        ) {
+                            ...BookParts
+                            __typename
+                        }
+                    }
+                    
+                    fragment BookParts on Book {
+                        id
+                        slug
+                        title
+                        subtitle
+                        description
+                        isbn10
+                        isbn13
+                        language
+                        pageCount
+                        publishedDate
+                        publisher
+                        physicalFormat
+                        cover
+                        authors {
+                            ...AuthorMini
+                            __typename
+                        }
+                        gradientColors
+                        workId
+                        __typename
+                    }
+                    
+                    fragment AuthorMini on Author {
+                        id
+                        name
+                        slug
+                        __typename
+                    }
+                `,
+                variables: {
+                    handle: variables.handle,
+                    readingStatus: variables.readingStatus,
+                    limit: variables.limit,
+                    offset: 0,
+                },
+            }),
+        })
+            .then((response) => {
+                return response.json();
+            })
+            .then((response) => {
+                const books = response.data.booksByReadingStateAndHandle || [];
+
+                const formatter = new Intl.ListFormat('en', { style: 'short', type: 'conjunction' });
+
+                const bookItems = books.map((book) => {
+                    const authors = formatter.format(book.authors.map((a) => a.name));
+                    const bookItem = document.createElement('div');
+                    bookItem.innerHTML = `
+                    <a style="text-decoration: none;" target="_blank" href="https://literal.club/book/${book.slug}">
+                        <div class="post-year" style="padding-top: 6px; margin-bottom: 1rem;">
+                                ${book.title}
+                        </div>
+                        <li class="post-item project-item">
+                            <div>
+                                <span class="post-title">${authors}</span>
+                            </div>
+                        </li>
+                    </a>
+                    `;
+                    return bookItem;
+                });
+
+                target.append(...bookItems);
+            });
+    }
+</script>
 {{ end }}

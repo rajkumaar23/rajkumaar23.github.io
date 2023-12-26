@@ -36,9 +36,13 @@
   weight = 50
 
 [[main]]
-  name = "Uptime"
-  url = "https://status.rajkumaar.co.in"
-  weight = 60
+  name = "GitHub"
+  url = "https://github.com/rajkumaar23"
+  weight = 88
+  [main.params]
+    icon = "github"
+    showName = false
+    target = "_blank"
 
 [[main]]
   identifier = "search"

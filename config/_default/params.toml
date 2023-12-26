@@ -44,13 +44,13 @@ fingerprintAlgorithm = "sha256"
   editAppendPath = true
   showHeadingAnchors = true
   showPagination = true
-  invertPagination = false
+  invertPagination = true
   showReadingTime = true
   showTableOfContents = false
-  showTaxonomies = false
+  showTaxonomies = true
   showWordCount = true
   showComments = false
-  # sharingLinks = ["facebook", "twitter", "mastodon", "pinterest", "reddit", "linkedin", "email"]
+  sharingLinks = ["twitter", "mastodon", "reddit", "linkedin", "email", "facebook"]
 
 [list]
   showBreadcrumbs = false

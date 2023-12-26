@@ -1,0 +1,27 @@
+languageCode = "en"
+languageName = "English"
+languageDirection = "ltr"
+weight = 1
+
+title = "Online Home of Rajkumar"
+# copyright = "Copy, _right?_ :thinking_face:"
+
+[params]
+  dateFormat = "2 January 2006"
+
+  # mainSections = ["section1", "section2"]
+  # description = "My awesome website"
+
+[author]
+  name = "Rajkumar"
+  image = "img/author.jpg"
+  headline = "Software Engineer"
+  bio = "Ever in awe of the wonders that 0s and 1s could create!"
+  links = [
+    { github = "https://github.com/rajkumaar23" },
+    { linkedin = "https://linkedin.com/in/rajkumaar23" },
+  #   { link = "https://link-to-some-website.com/" },
+    { x-twitter = "https://twitter.com/rajkumaar23" },
+    { telegram = "https://t.me/rajkumaar23" },
+    { email = "mailto:me@rajkumaar.co.in" },
+  ]

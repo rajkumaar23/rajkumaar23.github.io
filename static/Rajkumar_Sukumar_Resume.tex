@@ -1,0 +1,235 @@
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+\usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-0.7in}
+\addtolength{\textheight}{1.4in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\classesList}[4]{
+    \item\small{
+        {#1 #2 #3 #4 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \text{\small#3} & \text{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \text{\small#1} & \text{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+ %\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%   \textbf{\href{http://rajkumaar.co.in/}{\Large Rajkumar Sukumar}} & Email : \href{mailto:rajkumaar2304@icloud.com}{rajkumaar2304@icloud.com}\\
+%   \href{https://rajkumaar.co.in/}{\underline{https://www.rajkumaar.co.in}} & Mobile : +1-602-768-7075\\
+%  \end{tabular*}
+
+\begin{center}
+    \textbf{{\Huge Rajkumar Sukumar}} \\ \vspace{6pt}
+    \small \raisebox{-0.1\height} ~ \href{https://rajkumaar.co.in}{\raisebox{-0.2\height}\ \underline{https://rajkumaar.co.in}}  $|$ \href{mailto:rajkumaar2304@icloud.com}{\raisebox{-0.2\height}\  \underline{rajkumaar2304@icloud.com}} $|$
+    \href{https://github.com/rajkumaar23}{\raisebox{-0.2\height}\ \underline{https://github.com/rajkumaar23}}  ~
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+      \resumeSubheading  {Master of Science in Computer Science (With Distinction)}{Dec 2023} {Arizona State University $|$ {Tempe, AZ, USA}} {GPA : 4.0/4.0}
+    \resumeSubheading  {Bachelor of Technology in Computer Science}{Jun 2021} {Amrita Vishwa Vidyapeetham $|$ {Coimbatore, Tamil Nadu, India}} {GPA : 8.57/10.0}
+  \resumeSubHeadingListEnd
+  \vspace{-8pt}
+  
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+
+  \resumeSubHeadingListStart
+  
+   \resumeSubheading
+      {Cruise - Self Driving Cars}{May 2023 -- Aug 2023}
+      {Software Engineer Intern $|$ Tech : GoLang,  gRPC, Docker,  Kubernetes,  GCP, Terraform}{Bellevue, WA}
+      \resumeItemListStart
+      	\resumeItem{Developed a self-service snapshot restoration feature for virtual machines used by Cruise engineers, effectively minimizing developer hours spent on a single restoration by an impressive \textbf{80\%}.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {CodeChef (Unacademy Group)}{Jul 2021 -- Jul 2022}
+      {Application Engineer $|$ Tech : PHP,  Python,  ReactJS,  MySQL, SaltStack, AWS}{Bangalore, India}
+      \resumeItemListStart
+		\resumeItem{Streamlined site management by crafting a CLI tool integrated with Nginx,  and implemented DevOps practices for release automation, resulting in a \textbf{25\%} decrease in deployment errors and a \textbf{20\%} increase in deployment frequency.}
+        \resumeItem{Engineered scalable real-time notifications using websockets in nginx by leveraging the `nchan' module, resulting in a \textbf{50\%} increase in real-time notification delivery speed.}
+      \resumeItemListEnd
+    
+    \resumeSubheading
+      {Anokha (Amrita University's Tech-fest)}{Nov 2019 -- Feb 2020}
+      {Head of the Software Team $|$ Tech: Laravel,  MySQL,  NuxtJS,  Angular8,  CentOS}{Coimbatore, India}
+      \resumeItemListStart
+        \resumeItem{Led a team of 10 in developing and delivering a suite of impactful applications that played a crucial role in organizing the tech-fest, resulting in a seamless and engaging experience for \textbf{10,000+} participants and attendees.}
+    \resumeItemListEnd
+    \resumeSubheading
+      {PSG Software Technologies}{May 2019 -- Jun 2019}
+      {Mobile App Developer Intern $|$ Tech : NodeJS,  NativeScript}{Coimbatore, India}
+      \resumeItemListStart
+        \resumeItem{Designed and deployed a cross-platform mobile application to manage health profiles of families in community areas of PSG Urban Health Centre, promoting efficient healthcare management.}
+    \resumeItemListEnd
+  \resumeSubHeadingListEnd
+  \vspace{-10pt}
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \vspace{-5pt}
+    \resumeSubHeadingListStart
+        \resumeProjectHeading
+          {\textbf{Notify Abroad} $|$ \text{Android, Java} $|$ \href{https://github.com/rajkumaar23/notify-abroad}{\underline{https://github.com/rajkumaar23/notify-abroad}}}{}
+          \resumeItemListStart
+            \resumeItem{Launched an innovative Android app enabling real-time relay of SMS/calls between devices, leveraging the power of Telegram messaging platform, generating over \textbf{700,000} impressions on Linkedin.}
+          \resumeItemListEnd 
+         \vspace{-17pt}
+    \resumeProjectHeading
+          {\textbf{Flowgramming} $|$ \text{HTML, Bootstrap, jQuery,  JointJS} $|$ \href{https://github.com/rajkumaar23/flowgramming/}{\underline{https://github.com/rajkumaar23/flowgramming}}}{}
+          \resumeItemListStart
+            \resumeItem{Built a progressive web application as an efficient alternative to Flowgorithm, empowering users to seamlessly design \& execute flowcharts while encompassing essential programming constructs like user-defined functions \& 2D arrays.}
+          \resumeItemListEnd 
+          \vspace{-17pt}
+      \resumeProjectHeading
+          {\textbf{Amrita Repository} $|$ \text{Android, SQLite, Web Scraping, PHP, Python} $|$ \href{https://github.com/rajkumaar23/amrita-repository}{\underline{https://github.com/rajkumaar23/amrita-repository}}}{}
+          \resumeItemListStart
+            \resumeItem{Engineered an Android app  \& Telegram bot providing valuable resources such as old question papers \& timetables to peers, resulting in over \textbf{10K} downloads in the Play Store and garnering appreciation from the Dean of Engineering.}
+          \resumeItemListEnd
+          \vspace{-17pt}
+      \resumeProjectHeading
+          {\textbf{Amrita Wallet} $|$ \text{Android, NodeJS, MongoDB, VueJS}}{}
+          \resumeItemListStart
+            \resumeItem{Implemented cashless payment system university-wide, replacing cash with rechargeable student ID cards, resulting in nearly \textbf{5000} active cards.}
+          \resumeItemListEnd 
+    \resumeSubHeadingListEnd
+\vspace{-10pt}
+
+
+%
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+    \textbf{Areas of Interest}{: Full Stack Development, Distributed Systems, Cloud Computing, Cyber Security} \\
+     \textbf{Languages and Frameworks}{: C++, PHP, Java, JavaScript, Go, Protobuf, SQL, Python, Android, Node.js, ReactJS} \\
+     \textbf{Tools and Technologies}{: AWS, Docker, Kubernetes, Apache2, Nginx, Jenkins, SaltStack, Terraform, Neo4j, Kafka} \\
+    }}
+ \end{itemize}
+ \vspace{-10pt}
+
+
+%-----------INVOLVEMENT---------------
+\section{Awards / Extracurricular}
+            \resumeItemListStart
+                        	\resumeItem{Empowered students as a tutor at McClintock High School in Tempe, AZ, as part of the AZ-R3 program by Access ASU.}\vspace{-5pt}
+            	\resumeItem{Recognized with the prestigious \textbf{Outstanding Project Award} for Flowgramming by Amrita School of Engineering.}\vspace{-5pt}
+            	\resumeItem{Worked as a Teaching Assistant at Internshala, catalyzing student learning through support \& content enhancement.}
+\vspace{-5pt}            	            
+                \resumeItem{Achieved a remarkable \textbf{2nd} position out of 30 teams in a competitive polyglot coding contest at Anokha Tech-fest 2020.}\vspace{-5pt}
+                \resumeItem{Acknowledged for reporting critical security vulnerabilities, earning bug bounties from multiple organizations.}\vspace{-5pt}
+            \resumeItemListEnd
+
+
+\end{document}

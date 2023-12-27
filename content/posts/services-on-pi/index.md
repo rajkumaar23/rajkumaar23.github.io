@@ -1,6 +1,7 @@
 +++
 title = 'Hosting web services on my Raspberry Pi'
 date = 2023-12-26T20:06:58-07:00
+coverAlt = 'An image of the Raspberry Pi 4 from the official website'
 +++
 
 It was during COVID-19 that I thought of buying a [Raspberry Pi 4](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/), purely out of boredom. Little did I know that it would power more than a couple of my applications on the internet. Over the past few months, I have had multiple issues efficiently building a setup of serving internet-facing applications from my Pi. This article is a documentation of my current setup that *works*. A good lookback to the year of 2023, I guess?

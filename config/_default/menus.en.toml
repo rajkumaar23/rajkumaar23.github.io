@@ -71,3 +71,5 @@
   name = "Uptime"
   url = "https://status.rajkumaar.co.in"
   weight = 20
+  [footer.params]
+    target = "_blank"

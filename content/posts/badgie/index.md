@@ -1,5 +1,5 @@
 ---
-title: "Badgie - My first native GTK app"
+title: "Experimenting with developing a GTK app from scratch - Badgie"
 date: 2020-05-30T19:47:00+05:30
 ---
 ![](elementary-os.jpeg)

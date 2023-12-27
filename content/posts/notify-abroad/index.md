@@ -1,5 +1,5 @@
 ---
-title: "Notify Abroad"
+title: "Notify Abroad - an app to relay messages from my Indian mobile number"
 date: 2022-10-20T13:49:08-07:00
 images: ["banner.png"]
 tags:

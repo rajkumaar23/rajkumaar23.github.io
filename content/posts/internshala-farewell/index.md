@@ -1,5 +1,5 @@
 ---
-title: "Farewell at Internshala"
+title: "Bidding farewell to Internshala after 2 years of internship"
 date: 2020-05-15T19:35:00+05:30
 ---
 ![Farewell](internshala-farewell.jpg)

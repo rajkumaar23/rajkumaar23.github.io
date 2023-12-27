@@ -1,5 +1,5 @@
 ---
-title: "vCard Editor"
+title: "Solving the problem of prefixing country codes to contacts"
 date: 2023-07-02T16:15:06-07:00
 images: ["/vcard-editor.png"]
 tags:

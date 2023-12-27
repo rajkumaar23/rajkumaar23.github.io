@@ -1,5 +1,5 @@
 ---
-title: "Amrita Repository - Suite of Apps"
+title: "A suite of apps to improve productivity of my peers - Amrita Repository"
 date: 2020-05-30T18:34:00+05:30
 ---
 

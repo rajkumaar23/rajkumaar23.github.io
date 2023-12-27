@@ -1,5 +1,5 @@
 ---
-title: "CodeChef Interview Experience"
+title: "Interview experience at a competitive programming platform - CodeChef"
 date: 2020-05-11T18:34:00+05:30
 tags:
 - CodeChef

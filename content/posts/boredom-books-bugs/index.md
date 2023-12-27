@@ -1,5 +1,5 @@
 ---
-title: "Boredom, Books & Bugs"
+title: "Boredom, Books & Bugs - A tale of my COVID-19 experience"
 date: 2021-06-27T20:42:11+05:30
 tags:
   - lockdown

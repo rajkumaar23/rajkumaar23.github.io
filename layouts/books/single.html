@@ -1,0 +1,234 @@
+{{ define "main" }}
+<style>
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0 4px;
+    }
+
+    .column {
+        flex: 20%;
+        max-width: 20%;
+        padding: 0 7px;
+    }
+
+    .column img {
+        margin-top: 8px;
+        vertical-align: middle;
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    .fade-in {
+        animation: fade-in 1s;
+    }
+
+    .loader {
+        border: 8px solid #f3f3f3;
+        border-top: 8px solid #424242;
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        animation: spin 2s linear infinite;
+        display: table;
+        margin: auto;
+    }
+
+    @keyframes fade-in {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    #books-grid {
+        display: none;
+    }
+
+    @media screen and (max-width: 800px) {
+        .column {
+            flex: 33.333%;
+            max-width: 33.333%;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        .column {
+            flex: 50%;
+            max-width: 50%;
+        }
+    }
+</style>
+<header>
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">{{ .Title }}</h1>
+</header>
+<section class="mt-0 prose flex max-w-full flex-col dark:prose-invert lg:flex-row">
+    <div class="min-h-0 min-w-0 max-w-prose grow">
+        {{ .Content | emojify }}
+    </div>
+</section>
+<section>
+    <div class="loader"></div>
+    <div id="books-grid" class="fade-in">
+        <h2 class="mt-12 text-2xl font-bold text-neutral-700 first:mt-8 dark:text-neutral-300">
+            What I'm currently reading
+        </h2>
+        <hr class="border-dotted border-neutral-400" style="width: 19rem;" />
+        <div id="books-currently-reading" class="row"></div>
+
+        <h2 class="mt-12 text-2xl font-bold text-neutral-700 first:mt-8 dark:text-neutral-300">
+            What I finished reading
+        </h2>
+        <hr class="border-dotted border-neutral-400" style="width: 17rem;" />
+        <div id="books-finished" class="row"></div>
+
+        <h2 class="mt-12 text-2xl font-bold text-neutral-700 first:mt-8 dark:text-neutral-300">
+            What I'm looking forward to read
+        </h2>
+        <hr class="border-dotted border-neutral-400" style="width: 23rem;" />
+        <div id="books-want-to-read" class="row"></div>
+    </div>
+</section>
+<script>
+    function getBookArticleElement(book) {
+        const formatter = new Intl.ListFormat('en', { style: 'short', type: 'conjunction' });
+        const authors = formatter.format(book.authors.map((a) => a.name));
+        const articleLink = `https://literal.club/book/${book.slug}`;
+
+        const article = document.createElement("div");
+        article.classList.add("column");
+        article.classList.add("mt-6");
+        article.innerHTML = `
+            <div class="pe-4 sm:pe-6">
+                <a
+                    href="${articleLink}"
+                    aria-label="${book.title}"
+                    target="_blank"
+                >
+                    <img
+                    alt="${book.title}"
+                        class="w-24 rounded-md sm:w-40" 
+                        src="${book.cover}" 
+                        loading="lazy"
+                    />
+                </a>
+            </div>  
+        `;
+        return article;
+    }
+
+    async function fetchFromLiteralClub(readingStatus) {
+        let response = await fetch('https://backend.literal.club/', {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                query: `
+                    query booksByReadingStateAndHandle($limit: Int!, $offset: Int!, $readingStatus: ReadingStatus!, $handle: String!) {
+                        booksByReadingStateAndHandle(
+                            limit: $limit
+                            offset: $offset
+                            readingStatus: $readingStatus
+                            handle: $handle
+                        ) {
+                            ...BookParts
+                            __typename
+                        }
+                    }
+                    
+                    fragment BookParts on Book {
+                        id
+                        slug
+                        title
+                        subtitle
+                        description
+                        isbn10
+                        isbn13
+                        language
+                        pageCount
+                        publishedDate
+                        publisher
+                        physicalFormat
+                        cover
+                        authors {
+                            ...AuthorMini
+                            __typename
+                        }
+                        gradientColors
+                        workId
+                        __typename
+                    }
+                    
+                    fragment AuthorMini on Author {
+                        id
+                        name
+                        slug
+                        __typename
+                    }
+                `,
+                variables: {
+                    handle: "rajkumaar23",
+                    readingStatus: readingStatus,
+                    limit: 10000,
+                    offset: 0,
+                },
+            }),
+        });
+        response = await response.json();
+        return response?.data?.booksByReadingStateAndHandle;
+    };
+
+    function showBooksGrid() {
+        document.getElementById("books-grid").style.display = 'block';
+    }
+
+    function hideLoader() {
+        document.getElementsByClassName("loader")[0].style.display = 'none';
+    }
+
+    (async function () {
+        const readingBooks = await fetchFromLiteralClub("IS_READING");
+        console.log(readingBooks);
+        const readingBooksDiv = document.getElementById("books-currently-reading");
+        const readingBooksContent = [];
+        for (let book of readingBooks) {
+            readingBooksContent.push(getBookArticleElement(book));
+        }
+        readingBooksDiv.append(...readingBooksContent);
+
+        const finishedBooks = await fetchFromLiteralClub("FINISHED");
+        const finishedBooksDiv = document.getElementById("books-finished");
+        const finishedBooksContent = [];
+        for (let book of finishedBooks) {
+            finishedBooksContent.push(getBookArticleElement(book));
+        }
+        finishedBooksDiv.append(...finishedBooksContent);
+
+        const wantToReadBooks = await fetchFromLiteralClub("WANTS_TO_READ");
+        const wantToReadBooksDiv = document.getElementById("books-want-to-read");
+        const wantToReadBooksContent = [];
+        for (let book of wantToReadBooks) {
+            wantToReadBooksContent.push(getBookArticleElement(book));
+        }
+        wantToReadBooksDiv.append(...wantToReadBooksContent);
+
+        hideLoader();
+        showBooksGrid();
+    })();
+</script>
+{{ end }}

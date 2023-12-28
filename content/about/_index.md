@@ -9,7 +9,7 @@ showWordCount: false
 Here's a brief intro – since I'm not quite as famous as Robert Downey Jr. to say, "You know who I am."
 {{< /lead >}}
 
-Howdy! I'm Rajkumar, a curious software engineer who's always in awe of the wonders that 0<sub>s</sub> and 1<sub>s</sub> could create. I graduated in 2021 with a **B.Tech** in Computer Science from [Amrita University](https://amrita.edu), and I recently earned my **MS** in Computer Science (with distinction) from [Arizona State University](https://asu.edu) in December '23.
+Howdy! I'm Rajkumar, a curious software engineer who's always in awe of the wonders that 0<sub>s</sub> and 1<sub>s</sub> could create. I graduated in 2021 with a <a target='_blank' href='/pdf-js/web/viewer.html?file=/academics/btech.pdf'>B.Tech</a> in Computer Science and Engineering from Amrita University, and I recently earned my <a target='_blank' href='/pdf-js/web/viewer.html?file=/academics/ms.pdf#page=2'>MS</a> in Computer Science (with distinction) from Arizona State University in December '23.
 
 I've got over a year of full-time software engineering experience plus more than a year of interning at [CodeChef](https://codechef.com), a competitive programming platform. Most recently, I worked in the Developer Environments team at [Cruise](https://getcruise.com) as an intern. I love building [products](/projects) that make a positive impact on society, and I'm a big advocate for free &amp; open-source software.
 

@@ -47,10 +47,10 @@ fingerprintAlgorithm = "sha256"
   invertPagination = true
   showReadingTime = true
   showTableOfContents = true
-  showTaxonomies = true
+  showTaxonomies = false
   showWordCount = true
   showComments = false
-  sharingLinks = ["twitter", "mastodon", "reddit", "linkedin", "email", "facebook"]
+  #Links = ["twitter", "mastodon", "reddit", "linkedin", "email", "facebook"]
 
 [list]
   showBreadcrumbs = false
@@ -64,7 +64,7 @@ fingerprintAlgorithm = "sha256"
   excludedKinds = ["taxonomy", "term"]
 
 [taxonomy]
-  showTermCount = true
+  showTermCount = false
 
 [fathomAnalytics]
   # site = "ABC12345"

@@ -20,8 +20,6 @@ title = "Online Home of Rajkumar"
   links = [
     { github = "https://github.com/rajkumaar23" },
     { linkedin = "https://linkedin.com/in/rajkumaar23" },
-  #   { link = "https://link-to-some-website.com/" },
-    { x-twitter = "https://twitter.com/rajkumaar23" },
     { telegram = "https://t.me/rajkumaar23" },
     { email = "mailto:me@rajkumaar.co.in" },
   ]

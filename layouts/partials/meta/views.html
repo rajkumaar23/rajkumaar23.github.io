@@ -1,0 +1,11 @@
+<span id="{{ . }}-stats"></span>
+<script>
+    var r = new XMLHttpRequest();
+    var url = "{{ . }}";
+    r.addEventListener('load', function() {
+        document.getElementById('{{ . }}-stats').innerText = JSON.parse(this.responseText).count + " views"
+    })
+    r.open('GET', 'https://rajkumaar23.goatcounter.com/counter/' + url.replace(/\/$/, '') + '.json')
+    r.send()
+</script>
+{{- /* Trim EOF */ -}}

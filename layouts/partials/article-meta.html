@@ -32,6 +32,7 @@
     {{ $meta.Add "partials" (slice (partial "meta/edit.html" .)) }}
   {{ end }}
 
+  {{ $meta.Add "partials" (slice (partial "meta/views.html" .RelPermalink)) }}
 
   <div class="flex flex-row flex-wrap items-center">
     {{/* Output partials */}}

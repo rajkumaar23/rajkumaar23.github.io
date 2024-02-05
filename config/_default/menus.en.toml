@@ -26,7 +26,7 @@
   weight = 30
 
 [[main]]
-  name = "Resume"
+  name = "Resumé"
   url = "/resume"
   weight = 40
   [main.params]

@@ -15,7 +15,7 @@ title = "Online Home of Rajkumar"
 [author]
   name = "Rajkumar"
   image = "img/author.jpg"
-  headline = "Software Engineer at HPE"
+  headline = "Software Engineer at NVIDIA"
   bio = "Ever in awe of the wonders that 0s and 1s could create!"
   links = [
     { github = "https://github.com/rajkumaar23" },

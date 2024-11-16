@@ -9,13 +9,14 @@
 </section>
 <section class="mt-8">
     {{ range .Pages }}
-    <article class="pb-6 mb-6">
-        <a class="flex group" href="{{ .Params.externalUrl }}" target="_blank">
+    <article class="pb-6 mb-6"> 
             <div>
-                <h3
-                    class="flex text-xl font-semibold group-hover:underline group-hover:decoration-primary-500 group-hover:underline-offset-2">
-                    {{ .Title }}
-                </h3>
+                <a class="flex group" href="{{ .Params.externalUrl }}" target="_blank">
+                    <h3
+                        class="flex text-xl font-semibold group-hover:underline group-hover:decoration-primary-500 group-hover:underline-offset-2">
+                        {{ .Title }}
+                    </h3>
+                </a>
                 <p class="text-sm text-neutral-500">{{ .Description }}</p>
             </div>
         </a>

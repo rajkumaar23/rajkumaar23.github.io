@@ -4,4 +4,5 @@
 *.log
 *.out
 *.synctex.gz
+public/
 .hugo_build.lock

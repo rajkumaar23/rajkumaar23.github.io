@@ -13,7 +13,7 @@ Some of the applications currently being served from my Raspberry Pi are:
 - [Amrita Repository - Telegram Bot](https://t.me/amrepobot)
 
 ## Web server and Reverse proxy
-When you click on any of the above applications, the first thing your browser does is fetch the corresponding IP address mapped to the domain (DNS). Post that, your browser makes a request to the IP with the requested domain as the `hostname`. Since my Pi resides on a home network, the IP you access is that of my Cox gateway. When the request reaches the modem, it is then [redirected](#port-forwarding) to my Pi. 
+When you click on any of the above applications, the first thing your browser does is fetch the corresponding IP address mapped to the domain (DNS). Post that, your browser makes a request to the IP with the requested domain as the `hostname`. Since my Pi resides on a home network, the IP you access is that of my Cox gateway. When the request reaches the router, it is then [redirected](#port-forwarding) to my Pi. 
 
 And then, the `nginx` web server running inside the Pi matches the appropriate virtual host (*based on the hostname from the request*), and the response is generated and sent back. One of my virtual host configuration looks similar to this:
 ```nginx
@@ -82,14 +82,14 @@ end
 {{< /mermaid >}}
 
 ## Port forwarding
-Now that the DNS is all set, the next step is to configure the Cox modem to be able to forward the requests received on the public gateway IP to my Raspberry Pi. This can be done by setting up port-forwarding for the necessary port(s) using the [Cox Panoramic WiFi app](https://www.cox.com/residential/internet/learn/panoramic-wifi-app.html). Since all my applications are web-based, I forward the port `443` for HTTPS requests. 
+Now that the DNS is all set, the next step is to configure the Cox router to be able to forward the requests received on the public gateway IP to my Raspberry Pi. This can be done by setting up port-forwarding for the necessary port(s) using the [Cox Panoramic WiFi app](https://www.cox.com/residential/internet/learn/panoramic-wifi-app.html). Since all my applications are web-based, I forward the port `443` for HTTPS requests. 
 
 The configuration is accessible within the app from the WiFi tab at the bottom → View WiFi equipment → Advanced Settings → Port forwarding → Add port forward.
 
 ![Cox Port Forwarding](port-forwarding.png)
 
 ## NAT reflection and Pi-hole
-Even after performing all the above steps, and having the `nginx` web server running on my Pi to listen for requests on the port 443, the setup would **not** work when I am connected to my home network. Digging up a few articles on the internet would teach that it is due to the absence of a feature called [NAT reflection](https://docs.netgate.com/pfsense/en/latest/nat/reflection.html) on my modem. Typically, this is provided only for commercial routers.
+Even after performing all the above steps, and having the `nginx` web server running on my Pi to listen for requests on the port 443, the setup would **not** work when I am connected to my home network. Digging up a few articles on the internet would teach that it is due to the absence of a feature called [NAT reflection](https://docs.netgate.com/pfsense/en/latest/nat/reflection.html) in my router. Typically, this is provided only for commercial routers.
 
 Given this limitation, there are 2 ways (that I am aware of) to work around:
 - Use a VPN when accessing these applications (if you know how a VPN works, this should make sense).

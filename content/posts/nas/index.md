@@ -1,6 +1,7 @@
 +++
 title = 'Network Attached Storage'
 date = 2026-08-07T13:12:39-07:00
+draft = true
 +++
 
 It has been over 8 months since I built my first NAS server. In fact, that was my first time building a computer from parts. Today, I have 3 of them following [the 3-2-1 rule](https://www.backblaze.com/blog/the-3-2-1-backup-strategy/#:~:text=What%20Is%20the%203%2D2%2D1%20Backup%20Rule?), with 1 primary on-site and 2 off-site backup servers. All of them run TrueNAS Community Edition and are not exposed to the Internet for obvious reasons. When I'm traveling, I am always connected to my Wireguard VPN to be able to access the NAS and a bunch of other (web)services.

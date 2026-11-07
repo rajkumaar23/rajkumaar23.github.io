@@ -424,7 +424,8 @@ html.dark .rk-resume-pdf { border-color: rgba(var(--color-neutral-700), 0.7); }
   .rk-hero { padding-block: 3.25rem 2.75rem; }
   .rk-hero-aurora::before, .rk-hero-aurora::after { width: 75vw; height: 75vw; filter: blur(44px); opacity: 0.4; }
   /* breathing room: hero blocks were stacked too tight at phone width */
-  .rk-hero-status { margin-top: 1.4rem; }
+  .rk-hero-status { margin-top: 1.4rem; flex-wrap: wrap; justify-content: center; row-gap: 0.2rem; padding-inline: 1.1rem; }
+  .rk-status-sep { display: none; }
   .rk-hero-name { margin: 1.6rem 0 0.7rem; }
   .rk-hero-headline { margin-top: 0.45rem; }
   .rk-hero-bio { margin-top: 1.15rem; }

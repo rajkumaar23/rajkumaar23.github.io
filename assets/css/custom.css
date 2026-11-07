@@ -287,7 +287,7 @@ html.dark .rk-book-cover.rk-cover-wait::after {
 }
 .rk-book-cover img { width: 100%; height: auto; display: block; }
 .rk-book:hover .rk-book-cover { transform: translateY(-5px) rotate(-0.6deg); box-shadow: 0 18px 34px rgba(var(--color-primary-500), 0.3); }
-.rk-book-title { font-size: 0.82rem; font-weight: 700; margin: 0.7rem 0 0.1rem; color: rgb(var(--color-neutral-800)); line-height: 1.35; }
+.rk-book-title { font-size: 0.82rem; font-weight: 700; margin: 0.7rem 0 0.1rem; color: rgb(var(--color-neutral-800)); line-height: 1.35; min-height: 2.7em; }
 html.dark .rk-book-title { color: rgb(var(--color-neutral-200)); }
 .rk-book-author { font-size: 0.72rem; color: rgb(var(--color-neutral-500)); }
 

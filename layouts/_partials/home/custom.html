@@ -1,4 +1,3 @@
-
 {{ $gh := hugo.Data.github }}
 {{ $ghUser := hugo.Data.user }}
 {{ $books := hugo.Data.books }}
@@ -36,7 +35,19 @@
       </div>
     </div>
 
-<div class="rk-hero-social rk-reveal">
+    <div class="rk-hero-actions rk-reveal">
+      <a class="rk-btn rk-btn-primary" href="/projects">
+        {{ partial "icon.html" "lightbulb" }} See what I've built
+      </a>
+      <a class="rk-btn rk-btn-ghost" href="/resume" target="_blank" rel="noopener">
+        {{ partial "icon.html" "list" }} Résumé
+      </a>
+      <a class="rk-btn rk-btn-ghost" href="mailto:me@rajkumaar.co.in">
+        {{ partial "icon.html" "email" }} Say hello
+      </a>
+    </div>
+
+    <div class="rk-hero-social rk-reveal">
       {{ range $author.links }}
         {{ range $name, $url := . }}
           <a href="{{ $url }}" target="_blank" rel="noopener me" aria-label="{{ $name }}" title="{{ $name }}">
@@ -46,5 +57,88 @@
       {{ end }}
     </div>
 
+    {{/* ---------- STATS ---------- */}}
+    <div class="rk-stats rk-wrap">
+      <div class="rk-stat rk-reveal"><b>{{ $ghUser.public_repos }}</b><span>public repos</span></div>
+      <div class="rk-stat rk-reveal"><b>{{ $ghUser.followers }}</b><span>GitHub followers</span></div>
+      <div class="rk-stat rk-reveal"><b>{{ len (where site.RegularPages "Section" "posts") }}</b><span>written posts</span></div>
+      <div class="rk-stat rk-reveal"><b>{{ len $books.finished }}</b><span>books finished</span></div>
+    </div>
+  </div>
+</section>
+
+{{/* ---------- FEATURED PROJECTS ---------- */}}
+<section class="rk-section" id="projects">
+  <div class="rk-wrap">
+    {{ partial "rk/section-head.html" (dict "eyebrow" "open source" "title" "Things I've shipped" "sub" "A few favourites — from data-center automation to a button that opens my front door." "more" "/projects" "moreText" "All projects") }}
+    <div class="rk-grid rk-grid-3">
+      {{ $featured := (site.GetPage "/projects").Pages }}
+      {{ $featuredPages := slice }}
+      {{ range $featured }}
+        {{ $slug := replaceRE "https://github.com/[^/]+/" "" (default "" .Params.externalUrl) }}
+        {{ $repo := index $gh (lower $slug) }}
+        {{ if $repo }}{{ $featuredPages = $featuredPages | append (dict "page" . "repo" $repo "stars" (int (default 0 $repo.stars))) }}{{ end }}
+      {{ end }}
+      {{ range first 6 (sort $featuredPages "stars" "desc") }}
+        {{ partial "rk/project-card.html" (dict "name" .page.Title "title" .page.Title "desc" (default .repo.desc .page.Description) "url" .page.Params.externalUrl "stars" .repo.stars "forks" .repo.forks "language" .repo.language "topics" .repo.topics) }}
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+{{/* ---------- WRITING ---------- */}}
+<section class="rk-section rk-band" id="writing">
+  <div class="rk-wrap">
+    {{ partial "rk/section-head.html" (dict "eyebrow" "from the blog" "title" "Latest writing" "sub" "Homelab builds, hardware hacks and lessons learned the hard way." "more" "/posts" "moreText" "All posts") }}
+    <div class="rk-grid rk-grid-3">
+      {{ range first 3 (where site.RegularPages "Section" "posts") }}
+        {{ partial "rk/post-card.html" . }}
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+{{/* ---------- READING ---------- */}}
+<section class="rk-section" id="reading">
+  <div class="rk-wrap">
+    {{ partial "rk/section-head.html" (dict "eyebrow" "the bookshelf" "title" "Currently, between the lines" "sub" "Mostly non-fiction — tracking everything on my shelf." "more" "/books/shelf" "moreText" "Full shelf") }}
+    {{ with first 1 $books.currentlyReading }}
+      {{ range . }}
+        <div class="rk-nowreading rk-reveal">
+          <a class="rk-book" href="https://literal.club/book/{{ .slug }}" target="_blank" rel="noopener">
+            <span class="rk-book-cover"><img src="{{ .cover }}" alt="Cover of {{ .title }}" loading="lazy"></span>
+          </a>
+          <div>
+            <span class="rk-eyebrow">now reading</span>
+            <h3>{{ .title }}</h3>
+            <p class="rk-book-author">{{ delimit .authors ", " }}</p>
+          </div>
+        </div>
+      {{ end }}
+    {{ end }}
+    <div class="rk-grid rk-grid-6">
+      {{ range first 8 (sort $books.finished "title" ) }}
+        <a class="rk-book rk-reveal" href="https://literal.club/book/{{ .slug }}" target="_blank" rel="noopener">
+          <span class="rk-book-cover"><img src="{{ .cover }}" alt="Cover of {{ .title }}" loading="lazy"></span>
+          <span class="rk-book-title">{{ .title }}</span>
+          <span class="rk-book-author">{{ delimit (first 1 .authors) "" }}</span>
+        </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+{{/* ---------- CTA ---------- */}}
+<section class="rk-section" style="padding-top: 0;">
+  <div class="rk-wrap">
+    <div class="rk-cta rk-reveal">
+      <span class="rk-eyebrow">say hi</span>
+      <h2>Automating the boring parts of life.</h2>
+      <p>From NVIDIA's data centers to my own server rack — if it can be scripted, tested and deployed, I probably have a repo for it. My inbox is always open; I read everything.</p>
+      <div class="rk-hero-actions" style="justify-content: center;">
+        <a class="rk-btn rk-btn-primary" href="mailto:me@rajkumaar.co.in">{{ partial "icon.html" "email" }} me@rajkumaar.co.in</a>
+        <a class="rk-btn rk-btn-ghost" href="https://github.com/rajkumaar23" target="_blank" rel="noopener">{{ partial "icon.html" "github" }} @rajkumaar23</a>
+      </div>
+    </div>
   </div>
 </section>

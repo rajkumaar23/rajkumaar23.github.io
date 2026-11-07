@@ -22,14 +22,11 @@ fingerprintAlgorithm = "sha256"
   # logoDark = "img/dark-logo.jpg"
   showTitle = true
 
-[appearance]
-  disableSwitch = true
-
 [footer]
   showCopyright = true
   showThemeAttribution = true
-  showAppearanceSwitcher = false
-  showScrollToTop = true
+  showAppearanceSwitcher = true
+  showScrollToTop = false
 
 [homepage]
   layout = "custom" # valid options: page, profile, custom

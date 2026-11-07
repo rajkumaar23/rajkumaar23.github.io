@@ -9,16 +9,6 @@
   </div>
 </section>
 
-<section class="max-w-prose print:hidden" style="margin-top: 4.5rem;">
-  <span class="rk-eyebrow">toolkit</span>
-  <h2 class="rk-title" style="font-size: 1.4rem;">Recently living in</h2>
-  <div class="rk-chips">
-    {{ range slice "Go" "Starlark" "TypeScript" "Python" "Java" "C++" "Shell" "Bash" "Docker" "Kubernetes" "Slurm" "Homebridge" "TrueNAS" "Unifi" "Puck.js" "k3s" }}
-      <span class="rk-chip">{{ . }}</span>
-    {{ end }}
-  </div>
-</section>
-
 <footer class="max-w-prose pt-8 print:hidden">
   {{ partial "author.html" . }}
 </footer>

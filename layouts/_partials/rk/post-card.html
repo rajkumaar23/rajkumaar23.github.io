@@ -1,0 +1,12 @@
+{{/* Post card. Expects the post page. Text-only: the title is the hero. */}}
+{{ $p := . }}
+<a class="rk-card rk-post-card rk-reveal" href="{{ $p.RelPermalink }}" aria-label="{{ $p.Title }}">
+  <span class="rk-post-body">
+    <span class="rk-post-date">{{ $p.Date.Format "2 Jan 2006" }} · {{ $p.ReadingTime }} min</span>
+    <span class="rk-post-title">{{ $p.Title }}</span>
+    <span class="rk-post-excerpt">{{ $p.Summary | plainify | truncate 28 "…" }}</span>
+    {{ with $p.Params.tags }}
+      <span class="rk-post-tags">{{ range first 4 . }}#{{ . }} {{ end }}</span>
+    {{ end }}
+  </span>
+</a>

@@ -1,0 +1,13 @@
+{{/* Reimagined layer — custom stylesheet built on Congo tokens */}}
+{{ with resources.Get "css/custom.css" }}
+  {{ with . | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+  {{ end }}
+{{ end }}
+{{ with resources.Get "js/site.js" }}
+  {{ with . | minify | fingerprint }}
+    <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" defer></script>
+  {{ end }}
+{{ end }}
+<meta name="theme-color" content="#8b5cf6" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#18181b" media="(prefers-color-scheme: dark)">

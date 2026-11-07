@@ -1,0 +1,19 @@
+{{ define "main" }}
+{{ $author := site.Language.Params.Author }}
+{{ $pdf := "/Rajkumar_Sukumar_Resume.pdf" }}
+
+<header class="rk-resume-head">
+  <span class="rk-eyebrow">curriculum vitae</span>
+  <h1 class="rk-resume-name">{{ $author.name }}</h1>
+  <p class="rk-resume-title">{{ $author.headline }}</p>
+  <div class="rk-hero-actions" style="justify-content: flex-start;">
+    <a class="rk-btn rk-btn-primary" href="{{ $pdf }}" target="_blank" rel="noopener">
+      <svg viewBox="0 0 16 16" fill="currentColor" width="1.05em" height="1.05em" aria-hidden="true"><path d="M8.75 1.75V8.19l2.22-2.22a.75.75 0 1 1 1.06 1.06l-3.5 3.5a.75.75 0 0 1-1.06 0l-3.5-3.5a.75.75 0 1 1 1.06-1.06l2.22 2.22V1.75a.75.75 0 0 1 1.5 0Zm-4.5 8.5a.75.75 0 0 1 .75.75v1.5c0 .138.112.25.25.25h6.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 11.75 14.5h-6.5A1.75 1.75 0 0 1 3.5 12.75v-1.5a.75.75 0 0 1 .75-.75Z"/></svg>
+      Download PDF
+    </a>
+    <a class="rk-btn rk-btn-ghost" href="/pdf-js/web/viewer.html?file={{ $pdf }}" target="_blank" rel="noopener">Open in new tab</a>
+  </div>
+</header>
+
+<iframe class="rk-resume-pdf" src="/pdf-js/web/viewer.html?file={{ $pdf }}" title="Rajkumar Sukumar — Résumé"></iframe>
+{{ end }}

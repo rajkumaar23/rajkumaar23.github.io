@@ -1,0 +1,12 @@
+{{ define "main" }}
+<div class="rk-404">
+  <pre><span class="p">$</span> curl https://rajkumaar.co.in<span class="c">{{ .RelPermalink }}</span>
+<span class="c">HTTP 404 — no such page in this homelab.</span>
+<span class="p">$</span> echo $SUGGESTION
+<span class="c">try the <a href="/">homepage</a>, the <a href="/posts">blog</a> or the <a href="/projects">projects</a></span></pre>
+  <div class="rk-hero-actions" style="justify-content: center; margin-top: 2rem;">
+    <a class="rk-btn rk-btn-primary" href="/">{{ partial "icon.html" "globe" }} Take me home</a>
+    <a class="rk-btn rk-btn-ghost" href="/posts">{{ partial "icon.html" "list" }} Read something</a>
+  </div>
+</div>
+{{ end }}

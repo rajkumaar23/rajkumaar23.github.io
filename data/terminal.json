@@ -1,0 +1,10 @@
+[
+  { "prompt": "rajkumar@home:~$ ", "text": "whoami" },
+  { "cls": "rk-term-out", "html": "Rajkumar — software engineer <b>@ NVIDIA</b> · EDA Infrastructure · node remediation at scale" },
+  { "prompt": "rajkumar@home:~$ ", "text": "cat ~/interests.txt" },
+  { "cls": "rk-term-out", "html": "homelab · automation · <b>FOSS</b> · hardware hacks · non-fiction · cooking" },
+  { "prompt": "rajkumar@home:~$ ", "text": "ls ~/projects | sort -rn --by stars | head -3" },
+  { "cls": "rk-term-out", "html": "notify-abroad <b>64★</b> · api-playstore <b>46★</b> · flowgramming <b>11★</b>" },
+  { "prompt": "rajkumar@home:~$ ", "text": "systemctl status curiosity" },
+  { "cls": "rk-term-out", "html": "● <b>active (running)</b> — enabled since BTech, no scheduled shutdown" }
+]

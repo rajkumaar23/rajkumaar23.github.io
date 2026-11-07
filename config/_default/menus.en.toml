@@ -26,11 +26,9 @@
   weight = 30
 
 [[main]]
-  name = "Resumé"
+  name = "Resumé"
   url = "/resume"
   weight = 40
-  [main.params]
-    target = "_blank"
 
 [[main]]
   name = "Bookshelf"

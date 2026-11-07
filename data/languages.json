@@ -1,0 +1,18 @@
+{
+  "Go": "#00ADD8",
+  "JavaScript": "#f1e05a",
+  "TypeScript": "#3178c6",
+  "Java": "#b07219",
+  "C++": "#f34b7d",
+  "Python": "#3572A5",
+  "Shell": "#89e051",
+  "Rust": "#dea584",
+  "HTML": "#e34c26",
+  "CSS": "#563d7c",
+  "Dart": "#00B4AB",
+  "Kotlin": "#A97BFF",
+  "Swift": "#F05138",
+  "Vue": "#41b883",
+  "Ruby": "#701516",
+  "C": "#555555"
+}

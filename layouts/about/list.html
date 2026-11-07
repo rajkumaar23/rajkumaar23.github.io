@@ -1,13 +1,25 @@
 {{ define "main" }}
 <header>
-    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">{{ .Title }}</h1>
+  <span class="rk-eyebrow">about</span>
+  <h1 class="mt-2 text-4xl font-extrabold text-neutral-900 dark:text-neutral">{{ .Title }}</h1>
 </header>
 <section class="mt-0 prose flex max-w-full flex-col dark:prose-invert lg:flex-row">
-    <div class="min-h-0 min-w-0 max-w-prose grow" style="text-align: justify;">
-        {{ .Content | emojify }}
-    </div>
+  <div class="min-h-0 min-w-0 max-w-prose grow" style="text-align: justify;">
+    {{ .Content | emojify }}
+  </div>
 </section>
+
+<section class="max-w-prose print:hidden" style="margin-top: 4.5rem;">
+  <span class="rk-eyebrow">toolkit</span>
+  <h2 class="rk-title" style="font-size: 1.4rem;">Recently living in</h2>
+  <div class="rk-chips">
+    {{ range slice "Go" "Starlark" "TypeScript" "Python" "Java" "C++" "Shell" "Bash" "Docker" "Kubernetes" "Slurm" "Homebridge" "TrueNAS" "Unifi" "Puck.js" "k3s" }}
+      <span class="rk-chip">{{ . }}</span>
+    {{ end }}
+  </div>
+</section>
+
 <footer class="max-w-prose pt-8 print:hidden">
-    {{ partial "author.html" . }}
+  {{ partial "author.html" . }}
 </footer>
 {{ end }}

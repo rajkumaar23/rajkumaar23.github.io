@@ -1,0 +1,14 @@
+{{/*
+  Section header. Expects dict: eyebrow, title, sub, more, moreText
+*/}}
+{{ $d := . }}
+<div class="rk-section-head rk-reveal">
+  <div>
+    <span class="rk-eyebrow">{{ $d.eyebrow }}</span>
+    <h2 class="rk-title">{{ $d.title }}</h2>
+    {{ with $d.sub }}<p class="rk-sub">{{ . }}</p>{{ end }}
+  </div>
+  {{ with $d.more }}
+    <a class="rk-link-arrow" href="{{ . }}">{{ $d.moreText | default "View all" }} →</a>
+  {{ end }}
+</div>

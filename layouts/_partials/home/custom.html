@@ -1,0 +1,50 @@
+
+{{ $gh := hugo.Data.github }}
+{{ $ghUser := hugo.Data.user }}
+{{ $books := hugo.Data.books }}
+{{ $author := site.Language.Params.Author }}
+
+{{/* ---------- HERO ---------- */}}
+<section class="rk-hero">
+  <div class="rk-hero-aurora" aria-hidden="true"></div>
+  <div class="rk-hero-grid" aria-hidden="true"></div>
+  <div class="rk-wrap rk-hero-inner">
+    {{ with $author.image }}
+      {{ $img := resources.Get . }}
+      {{ with $img }}
+        <div class="rk-avatar-ring rk-reveal">
+          <img src="{{ .RelPermalink }}" width="128" height="128" alt="Portrait of {{ $author.name }}">
+        </div>
+      {{ end }}
+    {{ end }}
+
+    <span class="rk-hero-status rk-reveal">
+      <i class="rk-status-dot" aria-hidden="true"></i>
+      building in the homelab · automating myself out of chores
+    </span>
+
+    <h1 class="rk-hero-name rk-reveal">
+      Hi, I'm <span class="rk-gradient-text">{{ $author.name }}</span>.
+    </h1>
+    <p class="rk-hero-headline rk-reveal">{{ $author.headline | markdownify | emojify }}</p>
+    <p class="rk-hero-bio rk-reveal">{{ $author.bio }}</p>
+
+    <div class="rk-terminal rk-reveal" id="rk-terminal" data-script='{{ hugo.Data.terminal | jsonify }}'>
+      <div class="rk-terminal-bar" aria-hidden="true"><i></i><i></i><i></i><span>rajkumar — zsh — 96×32</span></div>
+      <div class="rk-terminal-body">
+        <span class="rk-term-line"><span class="rk-term-prompt">rajkumar@home:~$ </span><span class="rk-term-cmd">whoami</span></span>
+      </div>
+    </div>
+
+<div class="rk-hero-social rk-reveal">
+      {{ range $author.links }}
+        {{ range $name, $url := . }}
+          <a href="{{ $url }}" target="_blank" rel="noopener me" aria-label="{{ $name }}" title="{{ $name }}">
+            {{ partial "icon.html" $name }}
+          </a>
+        {{ end }}
+      {{ end }}
+    </div>
+
+  </div>
+</section>

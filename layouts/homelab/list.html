@@ -1,0 +1,239 @@
+{{ define "main" }}
+{{/* Homelab — public, sanitised view of the cluster. No hostnames, IPs or URLs here. */}}
+
+<header class="rk-hl-hero">
+  <div class="rk-hero-aurora" aria-hidden="true"></div>
+  <div class="rk-hero-grid" aria-hidden="true"></div>
+  <div class="rk-hl-hero-inner rk-reveal">
+    <span class="rk-eyebrow">homelab</span>
+    <h1 class="rk-hl-title">Four nodes.<br /><span class="rk-gradient-text">One repo.</span></h1>
+    <p class="rk-hl-sub">
+      A self-hosted Kubernetes cluster that runs everything I run at home —
+      fully declarative, GitOps-reconciled, LAN-first. If it isn't in git, it isn't real.
+    </p>
+    <span class="rk-hero-status">
+      <i class="rk-status-dot" aria-hidden="true"></i>
+      <span>self-hosted</span><span class="rk-status-sep">·</span><span>gitops</span><span class="rk-status-sep">·</span><span>zero cloud dependency</span>
+    </span>
+  </div>
+
+  <div class="rk-wrap">
+    <div class="rk-stats rk-reveal">
+      <div class="rk-stat"><b>4</b><span>nodes</span></div>
+      <div class="rk-stat"><b>2</b><span>gpus</span></div>
+      <div class="rk-stat"><b>38</b><span>workloads</span></div>
+      <div class="rk-stat"><b>1</b><span>git repo</span></div>
+    </div>
+  </div>
+</header>
+
+{{/* ---------------- topology ---------------- */}}
+<section class="rk-section">
+  <div class="rk-wrap">
+    {{ partial "rk/section-head.html" (dict "eyebrow" "topology" "title" "The shape of it" "sub" "One commit travels the whole path; anything that drifts gets reverted.") }}
+    <div class="rk-hl-canvas rk-reveal">
+      <svg viewBox="0 0 980 300" role="img" aria-label="Diagram: a git repo feeds ArgoCD, which reconciles a four-node k3s cluster; browsers reach the cluster through Traefik; state lives on a NAS." class="rk-hl-svg">
+        <defs>
+          <marker id="hl-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="rgb(var(--color-primary-500))" />
+          </marker>
+        </defs>
+
+        <!-- connections: solid strokes, endpoints snapped to box edges -->
+        <g fill="none" stroke="rgb(var(--color-primary-500))" stroke-width="2" opacity="0.9">
+          <path d="M208 82 H 250" marker-end="url(#hl-arrow)" />
+          <path d="M418 82 H 530" marker-end="url(#hl-arrow)" />
+          <path d="M208 180 C 290 146, 420 142, 530 145" marker-end="url(#hl-arrow)" />
+          <path d="M566 248 C 540 288, 470 290, 426 230" marker-end="url(#hl-arrow)" />
+        </g>
+        <path d="M668 40 C 668 16, 338 14, 338 45" fill="none" stroke="rgb(var(--color-secondary-500))" stroke-width="1.6" stroke-dasharray="5 5" opacity="0.65" marker-end="url(#hl-arrow)" />
+
+        <!-- cluster panel -->
+        <rect x="538" y="40" width="330" height="208" rx="16" fill="rgba(var(--color-primary-500), 0.06)" stroke="rgba(var(--color-primary-500), 0.4)" stroke-width="1.4" />
+        <text x="558" y="66" class="hl-mono hl-label">k3s · 4 nodes</text>
+        <g>
+          <rect x="558" y="88" width="140" height="46" rx="10" class="hl-node" /><circle cx="576" cy="101" r="4" class="hl-dot" />
+          <text x="588" y="105" class="hl-mono hl-strong">anchor</text><text x="588" y="121" class="hl-mono hl-dim">cp·edge·amd64</text>
+          <rect x="714" y="88" width="140" height="46" rx="10" class="hl-node" /><circle cx="732" cy="101" r="4" class="hl-dot" />
+          <text x="744" y="105" class="hl-mono hl-strong">brain</text><text x="744" y="121" class="hl-mono hl-dim">gpu·arm64</text>
+          <rect x="558" y="152" width="140" height="46" rx="10" class="hl-node" /><circle cx="576" cy="165" r="4" class="hl-dot" />
+          <text x="588" y="169" class="hl-mono hl-strong">sidekick</text><text x="588" y="185" class="hl-mono hl-dim">gpu·arm64</text>
+          <rect x="714" y="152" width="140" height="46" rx="10" class="hl-node" /><circle cx="732" cy="165" r="4" class="hl-dot" />
+          <text x="744" y="169" class="hl-mono hl-strong">tinkerer</text><text x="744" y="185" class="hl-mono hl-dim">arm·debian</text>
+        </g>
+
+        <!-- source boxes (two aligned columns) -->
+        <rect x="18" y="48" width="190" height="68" rx="12" class="hl-box" />
+        <text x="113" y="78" text-anchor="middle" class="hl-mono hl-strong">git push</text>
+        <text x="113" y="98" text-anchor="middle" class="hl-mono hl-dim">one repo · main</text>
+
+        <rect x="258" y="48" width="160" height="68" rx="12" class="hl-box" />
+        <text x="338" y="78" text-anchor="middle" class="hl-mono hl-strong">ArgoCD</text>
+        <text x="338" y="98" text-anchor="middle" class="hl-mono hl-dim">poll · sync · heal</text>
+
+        <rect x="18" y="170" width="190" height="68" rx="12" class="hl-box" />
+        <text x="113" y="200" text-anchor="middle" class="hl-mono hl-strong">browsers @ home</text>
+        <text x="113" y="220" text-anchor="middle" class="hl-mono hl-dim">via Traefik + TLS</text>
+
+        <rect x="258" y="170" width="160" height="68" rx="12" class="hl-box" />
+        <text x="338" y="200" text-anchor="middle" class="hl-mono hl-strong">NAS</text>
+        <text x="338" y="220" text-anchor="middle" class="hl-mono hl-dim">nfs · state</text>
+      </svg>
+      <p class="rk-hl-caption rk-mono">git push → reconcile → self-heal — everything behind one router</p>
+    </div>
+  </div>
+</section>
+
+{{/* ---------------- gitops pipeline ---------------- */}}
+<section class="rk-section rk-band">
+  <div class="rk-wrap">
+    {{ partial "rk/section-head.html" (dict "eyebrow" "gitops" "title" "How a change lands" "sub" "The cluster is a rendering of the repo. There is no other way in.") }}
+    <div class="rk-hl-flow rk-reveal">
+      <div class="rk-hl-step"><span class="rk-hl-stepnum">01</span><h3>Commit</h3><p>Manifests, routes and policies are plain YAML — reviewed like any code.</p></div>
+      <div class="rk-hl-step"><span class="rk-hl-stepnum">02</span><h3>Push</h3><p>One push to <span class="rk-mono">main</span> of a single repo. That's the whole deploy button.</p></div>
+      <div class="rk-hl-step"><span class="rk-hl-stepnum">03</span><h3>Sync</h3><p>ArgoCD notices within minutes and reconciles the desired state onto the cluster.</p></div>
+      <div class="rk-hl-step"><span class="rk-hl-stepnum">04</span><h3>Self-heal</h3><p>Hand-applied drift is reverted automatically. The repo always wins.</p></div>
+    </div>
+
+    <div class="rk-terminal rk-reveal" aria-hidden="true">
+      <div class="rk-terminal-bar"><i></i><i></i><i></i><span>~/homelab — kubectl</span></div>
+      <div class="rk-terminal-body">
+        <span class="rk-term-line"><span class="rk-term-prompt">$ </span><span class="rk-term-cmd">kubectl get applications -n argocd</span></span>
+        <span class="rk-term-line rk-term-out">edge-ingress   <b>Synced</b>   <b>Healthy</b></span>
+        <span class="rk-term-line rk-term-out">metrics-stack  <b>Synced</b>   <b>Healthy</b></span>
+        <span class="rk-term-line rk-term-out">git-forge      <b>Synced</b>   <b>Healthy</b></span>
+        <span class="rk-term-line rk-term-out">database       <b>Synced</b>   <b>Healthy</b></span>
+        <span class="rk-term-line rk-term-out">…38 more — every one green, every one from git</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{/* ---------------- stack ---------------- */}}
+<section class="rk-section">
+  <div class="rk-wrap">
+    {{ partial "rk/section-head.html" (dict "eyebrow" "stack" "title" "What the cluster runs on" "sub" "Boring, proven open source — chosen to be maintainable at home scale.") }}
+    <div class="rk-grid rk-grid-4 rk-reveal">
+      <div class="rk-card"><div class="rk-card-name">k3s</div><p class="rk-card-desc">The lightweight Kubernetes distro. Four heterogeneous nodes — x86 and a fleet of ARM machines — one control plane.</p><div class="rk-card-meta"><span>orchestration</span></div></div>
+      <div class="rk-card"><div class="rk-card-name">ArgoCD</div><p class="rk-card-desc">App-of-apps GitOps. Each application is one directory in one repo; new directories become new apps automatically.</p><div class="rk-card-meta"><span>delivery</span></div></div>
+      <div class="rk-card"><div class="rk-card-name">Traefik</div><p class="rk-card-desc">The sole ingress at the edge, with cert-manager issuing wildcard TLS behind the router. Nothing is exposed to the internet.</p><div class="rk-card-meta"><span>edge</span></div></div>
+      <div class="rk-card"><div class="rk-card-name">NFS + CSI</div><p class="rk-card-desc">State lives on a NAS via a CSI driver — Retain policy, per-PVC subdirs, SSD class for the latency-sensitive databases.</p><div class="rk-card-meta"><span>storage</span></div></div>
+      <div class="rk-card"><div class="rk-card-name">Prometheus + Grafana</div><p class="rk-card-desc">Metrics, dashboards and the alert rules that actually wake me up. Push metrics included for one-shot jobs.</p><div class="rk-card-meta"><span>observability</span></div></div>
+      <div class="rk-card"><div class="rk-card-name">Beszel + Kuma</div><p class="rk-card-desc">Light host monitoring with SSH dial-back agents, plus uptime probes and a status page for the whole fleet.</p><div class="rk-card-meta"><span>observability</span></div></div>
+      <div class="rk-card"><div class="rk-card-name">Local AI</div><p class="rk-card-desc">GPU nodes serve open models for inference and embeddings — private AI that never leaves the house.</p><div class="rk-card-meta"><span>ml</span></div></div>
+      <div class="rk-card"><div class="rk-card-name">DNS + backups</div><p class="rk-card-desc">A local resolver splits the wildcard domain; git itself is the backup format for the things that matter.</p><div class="rk-card-meta"><span>plumbing</span></div></div>
+    </div>
+
+    <div class="rk-hl-shelf rk-reveal">
+      <p class="rk-hl-shelf-lead">On top of the stack, ~30 self-hosted services run as plain directories in the repo —
+      no cloud subscriptions, no vendor lock-in, nothing that phones home.</p>
+      <div class="rk-grid rk-grid-4 rk-hl-shelfgrid">
+        <div class="rk-card"><span class="rk-card-name">Git &amp; delivery</span><div class="rk-hl-apps">
+          <a class="rk-hl-app" href="https://github.com/go-gitea/gitea" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/gitea" alt="" loading="lazy"><span>Gitea</span></a>
+          <a class="rk-hl-app" href="https://github.com/argoproj/argo-cd" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/argo" alt="" loading="lazy"><span>ArgoCD</span></a>
+        </div></div>
+        <div class="rk-card"><span class="rk-card-name">Edge &amp; network</span><div class="rk-hl-apps">
+          <a class="rk-hl-app" href="https://github.com/traefik/traefik" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/traefikproxy" alt="" loading="lazy"><span>Traefik</span></a>
+          <a class="rk-hl-app" href="https://github.com/AdguardTeam/AdGuardHome" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/adguard" alt="" loading="lazy"><span>AdGuard Home</span></a>
+        </div></div>
+        <div class="rk-card"><span class="rk-card-name">Observability</span><div class="rk-hl-apps">
+          <a class="rk-hl-app" href="https://github.com/prometheus/prometheus" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/prometheus" alt="" loading="lazy"><span>Prometheus</span></a>
+          <a class="rk-hl-app" href="https://github.com/grafana/grafana" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/grafana" alt="" loading="lazy"><span>Grafana</span></a>
+          <a class="rk-hl-app" href="https://github.com/jaegertracing/jaeger" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/jaeger" alt="" loading="lazy"><span>Jaeger</span></a>
+          <a class="rk-hl-app" href="https://github.com/henrygd/beszel" target="_blank" rel="noopener"><i class="rk-hl-init">BZ</i><span>Beszel</span></a>
+          <a class="rk-hl-app" href="https://github.com/louislam/uptime-kuma" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/uptimekuma" alt="" loading="lazy"><span>Uptime Kuma</span></a>
+        </div></div>
+        <div class="rk-card"><span class="rk-card-name">Data</span><div class="rk-hl-apps">
+          <a class="rk-hl-app" href="https://www.postgresql.org" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/postgresql" alt="" loading="lazy"><span>PostgreSQL</span></a>
+          <a class="rk-hl-app" href="https://www.pgadmin.org" target="_blank" rel="noopener"><i class="rk-hl-init">PA</i><span>pgAdmin</span></a>
+        </div></div>
+        <div class="rk-card"><span class="rk-card-name">Intelligence</span><div class="rk-hl-apps">
+          <a class="rk-hl-app" href="https://github.com/open-webui/open-webui" target="_blank" rel="noopener"><i class="rk-hl-init">OW</i><span>Open WebUI</span></a>
+          <a class="rk-hl-app" href="https://github.com/plastic-labs/honcho" target="_blank" rel="noopener"><i class="rk-hl-init">H</i><span>Honcho</span></a>
+          <a class="rk-hl-app" href="https://github.com/NousResearch/Hermes-Agent" target="_blank" rel="noopener"><i class="rk-hl-init">✦</i><span>Hermes</span></a>
+        </div></div>
+        <div class="rk-card"><span class="rk-card-name">Everyday</span><div class="rk-hl-apps">
+          <a class="rk-hl-app" href="https://gethomepage.dev" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/homepage" alt="" loading="lazy"><span>Homepage</span></a>
+          <a class="rk-hl-app" href="https://github.com/kubernetes-sigs/headlamp" target="_blank" rel="noopener"><i class="rk-hl-init">HL</i><span>Headlamp</span></a>
+          <a class="rk-hl-app" href="https://github.com/portainer/portainer" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/portainer" alt="" loading="lazy"><span>Portainer</span></a>
+          <a class="rk-hl-app" href="https://github.com/mealie-recipes/mealie" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/mealie" alt="" loading="lazy"><span>Mealie</span></a>
+          <a class="rk-hl-app" href="https://github.com/archivebox/archivebox" target="_blank" rel="noopener"><i class="rk-hl-init">AB</i><span>ArchiveBox</span></a>
+          <a class="rk-hl-app" href="https://github.com/homebridge/homebridge" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/homebridge" alt="" loading="lazy"><span>Homebridge</span></a>
+        </div></div>
+        <div class="rk-card"><span class="rk-card-name">Syncers &amp; cronjobs</span><div class="rk-hl-apps">
+          <a class="rk-hl-app" href="https://github.com/rajkumaar23/unifi-adguard-sync" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/ubiquiti" alt="" loading="lazy"><span>UniFi sync</span></a>
+          <a class="rk-hl-app" href="https://github.com/AdguardTeam/AdGuardHome" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/adguard" alt="" loading="lazy"><span>AdGuard git backups</span></a>
+          <a class="rk-hl-app" href="https://github.com/rajkumaar23/truenas-power-manager" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/truenas" alt="" loading="lazy"><span>IPMI power manager</span></a>
+          <a class="rk-hl-app" href="https://github.com/advertite/Speedtest-Tracker" target="_blank" rel="noopener"><img src="https://cdn.simpleicons.org/speedtest" alt="" loading="lazy"><span>Speedtest Tracker</span></a>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{/* ---------------- nodes ---------------- */}}
+<section class="rk-section rk-band">
+  <div class="rk-wrap">
+    {{ partial "rk/section-head.html" (dict "eyebrow" "fleet" "title" "Meet the nodes" "sub" "Four machines of very different sizes, scheduled as one.") }}
+    <div class="rk-grid rk-grid-4 rk-reveal">
+      <div class="rk-card rk-hl-node">
+        <div class="rk-card-name rk-mono">anchor</div>
+        <p class="rk-card-desc">Control plane and edge. The dependable x86 workstation that carries the router duties, the DNS and the ingress.</p>
+        <div class="rk-card-meta"><span>amd64</span><span>ubuntu lts</span><span>cp + edge</span></div>
+      </div>
+      <div class="rk-card rk-hl-node">
+        <div class="rk-card-name rk-mono">brain</div>
+        <p class="rk-card-desc">The NVIDIA DGX Spark with the modern GPU. Tainted and quiet — only inference workloads that ask for it get scheduled here.</p>
+        <div class="rk-card-meta"><span>arm64</span><span>dgx spark</span><span>inference</span></div>
+      </div>
+      <div class="rk-card rk-hl-node">
+        <div class="rk-card-name rk-mono">sidekick</div>
+        <p class="rk-card-desc">An NVIDIA Jetson with spare GPU cycles. Untainted, so it catches general workloads whenever it's idle.</p>
+        <div class="rk-card-meta"><span>arm64</span><span>gpu</span><span>tegra</span></div>
+      </div>
+      <div class="rk-card rk-hl-node">
+        <div class="rk-card-name rk-mono">tinkerer</div>
+        <p class="rk-card-desc">A Raspberry Pi doing genuinely useful work. Light services only — RAM is the currency here.</p>
+        <div class="rk-card-meta"><span>arm64</span><span>debian</span><span>light</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{/* ---------------- network & storage ---------------- */}}
+<section class="rk-section">
+  <div class="rk-wrap">
+    {{ partial "rk/section-head.html" (dict "eyebrow" "network & storage" "title" "Under the hood" "sub" "The router and the disks the whole cluster leans on.") }}
+    <div class="rk-grid rk-grid-2 rk-reveal">
+      <div class="rk-card">
+        <div class="rk-card-name">UniFi Dream Router</div>
+        <p class="rk-card-desc">The network itself is UniFi. The UDR runs the LAN and hands DNS upstream to AdGuard Home, which serves the <span class="rk-mono">*.lan</span> wildcard — every app gets a name without touching the internet. A small syncer polls live UniFi clients and keeps per-device DNS records current, so even DHCP leases become GitOps-adjacent.</p>
+        <div class="rk-card-meta"><a href="https://github.com/rajkumaar23/unifi-adguard-sync" target="_blank" rel="noopener" class="rk-link-arrow">syncer source →</a></div>
+      </div>
+      <div class="rk-card">
+        <div class="rk-card-name">The NAS</div>
+        <p class="rk-card-desc">Every persistent byte in the cluster lives on a self-built NAS — all PVCs served over NFS via a CSI driver with <span class="rk-mono">Retain</span> policy, an SSD class for latency-sensitive databases, and an IPMI-scheduled backup drive that wakes only when it's needed.</p>
+        <div class="rk-card-meta"><a href="/posts/nas/" class="rk-link-arrow">read the build log →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{/* ---------------- closing ---------------- */}}
+<section class="rk-section">
+  <div class="rk-wrap">
+    <div class="rk-cta rk-reveal">
+      <h2>Boring, on purpose.</h2>
+      <p>
+        Every change is a commit. Drift is reverted within minutes. The console is for
+        looking, SSH is for emergencies, and the cloud bill stays at zero.
+      </p>
+      <div class="rk-hero-actions">
+        <a class="rk-btn rk-btn-ghost" href="https://k3s.io" target="_blank" rel="noopener">k3s</a>
+        <a class="rk-btn rk-btn-ghost" href="https://argo-cd.readthedocs.io" target="_blank" rel="noopener">ArgoCD</a>
+        <a class="rk-btn rk-btn-ghost" href="https://doc.traefik.io/traefik/" target="_blank" rel="noopener">Traefik</a>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

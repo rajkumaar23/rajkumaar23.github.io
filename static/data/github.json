@@ -1,6 +1,46 @@
 {
+ "rajkumaar23.github.io": {
+  "stars": 1,
+  "forks": 0,
+  "language": "JavaScript",
+  "license": null,
+  "desc": "source code of my personal website.",
+  "topics": [],
+  "pushed": "2026-11-11",
+  "url": "https://github.com/rajkumaar23/rajkumaar23.github.io",
+  "homepage": "https://rajkumaar.co.in",
+  "archived": false
+ },
+ "status": {
+  "stars": 0,
+  "forks": 0,
+  "language": "Markdown",
+  "license": "MIT",
+  "desc": "\ud83d\udcc8 Uptime monitor and status page for Rajkumar S, powered by @upptime",
+  "topics": [
+   "status-page",
+   "upptime",
+   "uptime-monitor"
+  ],
+  "pushed": "2026-11-11",
+  "url": "https://github.com/rajkumaar23/status",
+  "homepage": "https://status.rajkumaar.co.in",
+  "archived": false
+ },
+ "firefly-bridge": {
+  "stars": 0,
+  "forks": 0,
+  "language": "Go",
+  "license": "GPL-3.0",
+  "desc": "Self-hosted pipeline for syncing bank and brokerage transactions to Firefly III",
+  "topics": [],
+  "pushed": "2026-11-11",
+  "url": "https://github.com/rajkumaar23/firefly-bridge",
+  "homepage": "",
+  "archived": false
+ },
  "playstore-api": {
-  "stars": 46,
+  "stars": 47,
   "forks": 11,
   "language": "HTML",
   "license": "MIT",
@@ -15,34 +55,6 @@
   "pushed": "2026-11-06",
   "url": "https://github.com/rajkumaar23/playstore-api",
   "homepage": "https://play.rajkumaar.co.in",
-  "archived": false
- },
- "status": {
-  "stars": 0,
-  "forks": 0,
-  "language": "Markdown",
-  "license": "MIT",
-  "desc": "\ud83d\udcc8 Uptime monitor and status page for Rajkumar S, powered by @upptime",
-  "topics": [
-   "status-page",
-   "upptime",
-   "uptime-monitor"
-  ],
-  "pushed": "2026-11-06",
-  "url": "https://github.com/rajkumaar23/status",
-  "homepage": "https://status.rajkumaar.co.in",
-  "archived": false
- },
- "firefly-bridge": {
-  "stars": 0,
-  "forks": 0,
-  "language": "Go",
-  "license": "GPL-3.0",
-  "desc": "Self-hosted pipeline for syncing bank and brokerage transactions to Firefly III",
-  "topics": [],
-  "pushed": "2026-11-06",
-  "url": "https://github.com/rajkumaar23/firefly-bridge",
-  "homepage": "",
   "archived": false
  },
  "puck-key": {
@@ -91,18 +103,6 @@
   "pushed": "2026-08-17",
   "url": "https://github.com/rajkumaar23/speaches",
   "homepage": "https://speaches.ai/",
-  "archived": false
- },
- "rajkumaar23.github.io": {
-  "stars": 1,
-  "forks": 0,
-  "language": "JavaScript",
-  "license": null,
-  "desc": "source code of my personal website.",
-  "topics": [],
-  "pushed": "2026-08-09",
-  "url": "https://github.com/rajkumaar23/rajkumaar23.github.io",
-  "homepage": "https://rajkumaar.co.in",
   "archived": false
  },
  "vcard-editor": {
@@ -491,60 +491,10 @@
   "homepage": "https://flowgrammers-org.github.io/flowgramming",
   "archived": false
  },
- "amrita-repository": {
-  "stars": 14,
-  "forks": 14,
-  "language": "Shell",
-  "license": "Apache-2.0",
-  "desc": "The must-have app for an Amritian.",
-  "topics": [
-   "amrita",
-   "android-application",
-   "curriculum",
-   "examination-schedules",
-   "faculties",
-   "firebase",
-   "hacktoberfest",
-   "jsoup",
-   "question-papers",
-   "repository",
-   "timetable",
-   "webscraping"
-  ],
-  "pushed": "2024-11-25",
-  "url": "https://github.com/amrita-repository/android-app",
-  "homepage": "http://bit.ly/amritarepo",
-  "archived": false
- },
- "android-app": {
-  "stars": 14,
-  "forks": 14,
-  "language": "Java",
-  "license": "Apache-2.0",
-  "desc": "The must-have app for an Amritian.",
-  "topics": [
-   "amrita",
-   "android-application",
-   "curriculum",
-   "examination-schedules",
-   "faculties",
-   "firebase",
-   "hacktoberfest",
-   "jsoup",
-   "question-papers",
-   "repository",
-   "timetable",
-   "webscraping"
-  ],
-  "pushed": "2024-11-25",
-  "url": "https://github.com/amrita-repository/android-app",
-  "homepage": "http://bit.ly/amritarepo",
-  "archived": false
- },
  "api-playstore": {
-  "stars": 46,
+  "stars": 47,
   "forks": 11,
-  "language": "Go",
+  "language": "HTML",
   "license": "MIT",
   "desc": "An unofficial API to get real-time details of your android app from Google Play Store.",
   "topics": [

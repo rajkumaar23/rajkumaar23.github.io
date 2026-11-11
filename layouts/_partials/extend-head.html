@@ -9,5 +9,10 @@
     <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" defer></script>
   {{ end }}
 {{ end }}
+{{ with resources.Get "js/gh-stats.js" }}
+  {{ with . | minify | fingerprint }}
+    <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous" defer></script>
+  {{ end }}
+{{ end }}
 <meta name="theme-color" content="#8b5cf6" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#18181b" media="(prefers-color-scheme: dark)">

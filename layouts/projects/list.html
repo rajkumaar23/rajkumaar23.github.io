@@ -1,5 +1,4 @@
 {{ define "main" }}
-{{ $gh := hugo.Data.github }}
 <header>
   <span class="rk-eyebrow">open source</span>
   <h1 class="mt-2 text-4xl font-extrabold text-neutral-900 dark:text-neutral">{{ .Title }}</h1>
@@ -10,28 +9,25 @@
   </div>
 </section>
 
-{{/* join projects pages with baked GitHub stats, sort by stars */}}
-{{ $joined := slice }}
-{{ range .Pages }}
-  {{ $url := default "" .Params.externalUrl }}
-  {{ $slug := index (last 1 (split (strings.TrimSuffix "/" $url) "/")) 0 }}
-  {{ $repo := index $gh (lower $slug) }}
-  {{ $joined = $joined | append (dict "page" . "repo" $repo "stars" (int (default 0 $repo.stars))) }}
-{{ end }}
-
+{{/* Project cards render structure-only at build time; stars/forks/language
+     are fetched live from the GitHub API by assets/js/gh-stats.js
+     (fallback snapshot: /data/github.json). Grid is re-sorted by live stars. */}}
 <section class="mt-8">
-  <div class="rk-grid rk-grid-3">
-    {{ range (sort $joined "stars" "desc") }}
-      {{ $r := .repo }}
+  <div class="rk-grid rk-grid-3" data-gh-grid data-langs='{{ hugo.Data.languages | jsonify }}'>
+    {{ range sort .Pages "Title" }}
+      {{ $url := default "" .Params.externalUrl }}
+      {{ $owner := "" }}{{ $repo := "" }}
+      {{ if and $url (strings.HasPrefix $url "https://github.com/") }}
+        {{ $parts := split (strings.TrimSuffix "/" $url) "/" }}
+        {{ if ge (len $parts) 5 }}{{ $owner = index $parts 3 }}{{ $repo = index $parts 4 }}{{ end }}
+      {{ end }}
       {{ partial "rk/project-card.html" (dict
-          "name" .page.Title
-          "title" .page.Title
-          "desc" (default (default "" $r.desc) .page.Description)
-          "url" .page.Params.externalUrl
-          "stars" $r.stars
-          "forks" $r.forks
-          "language" $r.language
-          "topics" $r.topics) }}
+          "name" .Title
+          "title" .Title
+          "desc" .Description
+          "url" $url
+          "owner" $owner
+          "repo" $repo) }}
     {{ end }}
   </div>
   <div class="prose dark:prose-invert mt-10">See more of my work at

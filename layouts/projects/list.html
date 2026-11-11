@@ -19,7 +19,8 @@
       {{ $owner := "" }}{{ $repo := "" }}
       {{ if and $url (strings.HasPrefix $url "https://github.com/") }}
         {{ $parts := split (strings.TrimSuffix "/" $url) "/" }}
-        {{ if ge (len $parts) 5 }}{{ $owner = index $parts 3 }}{{ $repo = index $parts 4 }}{{ end }}
+        {{ if ge (len $parts) 4 }}{{ $owner = index $parts 3 }}{{ end }}
+        {{ if ge (len $parts) 5 }}{{ $repo = index $parts 4 }}{{ end }}
       {{ end }}
       {{ partial "rk/project-card.html" (dict
           "name" .Title

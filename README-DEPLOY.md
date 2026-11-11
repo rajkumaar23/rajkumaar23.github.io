@@ -21,8 +21,12 @@ No pre-build step needed — all live data is fetched in the browser:
 
 - **Project stats** (stars/forks/language): `assets/js/gh-stats.js` hits
   `api.github.com` at page load (1 request per owner, 10-min sessionStorage
-  cache) and re-sorts the grid by live stars. If the API is unreachable or
-  rate-limited it falls back to the committed snapshot `static/data/github.json`.
+  cache) and re-sorts the grid by live stars. Cards whose `externalUrl` is a
+  GitHub *org* (e.g. `github.com/amrita-repository`, no repo segment) show
+  aggregate stats — summed stars/forks and the most frequent language across
+  the org's public repos. If the API is unreachable or
+  rate-limited it falls back to the committed snapshot `static/data/github.json`
+  (repo cards only; org cards stay plain).
   Refresh that snapshot occasionally (optional): `python3 scripts/bake_data.py`
 - **Books shelf**: `layouts/books/single.html` queries the Literal.club GraphQL
   API live at page load.

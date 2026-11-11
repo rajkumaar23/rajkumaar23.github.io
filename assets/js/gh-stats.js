@@ -10,7 +10,7 @@
   var grid = document.querySelector("[data-gh-grid]");
   if (!grid) return;
   var cards = Array.prototype.slice.call(grid.querySelectorAll("[data-gh-card]"));
-  cards = cards.filter(function (c) { return c.dataset.owner && c.dataset.repo; });
+  cards = cards.filter(function (c) { return !!c.dataset.owner; });
   if (!cards.length) return;
 
   var langs = {};
@@ -58,8 +58,10 @@
 
   function apply(map) {
     cards.forEach(function (card) {
-      var e = map[keyOf(card.dataset.owner, card.dataset.repo)] ||
-              map[card.dataset.repo.toLowerCase()];
+      var e = card.dataset.repo
+        ? (map[keyOf(card.dataset.owner, card.dataset.repo)] ||
+           map[card.dataset.repo.toLowerCase()])
+        : map[card.dataset.owner.toLowerCase() + "/*"];
       if (!e) return;
       setStat(card, ".rk-card-stars", ".rk-card-stars-n", e.stars, 10, "stars");
       setStat(card, ".rk-card-forks", ".rk-card-forks-n", e.forks, 1, "forks");
@@ -84,15 +86,20 @@
     }).forEach(function (c) { grid.appendChild(c); });
   }
 
-  function fromOwnerRepos(list) {
-    var map = {};
-    (list || []).forEach(function (r) { map[keyOf(r.owner.login, r.name)] = entry(r); });
-    return map;
-  }
-
-  function merge(dst, src) {
-    Object.keys(src).forEach(function (k) { dst[k] = src[k]; });
-    return dst;
+  function aggregate(list) {
+    // Org-style cards (data-owner without data-repo): sum stars/forks across
+    // the owner's repos, pick the most frequent non-null language.
+    if (!list || !list.length) return null;
+    var stars = 0, forks = 0, counts = {}, best = null, bestN = 0;
+    list.forEach(function (r) {
+      stars += r.stargazers_count || 0;
+      forks += r.forks_count || 0;
+      if (r.language) {
+        counts[r.language] = (counts[r.language] || 0) + 1;
+        if (counts[r.language] > bestN) { bestN = counts[r.language]; best = r.language; }
+      }
+    });
+    return { stars: stars, forks: forks, language: best };
   }
 
   function fallbackSnapshot() {
@@ -120,16 +127,21 @@
     Promise.all(Object.keys(owners).map(function (o) {
       return gh("https://api.github.com/users/" + encodeURIComponent(o) +
                 "/repos?per_page=100&sort=pushed")
-        .then(fromOwnerRepos)
-        .catch(function () { return {}; });
-    })).then(function (maps) {
+        .then(function (list) { return { o: o, list: list }; })
+        .catch(function () { return { o: o, list: [] }; });
+    })).then(function (results) {
       var map = {};
-      maps.forEach(function (m) { merge(map, m); });
+      results.forEach(function (res) {
+        res.list.forEach(function (r) { map[keyOf(r.owner.login, r.name)] = entry(r); });
+        var agg = aggregate(res.list);
+        if (agg) map[res.o.toLowerCase() + "/*"] = agg;
+      });
 
-      // Cards missing from owner listings (renamed / org-hosted repos):
+      // Repo cards missing from owner listings (renamed / org-hosted repos):
       // one targeted request each — the API follows renames and redirects.
       var missing = {};
       cards.forEach(function (c) {
+        if (!c.dataset.repo) return;
         if (!map[keyOf(c.dataset.owner, c.dataset.repo)] && !map[c.dataset.repo.toLowerCase()]) {
           missing[keyOf(c.dataset.owner, c.dataset.repo)] = c;
         }
